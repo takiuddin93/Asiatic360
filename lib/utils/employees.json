@@ -1,0 +1,104 @@
+{
+    "employees": [
+        {
+            "ePhoto":"assets/images/Neville-Ferdous-Hasan.jpg",
+            "eName":"Nevile Ferdous Hasan",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"Managing Director"
+        },
+        {
+            "ePhoto":"assets/images/Aditya-Kabir.jpg",
+            "eName":"Aditya Kabir",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"AVP, Strategic Planning"
+        },
+        {
+            "ePhoto":"assets/images/Salek-Shahriar.jpg",
+            "eName":"Salek Shahriar",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"Director"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Shahriar M. Hassan",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"Consultant"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Md. Tanzib Hossain",
+            "eID": "",
+            "ePhone":"01717883717",
+            "eMail":"tanzib.hossain@asiaticjwt.com",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"UI/UX Developer"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Razib Biswas Tirtha",
+            "eID": "3152",
+            "ePhone":"01723432693",
+            "eMail":"razib.biswas@asiaticjwt.com",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"UI/UX Developer"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Taki Uddin",
+            "eID": "3130",
+            "ePhone":"01749607995",
+            "eMail":"taki.uddin@asiaticjwt.com",
+            "ePassword":"1234",
+            "eBloodGroup":"",
+            "eDesignation":"App Devoloper"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Akash Hasan",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"Digital Research and Analytics Supervisor"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Refat Mahmud",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"Senior Data Analyst"
+        },
+        {
+            "ePhoto":"assets/images/profile-placeholder.png",
+            "eName":"Farah Diba",
+            "eID": "",
+            "ePhone":"",
+            "eMail":"",
+            "ePassword":"",
+            "eBloodGroup":"",
+            "eDesignation":"Managing Director"
+        }
+    ]
+}
