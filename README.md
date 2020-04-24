@@ -1,12 +1,13 @@
-# asiatic360
+# Asiatic360
 
-A new Flutter project.
+An in house project for Asiatic 360. An employee app to ease few requisition procedures.
+
+Using Flutter to enable crossplatform support accross moblie device and operating systems.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Here are a few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
