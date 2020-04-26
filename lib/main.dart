@@ -65,29 +65,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Size media = MediaQuery.of(context).size;
-    return Stack(
-      children: <Widget>[
-        Scaffold(
+    return Stack(children: <Widget>[
+      Scaffold(
           backgroundColor: Colors.white,
           body: Container(
-            height: media.height,
-            width: media.width,
-            child: Stack(
-              children: <Widget>[
+              height: media.height,
+              width: media.width,
+              child: Stack(children: <Widget>[
                 Positioned(
-                  top: media.height * 0.45,
-                  left: media.width * 0.20,
-                  right: media.width * 0.20,
-                  child: SvgPicture.asset(
-                    'assets/svgs/asiatic360_logo_minified.svg'
-                  )
-                ),
-              ]
-            )
-          )
-        )
-      ]
-    );
+                    top: media.height * 0.45,
+                    left: media.width * 0.20,
+                    right: media.width * 0.20,
+                    child: SvgPicture.asset(
+                        'assets/svgs/asiatic360_logo_minified.svg')),
+              ])))
+    ]);
   }
 
   gotoSignUp() {
@@ -103,5 +95,4 @@ class _MyHomePageState extends State<MyHomePage> {
       return new Login();
     }));
   }
-
 }

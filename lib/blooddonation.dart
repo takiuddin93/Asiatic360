@@ -42,9 +42,9 @@ class MyBloodDonation extends StatefulWidget {
 class TypeDropdown {
   int id;
   String name;
- 
+
   TypeDropdown(this.id, this.name);
- 
+
   static List<TypeDropdown> getBloodGroups() {
     return <TypeDropdown>[
       TypeDropdown(1, '-'),
@@ -61,21 +61,21 @@ class TypeDropdown {
 }
 
 class _MyBloodDonationState extends State<MyBloodDonation> {
-
   DateTime dateFrom, dateTo;
   List<TypeDropdown> _bloodGroups = TypeDropdown.getBloodGroups();
   List<DropdownMenuItem<TypeDropdown>> _dropdownMenuItems;
   TypeDropdown _selectedGroup;
   bool urgentSelected = false;
- 
+
   @override
   void initState() {
     _dropdownMenuItems = buildDropdownMenuItems(_bloodGroups);
     _selectedGroup = _dropdownMenuItems[0].value;
     super.initState();
   }
- 
-  List<DropdownMenuItem<TypeDropdown>> buildDropdownMenuItems(List bloodGroups) {
+
+  List<DropdownMenuItem<TypeDropdown>> buildDropdownMenuItems(
+      List bloodGroups) {
     List<DropdownMenuItem<TypeDropdown>> items = List();
     for (TypeDropdown group in bloodGroups) {
       items.add(
@@ -87,29 +87,28 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
     }
     return items;
   }
- 
+
   onChangeDropdownItem(TypeDropdown selectedGroup) {
     setState(() {
       _selectedGroup = selectedGroup;
     });
   }
- 
- void _urgentSelected(bool selected) => setState(() {
-    urgentSelected = selected;
 
-    if (urgentSelected) {
-      // TODO: Here goes your functionality that remembers the user.
-    } else {
-      // TODO: Forget the user
-    }
-  });
+  void _urgentSelected(bool selected) => setState(() {
+        urgentSelected = selected;
+
+        if (urgentSelected) {
+          // TODO: Here goes your functionality that remembers the user.
+        } else {
+          // TODO: Forget the user
+        }
+      });
 
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
-    final double itemHeight = media.height;
-    final double itemWidth = media.width;
+    // final double itemHeight = media.height;
+    // final double itemWidth = media.width;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -129,11 +128,10 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.only(
-                        left: media.width * 0.04,
-                        top: media.height * 0.04,
-                        right: media.width * 0.04,
-                        bottom: media.height * 0.0
-                      ),
+                          left: media.width * 0.04,
+                          top: media.height * 0.04,
+                          right: media.width * 0.04,
+                          bottom: media.height * 0.0),
                       child: Row(
                         children: <Widget>[
                           Expanded(
@@ -156,14 +154,15 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                SizedBox(height: media.height * 0.0016,),
+                                SizedBox(
+                                  height: media.height * 0.0016,
+                                ),
                                 Container(
                                   padding: EdgeInsets.only(
-                                    left: media.width * 0.04,
-                                    top: media.height * 0.0,
-                                    right: media.width * 0.04,
-                                    bottom: media.height * 0.0
-                                  ),
+                                      left: media.width * 0.04,
+                                      top: media.height * 0.0,
+                                      right: media.width * 0.04,
+                                      bottom: media.height * 0.0),
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFFFFF),
                                     borderRadius: BorderRadius.circular(2.0),
@@ -228,7 +227,9 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                SizedBox(height: media.height * 0.0016,),
+                                SizedBox(
+                                  height: media.height * 0.0016,
+                                ),
                                 Container(
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFFFFF),
@@ -251,16 +252,15 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                       hintText: dateFrom.toString(),
                                       fillColor: Colors.transparent,
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(2.0)),
-                                        borderSide:
-                                            BorderSide(color: Colors.transparent),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(2.0)),
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(2.0)),
-                                        borderSide:
-                                            BorderSide(color: green),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(2.0)),
+                                        borderSide: BorderSide(color: green),
                                       ),
                                     ),
                                     obscureText: false,
@@ -270,11 +270,10 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                     ),
                                     onTap: () async {
                                       final datePicker = await showDatePicker(
-                                        context: context,
-                                        firstDate: new DateTime.now(),
-                                        initialDate: new DateTime.now(),
-                                        lastDate: new DateTime(2025)
-                                      );
+                                          context: context,
+                                          firstDate: new DateTime.now(),
+                                          initialDate: new DateTime.now(),
+                                          lastDate: new DateTime(2025));
                                       if (datePicker != null) {
                                         setState(() {
                                           dateFrom = datePicker;
@@ -287,7 +286,8 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                             ),
                           ),
                           Expanded(
-                            flex: 2, child: Container(),
+                            flex: 2,
+                            child: Container(),
                           ),
                           Expanded(
                             flex: 4,
@@ -301,11 +301,13 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Checkbox(
-                                      value: urgentSelected,
-                                      onChanged: (selected){_urgentSelected(selected);},
-                                      activeColor: green,
-                                      checkColor: white,
-                                      tristate: false,
+                                        value: urgentSelected,
+                                        onChanged: (selected) {
+                                          _urgentSelected(selected);
+                                        },
+                                        activeColor: green,
+                                        checkColor: white,
+                                        tristate: false,
                                       ),
                                     ),
                                     Align(
@@ -371,14 +373,12 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent),
+                              borderSide: BorderSide(color: Colors.transparent),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide:
-                                  BorderSide(color: green),
+                              borderSide: BorderSide(color: green),
                             ),
                           ),
                           textAlignVertical: TextAlignVertical.top,
@@ -402,35 +402,34 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
               left: media.width * 0.75,
               right: media.width * 0.05,
               child: GestureDetector(
-                child: Container(
-                  padding: EdgeInsets.only(
-                      top: media.height * 0.0,
-                      left: media.width * 0.0,
-                      bottom: 0.0,
-                      right: media.width * 0.0),
-                  height: media.height * 0.05,
-                  width: media.width,
-                  decoration: BoxDecoration(
-                    color: green,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Submit",
-                        style: TextStyle(
-                          color: white,
-                          fontSize: media.width * 0.037,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
+                  child: Container(
+                    padding: EdgeInsets.only(
+                        top: media.height * 0.0,
+                        left: media.width * 0.0,
+                        bottom: 0.0,
+                        right: media.width * 0.0),
+                    height: media.height * 0.05,
+                    width: media.width,
+                    decoration: BoxDecoration(
+                      color: green,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Submit",
+                          style: TextStyle(
+                            color: white,
+                            fontSize: media.width * 0.037,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                onTap: () {}
-              ),
+                  onTap: () {}),
             ),
           ],
         ),
@@ -438,4 +437,3 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
     );
   }
 }
-

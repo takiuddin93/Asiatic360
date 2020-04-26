@@ -16,13 +16,23 @@ Color white = Color(0xFFFFFFFF);
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
   String ePhoto, eName, ePhone, eMail, eDesignation;
-  runApp(EmployeeDetails(ePhoto: ePhoto, eName: eName, ePhone: ePhone, eMail: eMail, eDesignation: eDesignation,));
+  runApp(EmployeeDetails(
+    ePhoto: ePhoto,
+    eName: eName,
+    ePhone: ePhone,
+    eMail: eMail,
+    eDesignation: eDesignation,
+  ));
 }
 
 class EmployeeDetails extends StatelessWidget {
-
   final String ePhoto, eName, ePhone, eMail, eDesignation;
-  EmployeeDetails({@required this.ePhoto, @required this.eName, @required this.ePhone, @required this.eMail, @required this.eDesignation});
+  EmployeeDetails(
+      {@required this.ePhoto,
+      @required this.eName,
+      @required this.ePhone,
+      @required this.eMail,
+      @required this.eDesignation});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +41,13 @@ class EmployeeDetails extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyEmployeeDetails(title: 'Employee Details', ePhoto: ePhoto, eName: eName, ePhone: ePhone, eMail: eMail, eDesignation: eDesignation),
+      home: MyEmployeeDetails(
+          title: 'Employee Details',
+          ePhoto: ePhoto,
+          eName: eName,
+          ePhone: ePhone,
+          eMail: eMail,
+          eDesignation: eDesignation),
     );
   }
 }
@@ -40,24 +56,32 @@ class MyEmployeeDetails extends StatefulWidget {
   final String title;
 
   final String ePhoto, eName, ePhone, eMail, eDesignation;
-  
-  MyEmployeeDetails({Key key, this.title, this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation}) : super(key: key);
+
+  MyEmployeeDetails(
+      {Key key,
+      this.title,
+      this.ePhoto,
+      this.eName,
+      this.ePhone,
+      this.eMail,
+      this.eDesignation})
+      : super(key: key);
 
   @override
-  _MyEmployeeDetailsState createState() => _MyEmployeeDetailsState(this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation);
+  _MyEmployeeDetailsState createState() => _MyEmployeeDetailsState(
+      this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation);
 }
 
 class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
   String ePhoto, eName, ePhone, eMail, eDesignation;
-  _MyEmployeeDetailsState(this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation);
-
+  _MyEmployeeDetailsState(
+      this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation);
 
   @override
   Widget build(BuildContext context) {
-
     Size media = MediaQuery.of(context).size;
-    final double itemHeight = media.height;
-    final double itemWidth = media.width;
+    // final double itemHeight = media.height;
+    // final double itemWidth = media.width;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -108,9 +132,8 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                     )
                   ],
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(64.0),
-                    bottomRight: Radius.circular(64.0)
-                  ),
+                      bottomLeft: Radius.circular(64.0),
+                      bottomRight: Radius.circular(64.0)),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,11 +142,10 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                       flex: 1,
                       child: new Padding(
                         padding: EdgeInsets.only(
-                          left: media.width * 0.024,
-                          top: media.height * 0.3,
-                          right: media.width * 0.0,
-                          bottom: media.height * 0.01
-                        ),
+                            left: media.width * 0.024,
+                            top: media.height * 0.3,
+                            right: media.width * 0.0,
+                            bottom: media.height * 0.01),
                         child: Column(
                           children: [
                             Align(
@@ -166,42 +188,38 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
               height: media.height,
               child: ListView.builder(
                 itemCount: 1,
-                itemBuilder: (BuildContext context, int index){
+                itemBuilder: (BuildContext context, int index) {
                   return Slidable(
                     key: ValueKey(index),
                     actionPane: SlidableDrawerActionPane(),
                     actions: <Widget>[
                       IconSlideAction(
-                        color: green,
-                        icon: Icons.call,
-                        onTap: () => _call(ePhone)
-                      ),
+                          color: green,
+                          icon: Icons.call,
+                          onTap: () => _call(ePhone)),
                     ],
                     secondaryActions: <Widget>[
                       IconSlideAction(
-                        color: yellow,
-                        icon: Icons.mail,
-                        onTap: () => _message(ePhone)
-                      ),
+                          color: yellow,
+                          icon: Icons.mail,
+                          onTap: () => _message(ePhone)),
                     ],
                     dismissal: SlidableDismissal(
                       child: SlidableDrawerDismissal(),
                     ),
                     child: Padding(
                       padding: EdgeInsets.only(
-                        left: media.width * 0.04,
-                        top: media.height * 0.0,
-                        right: media.width * 0.04,
-                        bottom: media.height * 0.0
-                      ),
+                          left: media.width * 0.04,
+                          top: media.height * 0.0,
+                          right: media.width * 0.04,
+                          bottom: media.height * 0.0),
                       child: Card(
                         elevation: 1.0,
                         margin: EdgeInsets.only(
-                          left: media.width * 0.02,
-                          top: media.height * 0.005,
-                          right: media.width * 0.02,
-                          bottom: media.height * 0.005
-                        ),
+                            left: media.width * 0.02,
+                            top: media.height * 0.005,
+                            right: media.width * 0.02,
+                            bottom: media.height * 0.005),
                         child: Container(
                           height: 48,
                           decoration: BoxDecoration(
@@ -231,18 +249,18 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                                     bottom: 8,
                                   ),
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
                                       Expanded(
                                         flex: 10,
                                         child: new Padding(
                                           padding: EdgeInsets.only(
-                                            left: media.width * 0.04,
-                                            top: media.height * 0.0,
-                                            right: media.width * 0.0,
-                                            bottom: media.height * 0.0
-                                          ),
+                                              left: media.width * 0.04,
+                                              top: media.height * 0.0,
+                                              right: media.width * 0.0,
+                                              bottom: media.height * 0.0),
                                           child: Column(
                                             children: [
                                               Align(
@@ -251,7 +269,8 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                                                   ePhone,
                                                   style: TextStyle(
                                                     color: black,
-                                                    fontSize: media.width * 0.045,
+                                                    fontSize:
+                                                        media.width * 0.045,
                                                     fontFamily: 'Poppins',
                                                     fontWeight: FontWeight.w400,
                                                   ),
@@ -281,19 +300,17 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
               height: 53.8344,
               child: Padding(
                 padding: EdgeInsets.only(
-                  left: media.width * 0.04,
-                  top: media.height * 0.0,
-                  right: media.width * 0.04,
-                  bottom: media.height * 0.0
-                ),
+                    left: media.width * 0.04,
+                    top: media.height * 0.0,
+                    right: media.width * 0.04,
+                    bottom: media.height * 0.0),
                 child: Card(
                   elevation: 1.0,
                   margin: EdgeInsets.only(
-                    left: media.width * 0.02,
-                    top: media.height * 0.005,
-                    right: media.width * 0.02,
-                    bottom: media.height * 0.005
-                  ),
+                      left: media.width * 0.02,
+                      top: media.height * 0.005,
+                      right: media.width * 0.02,
+                      bottom: media.height * 0.005),
                   child: Container(
                     height: 48,
                     decoration: BoxDecoration(
@@ -330,11 +347,10 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                                   flex: 10,
                                   child: new Padding(
                                     padding: EdgeInsets.only(
-                                      left: media.width * 0.04,
-                                      top: media.height * 0.0,
-                                      right: media.width * 0.0,
-                                      bottom: media.height * 0.0
-                                    ),
+                                        left: media.width * 0.04,
+                                        top: media.height * 0.0,
+                                        right: media.width * 0.0,
+                                        bottom: media.height * 0.0),
                                     child: Column(
                                       children: [
                                         Align(
@@ -369,24 +385,27 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
       ),
     );
   }
+
   _call(String ePhone) async {
-    var url= 'tel:$ePhone';
+    var url = 'tel:$ePhone';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Could not Call the Number';
     }
   }
+
   _message(String ePhone) async {
-    var url= 'sms:$ePhone';
+    var url = 'sms:$ePhone';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Could not Message the Number';
     }
   }
+
   _mail(String eMail) async {
-    var url= 'mailto:$eMail';
+    var url = 'mailto:$eMail';
     if (await canLaunch(url)) {
       await launch(url);
     } else {

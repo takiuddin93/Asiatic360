@@ -42,9 +42,9 @@ class MyNewSalaryCertificate extends StatefulWidget {
 class PurposeDropdown {
   int id;
   String name;
- 
+
   PurposeDropdown(this.id, this.name);
- 
+
   static List<PurposeDropdown> getCompanies() {
     return <PurposeDropdown>[
       PurposeDropdown(1, '-'),
@@ -57,20 +57,20 @@ class PurposeDropdown {
 }
 
 class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
-
   DateTime dateFrom, dateTo;
   List<PurposeDropdown> _companies = PurposeDropdown.getCompanies();
   List<DropdownMenuItem<PurposeDropdown>> _dropdownMenuItems;
   PurposeDropdown _selectedCompany;
- 
+
   @override
   void initState() {
     _dropdownMenuItems = buildDropdownMenuItems(_companies);
     _selectedCompany = _dropdownMenuItems[0].value;
     super.initState();
   }
- 
-  List<DropdownMenuItem<PurposeDropdown>> buildDropdownMenuItems(List companies) {
+
+  List<DropdownMenuItem<PurposeDropdown>> buildDropdownMenuItems(
+      List companies) {
     List<DropdownMenuItem<PurposeDropdown>> items = List();
     for (PurposeDropdown company in companies) {
       items.add(
@@ -82,20 +82,18 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
     }
     return items;
   }
- 
+
   onChangeDropdownItem(PurposeDropdown selectedCompany) {
     setState(() {
       _selectedCompany = selectedCompany;
     });
   }
- 
-  
+
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
-    final double itemHeight = media.height;
-    final double itemWidth = media.width;
+    // final double itemHeight = media.height;
+    // final double itemWidth = media.width;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -115,11 +113,10 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.only(
-                        left: media.width * 0.04,
-                        top: media.height * 0.04,
-                        right: media.width * 0.04,
-                        bottom: media.height * 0.0
-                      ),
+                          left: media.width * 0.04,
+                          top: media.height * 0.04,
+                          right: media.width * 0.04,
+                          bottom: media.height * 0.0),
                       child: Row(
                         children: <Widget>[
                           Expanded(
@@ -142,14 +139,15 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                SizedBox(height: media.height * 0.0016,),
+                                SizedBox(
+                                  height: media.height * 0.0016,
+                                ),
                                 Container(
                                   padding: EdgeInsets.only(
-                                    left: media.width * 0.04,
-                                    top: media.height * 0.0,
-                                    right: media.width * 0.04,
-                                    bottom: media.height * 0.0
-                                  ),
+                                      left: media.width * 0.04,
+                                      top: media.height * 0.0,
+                                      right: media.width * 0.04,
+                                      bottom: media.height * 0.0),
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFFFFF),
                                     borderRadius: BorderRadius.circular(2.0),
@@ -216,14 +214,12 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent),
+                              borderSide: BorderSide(color: Colors.transparent),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide:
-                                  BorderSide(color: green),
+                              borderSide: BorderSide(color: green),
                             ),
                           ),
                           textAlignVertical: TextAlignVertical.top,
@@ -247,35 +243,34 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
               left: media.width * 0.75,
               right: media.width * 0.05,
               child: GestureDetector(
-                child: Container(
-                  padding: EdgeInsets.only(
-                      top: media.height * 0.0,
-                      left: media.width * 0.0,
-                      bottom: 0.0,
-                      right: media.width * 0.0),
-                  height: media.height * 0.05,
-                  width: media.width,
-                  decoration: BoxDecoration(
-                    color: green,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Submit",
-                        style: TextStyle(
-                          color: white,
-                          fontSize: media.width * 0.037,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
+                  child: Container(
+                    padding: EdgeInsets.only(
+                        top: media.height * 0.0,
+                        left: media.width * 0.0,
+                        bottom: 0.0,
+                        right: media.width * 0.0),
+                    height: media.height * 0.05,
+                    width: media.width,
+                    decoration: BoxDecoration(
+                      color: green,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Submit",
+                          style: TextStyle(
+                            color: white,
+                            fontSize: media.width * 0.037,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                onTap: () {}
-              ),
+                  onTap: () {}),
             ),
           ],
         ),
@@ -283,4 +278,3 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
     );
   }
 }
-

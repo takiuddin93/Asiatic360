@@ -349,16 +349,20 @@ class _MyLoginPageState extends State<MyLoginPage> {
   }
 
   _validateInputs() async {
+    print("LOGIN: " + _employeeID.text + "    " + _employeePassword.text);
     if (_employeeID.text != '' && _employeePassword.text != '') {
-      var response = await http.get(
-        // Encode the url
-        "http://192.168.16.195/asiatic360/test.php?e_id=" +
-            _employeeID.text +
-            "&e_password=" +
-            _employeePassword.text,
-        // Only accept JSON response
-        // headers: {"Accept": "application/json"}
-      );
+      var response = await http.post(
+          // Encode the url
+          "http://192.168.121.193:4000/api/users/login?e_id=" +
+              _employeeID.text +
+              "&e_password=" +
+              _employeePassword.text,
+          // Only accept JSON response
+          headers: {
+            'Authorization':
+                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjQsImVfaWQiOjEyMzQsImVfZGVzaWduYXRpb24iOm51bGwsImVfZW1haWwiOiJ0YWtpdWRkaW5AZW1haWwuY29tIiwic3RhdHVzIjoxLCJyZW1lbWJlcl90b2tlbiI6IjAiLCJsYXN0X2xvZ2luIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0yNlQwODoyNzoyMi4wMDBaIiwibW9kaWZpZWRfYXQiOiIyMDIwLTA0LTI2VDA4OjI3OjIyLjAwMFoifSwiaWF0IjoxNTg3OTA3NzgwLCJleHAiOjE1ODc5MTEzODB9.HRoP1E_KysXCdb0oKQwfisnrqP83yflBPoBO3v-qeu0',
+            'Content-Type': 'application/json; charset=UTF-8',
+          });
       List data;
       Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
       final SharedPreferences prefs = await _prefs;
