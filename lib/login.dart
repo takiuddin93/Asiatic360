@@ -2,7 +2,9 @@ import 'package:asiatic360/utils/login_signup_textFields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:asiatic360/dashboard.dart';
@@ -301,8 +303,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           ),
                         ),
                         onTap: () {
-                          // _validateInputs();
-                          gotoDashboard("Taki Uddin", "3130");
+                          _validateInputs();
+                          // gotoDashboard("Taki Uddin", "3130");
                         })),
                 // Bottom Text
                 Positioned(
@@ -348,30 +350,68 @@ class _MyLoginPageState extends State<MyLoginPage> {
     );
   }
 
+  // _validateInputs() async {
+  //   if (_employeeID.text != '' && _employeePassword.text != '') {
+  //     var response = await http.get(
+  //       // Encode the url
+  //       "http://192.168.0.104/asiatic360/test.php?e_id=" +
+  //           _employeeID.text +
+  //           "&e_password=" +
+  //           _employeePassword.text,
+  //       // Only accept JSON response
+  //       // headers: {"Accept": "application/json"}
+  //     );
+  //     List data;
+  //     Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  //     final SharedPreferences prefs = await _prefs;
+
+  //     data = json.decode(response.body)["employee"] as List;
+  //     print("Response: " + data[0]["NID"].toString());
+  //     if (data[0]["response"].toString() == "ok") {
+  //       _loginState = prefs.setString("loginState", "1");
+  //       gotoDashboard(data[0]["eName"], data[0]["eID"]);
+  //     } else {}
+  //   } else {
+  //     // validation error
+  //     setState(() {
+  //       _validate = true;
+  //       _errorVisible = true;
+  //     });
+  //   }
+  // }
+
   _validateInputs() async {
-    print("LOGIN: " + _employeeID.text + "    " + _employeePassword.text);
     if (_employeeID.text != '' && _employeePassword.text != '') {
-      var response = await http.post(
+      var loginResponse = await http.post(
           // Encode the url
-          "http://192.168.121.193:4000/api/users/login?e_id=" +
-              _employeeID.text +
-              "&e_password=" +
-              _employeePassword.text,
+          "http://192.168.0.100:4000/api/users/login",
           // Only accept JSON response
           headers: {
-            'Authorization':
-                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjQsImVfaWQiOjEyMzQsImVfZGVzaWduYXRpb24iOm51bGwsImVfZW1haWwiOiJ0YWtpdWRkaW5AZW1haWwuY29tIiwic3RhdHVzIjoxLCJyZW1lbWJlcl90b2tlbiI6IjAiLCJsYXN0X2xvZ2luIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0yNlQwODoyNzoyMi4wMDBaIiwibW9kaWZpZWRfYXQiOiIyMDIwLTA0LTI2VDA4OjI3OjIyLjAwMFoifSwiaWF0IjoxNTg3OTA3NzgwLCJleHAiOjE1ODc5MTEzODB9.HRoP1E_KysXCdb0oKQwfisnrqP83yflBPoBO3v-qeu0',
-            'Content-Type': 'application/json; charset=UTF-8',
-          });
-      List data;
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(<String, dynamic>{
+            "e_id": _employeeID.text,
+            "e_password": _employeePassword.text
+          }));
+      // List data;
       Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
       final SharedPreferences prefs = await _prefs;
 
-      data = json.decode(response.body)["employee"] as List;
-      print("Response: " + data[0]["NID"].toString());
-      if (data[0]["response"].toString() == "ok") {
-        _loginState = prefs.setString("loginState", "1");
-        gotoDashboard(data[0]["eName"], data[0]["eID"]);
+      Map<String, dynamic> data = json.decode(loginResponse.body);
+      if (data["response"].toString() == "ok") {
+        var userdetailsResponse = await http.get(
+          // Encode the url
+          "http://192.168.0.100:4000/api/users/" + _employeeID.text,
+          headers: {
+            HttpHeaders.authorizationHeader:
+                "Bearer " + data["token"].toString(),
+          },
+        );
+        Map<String, dynamic> userData = json.decode(userdetailsResponse.body);
+        if (userData["response"].toString() == "ok") {
+          _loginState = prefs.setString("loginState", "1");
+          gotoDashboard(userData["employee"]["eName"], _employeeID.text);
+        }
       } else {}
     } else {
       // validation error
