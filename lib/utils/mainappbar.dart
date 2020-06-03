@@ -190,7 +190,7 @@ class MainAppBar extends StatelessWidget {
 
   RichText _buildLabel(BuildContext context) {
     String _getEmoji;
-    if (title == 'Hi there ' + prefs.getString("name").split(" ")[0] + '!') {
+    if (back == 'dashboard') {
       _getEmoji = getEmoji(context);
     } else {
       _getEmoji = '';
@@ -215,11 +215,15 @@ class MainAppBar extends StatelessWidget {
 
   Builder _buildaction(BuildContext context) {
     String _alertdialogTitle, _alertdialogDescription, _alertdialogButton;
-    if (title == 'Hi there ' + prefs.getString("name").split(" ")[0] + '!') {
+    if (back == 'dashboard') {
       _alertdialogTitle = 'Work in Progress';
       _alertdialogDescription = 'This feature has not been implemented yet!';
       _alertdialogButton = 'Back';
-    } else {}
+    } else {
+      _alertdialogTitle = 'Work in Progress';
+      _alertdialogDescription = 'This feature has not been implemented yet!';
+      _alertdialogButton = 'Back';
+    }
     return Builder(
       builder: (context) => IconButton(
         color: green,
