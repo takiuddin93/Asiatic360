@@ -1,4 +1,5 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/dashboard/health/medical/medicalallowance.dart';
@@ -91,30 +92,13 @@ class _MyHealthState extends State<MyHealth> {
                 break;
               case "3":
                 {
-                  showDialog<void>(
+                  CustomDialog.showScaleAlertBox(
                     context: context,
-                    barrierDismissible: false, // user must tap button!
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Work in Progress'),
-                        content: SingleChildScrollView(
-                          child: ListBody(
-                            children: <Widget>[
-                              Text(
-                                  'This feature has not been implemented yet!'),
-                            ],
-                          ),
-                        ),
-                        actions: <Widget>[
-                          FlatButton(
-                            child: Text('Back'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
-                      );
-                    },
+                    title: 'Work in Progress',
+                    icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    text:
+                        'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    firstButton: 'Back',
                   );
                 }
                 break;
