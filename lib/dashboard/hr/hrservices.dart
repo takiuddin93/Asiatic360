@@ -2,7 +2,7 @@ import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/dashboard/hr/salary/salarycertificate.dart';
-import 'package:asiatic360/payslip.dart';
+import 'package:asiatic360/dashboard/hr/payslip/payslip.dart';
 
 Color black = Color(0xFF000000);
 Color white = Color(0xFFFFFFFF);
@@ -38,10 +38,8 @@ class MyHRServices extends StatefulWidget {
 }
 
 class _MyHRServicesState extends State<MyHRServices> {
-
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -64,70 +62,71 @@ class _MyHRServicesState extends State<MyHRServices> {
     );
   }
 
-Card makeDashboardItem(int i, String title, IconData icon, Size media) {
+  Card makeDashboardItem(int i, String title, IconData icon, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.01,
-        right: media.width * 0.02,
-        bottom: media.width * 0.01
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.01,
+          right: media.width * 0.02,
+          bottom: media.width * 0.01),
       child: Container(
         decoration: BoxDecoration(
           color: white,
-          ),
+        ),
         child: new InkWell(
           onTap: () {
-            switch(i.toString()) {
-              case "1": {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => SalaryCertificate())
-                );
-              } 
-              break;
-              case "2": {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => Payslip())
-                );
-              } 
-              break;
-              case "3": {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: false, // user must tap button!
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Work in Progress'),
-                      content: SingleChildScrollView(
-                        child: ListBody(
-                          children: <Widget>[
-                            Text('This feature has not been implemented yet!'),
-                          ],
+            switch (i.toString()) {
+              case "1":
+                {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => SalaryCertificate()));
+                }
+                break;
+              case "2":
+                {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => Payslip()));
+                }
+                break;
+              case "3":
+                {
+                  showDialog<void>(
+                    context: context,
+                    barrierDismissible: false, // user must tap button!
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Work in Progress'),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: <Widget>[
+                              Text(
+                                  'This feature has not been implemented yet!'),
+                            ],
+                          ),
                         ),
-                      ),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text('Back'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              } 
-              break;
-              default: {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => HRServices())
-                );
-              } 
-              break; 
+                        actions: <Widget>[
+                          FlatButton(
+                            child: Text('Back'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+                break;
+              default:
+                {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => HRServices()));
+                }
+                break;
             }
           },
           child: Column(
@@ -141,16 +140,14 @@ Card makeDashboardItem(int i, String title, IconData icon, Size media) {
                 size: 32.0,
                 color: green,
               ),
-              Text(
-                title,
-                style: TextStyle(
+              Text(title,
+                  style: TextStyle(
                     color: black,
                     fontSize: media.width * 0.04,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                textAlign: TextAlign.center
-              ),
+                  textAlign: TextAlign.center),
             ],
           ),
         ),
