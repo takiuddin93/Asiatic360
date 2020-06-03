@@ -2,7 +2,7 @@ import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/dashboard/health/medical/medicalallowance.dart';
-import 'package:asiatic360/blooddonation.dart';
+import 'package:asiatic360/dashboard/health/blood/blooddonation.dart';
 
 Color black = Color(0xFF000000);
 Color white = Color(0xFFFFFFFF);
@@ -38,10 +38,8 @@ class MyHealth extends StatefulWidget {
 }
 
 class _MyHealthState extends State<MyHealth> {
-
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -68,64 +66,65 @@ class _MyHealthState extends State<MyHealth> {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.01,
-        right: media.width * 0.02,
-        bottom: media.width * 0.01
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.01,
+          right: media.width * 0.02,
+          bottom: media.width * 0.01),
       child: Container(
         decoration: BoxDecoration(color: white),
         child: new InkWell(
           onTap: () {
-            switch(i.toString()) {
-              case "1": {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => MedicalAllowance())
-                );
-              } 
-              break;
-              case "2": {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => BloodDonation())
-                );
-              }
-              break;
-              case "3": {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: false, // user must tap button!
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Work in Progress'),
-                      content: SingleChildScrollView(
-                        child: ListBody(
-                          children: <Widget>[
-                            Text('This feature has not been implemented yet!'),
-                          ],
+            switch (i.toString()) {
+              case "1":
+                {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => MedicalAllowance()));
+                }
+                break;
+              case "2":
+                {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => BloodDonation()));
+                }
+                break;
+              case "3":
+                {
+                  showDialog<void>(
+                    context: context,
+                    barrierDismissible: false, // user must tap button!
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Work in Progress'),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: <Widget>[
+                              Text(
+                                  'This feature has not been implemented yet!'),
+                            ],
+                          ),
                         ),
-                      ),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text('Back'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              } 
-              break;
-              default: {
-                Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => Health())
-                );
-              } 
-              break; 
+                        actions: <Widget>[
+                          FlatButton(
+                            child: Text('Back'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+                break;
+              default:
+                {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => Health()));
+                }
+                break;
             }
           },
           child: Column(
@@ -139,16 +138,14 @@ class _MyHealthState extends State<MyHealth> {
                 size: 32.0,
                 color: green,
               ),
-              Text(
-                title,
-                style: TextStyle(
+              Text(title,
+                  style: TextStyle(
                     color: black,
                     fontSize: media.width * 0.04,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                textAlign: TextAlign.center
-              ),
+                  textAlign: TextAlign.center),
             ],
           ),
         ),
