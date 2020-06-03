@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/dashboard/hr/newsalarycertificate.dart';
+import 'package:asiatic360/dashboard/hr/salary/newsalarycertificate.dart';
 
 Color white = Color(0xFFFFFFFF);
 Color greyShadow = Color(0xFF33808184);
@@ -41,7 +41,6 @@ class MySalaryCertificate extends StatefulWidget {
 }
 
 class _MySalaryCertificateState extends State<MySalaryCertificate> {
-
   List leaveRequest = [
     {'date': '12/01/2020', 'status': 'pending'},
     {'date': '12/10/2019', 'status': 'approved'},
@@ -61,7 +60,6 @@ class _MySalaryCertificateState extends State<MySalaryCertificate> {
 
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
     final double itemHeight = media.height;
     final double itemWidth = media.width;
@@ -81,12 +79,9 @@ class _MySalaryCertificateState extends State<MySalaryCertificate> {
             ListView.builder(
               padding: EdgeInsets.all(0.0),
               itemCount: leaveRequest.length,
-              itemBuilder: (BuildContext context, int index){
-                return makeDashboardItem(
-                  leaveRequest[index]['date'],
-                  leaveRequest[index]['status'],
-                  media
-                );
+              itemBuilder: (BuildContext context, int index) {
+                return makeDashboardItem(leaveRequest[index]['date'],
+                    leaveRequest[index]['status'], media);
               },
             ),
           ],
@@ -97,10 +92,11 @@ class _MySalaryCertificateState extends State<MySalaryCertificate> {
         onPressed: () {
           Navigator.pop(context);
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => NewSalaryCertificate())
-          );
+              builder: (BuildContext context) => NewSalaryCertificate()));
         },
-        icon: Icon(Icons.add,),
+        icon: Icon(
+          Icons.add,
+        ),
         foregroundColor: white,
         backgroundColor: green,
       ),
@@ -111,19 +107,15 @@ class _MySalaryCertificateState extends State<MySalaryCertificate> {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.0075,
-        right: media.width * 0.02,
-        bottom: media.height * 0.0075
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.0075,
+          right: media.width * 0.02,
+          bottom: media.height * 0.0075),
       child: Container(
         height: media.height * 0.052,
         decoration: BoxDecoration(
           color: white,
-          border: Border.all(
-            color: getColor(status),
-            width: 1.25
-          ),
+          border: Border.all(color: getColor(status), width: 1.25),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
@@ -205,7 +197,6 @@ class _MySalaryCertificateState extends State<MySalaryCertificate> {
     );
   }
 
-  
   getColor(status) {
     if (status == "pending") {
       return yellow;
@@ -215,6 +206,4 @@ class _MySalaryCertificateState extends State<MySalaryCertificate> {
       return red;
     }
   }
-
 }
-

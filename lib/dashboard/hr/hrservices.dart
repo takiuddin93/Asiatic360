@@ -1,7 +1,7 @@
 import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/dashboard/hr/salarycertificate.dart';
+import 'package:asiatic360/dashboard/hr/salary/salarycertificate.dart';
 import 'package:asiatic360/payslip.dart';
 
 Color black = Color(0xFF000000);
