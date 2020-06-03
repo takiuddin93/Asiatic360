@@ -1,15 +1,16 @@
 import 'package:asiatic360/main.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/attendance.dart';
-import 'package:asiatic360/vacation.dart';
-import 'package:asiatic360/hrservices.dart';
-import 'package:asiatic360/health.dart';
-import 'package:asiatic360/employee.dart';
+import 'package:asiatic360/dashboard/attendance.dart';
+import 'package:asiatic360/dashboard/vacation/vacation.dart';
+import 'package:asiatic360/dashboard/hr/hrservices.dart';
+import 'package:asiatic360/dashboard/health/health.dart';
+import 'package:asiatic360/dashboard/employee/employee.dart';
 // import 'package:asiatic360/security.dart';
 // import 'package:asiatic360/learning.dart';
-import 'package:asiatic360/payroll.dart';
+import 'package:asiatic360/dashboard/payroll.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -333,29 +334,12 @@ class _MyDashboardState extends State<MyDashboard> {
   }
 
   void dialogue() {
-    showDialog<void>(
+    CustomDialog.showScaleAlertBox(
       context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Work in Progress'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text('This feature has not been implemented yet!'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Back'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
+      title: 'Work in Progress',
+      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+      text: 'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+      firstButton: 'Back',
     );
   }
 
@@ -416,60 +400,12 @@ class _MyDashboardState extends State<MyDashboard> {
                   break;
                 case "7":
                   {
-                    showDialog<void>(
-                      context: context,
-                      barrierDismissible: false, // user must tap button!
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Work in Progress'),
-                          content: SingleChildScrollView(
-                            child: ListBody(
-                              children: <Widget>[
-                                Text(
-                                    'This feature has not been implemented yet!'),
-                              ],
-                            ),
-                          ),
-                          actions: <Widget>[
-                            FlatButton(
-                              child: Text('Back'),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                    dialogue();
                   }
                   break;
                 case "8":
                   {
-                    showDialog<void>(
-                      context: context,
-                      barrierDismissible: false, // user must tap button!
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Work in Progress'),
-                          content: SingleChildScrollView(
-                            child: ListBody(
-                              children: <Widget>[
-                                Text(
-                                    'This feature has not been implemented yet!'),
-                              ],
-                            ),
-                          ),
-                          actions: <Widget>[
-                            FlatButton(
-                              child: Text('Back'),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                    dialogue();
                   }
                   break;
                 default:
