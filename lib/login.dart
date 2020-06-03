@@ -303,8 +303,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           ),
                         ),
                         onTap: () {
-                          _validateInputs();
-                          // gotoDashboard("Taki Uddin", "3130");
+                          // _validateInputs();
+                          gotoDashboard("Taki Uddin", "3130");
                         })),
                 // Bottom Text
                 Positioned(
