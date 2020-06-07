@@ -1,3 +1,4 @@
+import 'package:asiatic360/constants/stings.dart';
 import 'package:asiatic360/utils/login_signup_textFields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -384,7 +385,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
     if (_employeeID.text != '' && _employeePassword.text != '') {
       var loginResponse = await http.post(
           // Encode the url
-          "http://192.168.0.100:4000/api/users/login",
+          API_URL + "/api/users/login",
           // Only accept JSON response
           headers: {
             'Content-Type': 'application/json',
@@ -401,7 +402,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
       if (data["response"].toString() == "ok") {
         var userdetailsResponse = await http.get(
           // Encode the url
-          "http://192.168.0.100:4000/api/users/" + _employeeID.text,
+          API_URL + "/api/users/" + _employeeID.text,
           headers: {
             HttpHeaders.authorizationHeader:
                 "Bearer " + data["token"].toString(),
