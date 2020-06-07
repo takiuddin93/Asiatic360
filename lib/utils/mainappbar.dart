@@ -1,4 +1,4 @@
-import 'package:asiatic360/asiatic360_app_icons_icons.dart';
+import 'package:asiatic360/utils/asiatic360_app_icons_icons.dart';
 import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:asiatic360/widgets/custom_dialog_widget.dart';

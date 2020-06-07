@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: _loginState == '1' ? Dashboard() : Login(),
+      home: MyHomePage(),
     );
   }
 }
