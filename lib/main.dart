@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:asiatic360/dashboard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:asiatic360/signup.dart';
@@ -13,6 +14,8 @@ Color green = Color(0xFF6B8449);
 SharedPreferences prefs;
 var _loginState;
 Future<void> main() async {
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: green));
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
   _loginState = prefs.getString('loginState');
@@ -73,104 +76,139 @@ class _MyHomePageState extends State<MyHomePage> {
               width: media.width,
               child: Stack(children: <Widget>[
                 AnimatedContainer(
-                  margin: EdgeInsets.only(left:10.0, top:media.height * 0.2, right:10.0, bottom:media.height * 0.2),
+                  margin: EdgeInsets.only(
+                      left: 10.0,
+                      top: media.height * 0.2,
+                      right: 10.0,
+                      bottom: media.height * 0.2),
                   duration: Duration(milliseconds: 1250),
                   alignment: _alignment,
                   child: Container(
-                    height: media.height * 0.15,
-                    child: SvgPicture.asset(
-                      'assets/svgs/asiatic360_logo_minified.svg'
-                    )
-                  ),
+                      height: media.height * 0.15,
+                      child: SvgPicture.asset(
+                          'assets/svgs/asiatic360_logo_minified.svg')),
                 ),
                 Positioned(
-                  top: media.height * 0.65,
+                  top: media.height * 0.60,
                   left: media.width * 0.20,
                   right: media.width * 0.20,
                   child: GestureDetector(
-                    child: AnimatedOpacity(
-                      opacity: _visible ? 1.0 : 0.0,
-                      duration: Duration(milliseconds: 1250),
-                      child: Container(
-                        padding: EdgeInsets.only(
-                          top: media.height * 0.0,
-                          left: media.width * 0.0,
-                          bottom: 0.0,
-                          right: media.width * 0.0
-                        ),
-                        height: media.height * 0.075,
-                        width: media.width,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1,
-                            color: green
+                      child: AnimatedOpacity(
+                        opacity: _visible ? 1.0 : 0.0,
+                        duration: Duration(milliseconds: 1250),
+                        child: Container(
+                          padding: EdgeInsets.only(
+                              top: media.height * 0.0,
+                              left: media.width * 0.0,
+                              bottom: 0.0,
+                              right: media.width * 0.0),
+                          height: media.height * 0.075,
+                          width: media.width,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: green),
+                            color: white,
+                            borderRadius: BorderRadius.circular(4.0),
                           ),
-                          color: white,
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Get Started",
-                              style: TextStyle(
-                                color: green,
-                                fontSize: media.width * 0.037,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
+                          child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Get Started",
+                                style: TextStyle(
+                                  color: green,
+                                  fontSize: media.width * 0.037,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    onTap: () {
-                      gotoSignUp();
-                    }
-                  ),
+                      onTap: () {
+                        gotoSignUp();
+                      }),
                 ),
                 Positioned(
-                  top: media.height * 0.8,
+                  top: media.height * 0.70,
                   left: media.width * 0.20,
                   right: media.width * 0.20,
                   child: GestureDetector(
-                    child: AnimatedOpacity(
-                      opacity: _visible ? 1.0 : 0.0,
-                      duration: Duration(milliseconds: 1250),
-                      child: Container(
-                        padding: EdgeInsets.only(
-                          top: media.height * 0.0,
-                          left: media.width * 0.0,
-                          bottom: 0.0,
-                          right: media.width * 0.0
-                        ),
-                        height: media.height * 0.075,
-                        width: media.width,
-                        decoration: BoxDecoration(
-                          color: green,
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Login",
-                              style: TextStyle(
-                                color: white,
-                                fontSize: media.width * 0.037,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
+                      child: AnimatedOpacity(
+                        opacity: _visible ? 1.0 : 0.0,
+                        duration: Duration(milliseconds: 1250),
+                        child: Container(
+                          padding: EdgeInsets.only(
+                              top: media.height * 0.0,
+                              left: media.width * 0.0,
+                              bottom: 0.0,
+                              right: media.width * 0.0),
+                          height: media.height * 0.075,
+                          width: media.width,
+                          decoration: BoxDecoration(
+                            color: green,
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
+                          child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Login",
+                                style: TextStyle(
+                                  color: white,
+                                  fontSize: media.width * 0.037,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    onTap: () {
-                      gotoLogin();
-                    }
-                  ),
+                      onTap: () {
+                        gotoLogin();
+                      }),
                 ),
+                // Positioned(
+                //   top: media.height * 0.80,
+                //   left: media.width * 0.20,
+                //   right: media.width * 0.20,
+                //   child: GestureDetector(
+                //       child: AnimatedOpacity(
+                //         opacity: _visible ? 1.0 : 0.0,
+                //         duration: Duration(milliseconds: 1250),
+                //         child: Container(
+                //           padding: EdgeInsets.only(
+                //               top: media.height * 0.0,
+                //               left: media.width * 0.0,
+                //               bottom: 0.0,
+                //               right: media.width * 0.0),
+                //           height: media.height * 0.075,
+                //           width: media.width,
+                //           decoration: BoxDecoration(
+                //             color: green,
+                //             borderRadius: BorderRadius.circular(4.0),
+                //           ),
+                //           child: new Row(
+                //             mainAxisAlignment: MainAxisAlignment.center,
+                //             children: <Widget>[
+                //               Text(
+                //                 "Login",
+                //                 style: TextStyle(
+                //                   color: white,
+                //                   fontSize: media.width * 0.037,
+                //                   fontFamily: 'Poppins',
+                //                   fontWeight: FontWeight.w400,
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //       ),
+                //       onTap: () {
+                //         gotoLogin();
+                //       }),
+                // ),
               ])))
     ]);
   }
