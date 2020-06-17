@@ -1,4 +1,4 @@
-import 'package:asiatic360/constants/stings.dart';
+import 'package:asiatic360/constants/strings.dart';
 import 'package:asiatic360/utils/login_signup_textFields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +21,6 @@ Color white = Color(0xFFFFFFFF);
 var _loginState;
 
 void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(Login());
 }
 
