@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:asiatic360/dashboard.dart';
+import 'package:asiatic360/dashboard/hr/hrservices.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: HRServices(),
     );
   }
 }

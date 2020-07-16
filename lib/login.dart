@@ -412,7 +412,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
           _loginState = prefs.setString("loginState", "1");
           gotoDashboard(userData["employee"]["eName"], _employeeID.text);
         }
-      } else {}
+      } else {
+        // Username and Password is wrong!
+      }
     } else {
       // validation error
       setState(() {

@@ -202,10 +202,12 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
                   ),
                   child: Center(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextFormField(
                           decoration: InputDecoration(
                             labelText: "Purpose",
+                            alignLabelWithHint: true,
                             labelStyle: TextStyle(
                               color: green,
                             ),

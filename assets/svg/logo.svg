@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><g transform="translate(-4 -4)"><circle cx="26" cy="26" r="26" transform="translate(6 6)" fill="none" stroke="#6b8449" stroke-width="4"/><path d="M-2-.563l15-30,15,30" transform="translate(19 45.563)" fill="none" stroke="#010101" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><circle cx="3" cy="3" r="3" transform="translate(29 29)" fill="#6b8449"/><circle cx="3" cy="3" r="3" transform="translate(51 54)"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#6B8449;stroke-width:4;}
+	.st1{fill:none;stroke:#010101;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;}
+	.st2{fill:#6B8449;}
+	.st3{fill:none;stroke:#6B8449;stroke-width:2;}
+	.st4{fill:none;stroke:#010101;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<circle class="st0" cx="-34" cy="28" r="26"/>
+<path class="st1" d="M-49,41l15-30l15,30"/>
+<circle class="st2" cx="-34" cy="28" r="3"/>
+<circle cx="-12" cy="53" r="3"/>
+<circle class="st3" cx="10" cy="10" r="9"/>
+<path class="st4" d="M5,14l5-10l5,10"/>
+<circle class="st2" cx="10" cy="10" r="1"/>
+<circle cx="18" cy="19" r="1"/>
+</svg>
