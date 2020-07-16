@@ -365,37 +365,42 @@ class _MyDashboardState extends State<MyDashboard> {
                   break;
                 case "2":
                   {
-                    Navigator.pop(context);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => Vacation()));
+                    // Navigator.pop(context);
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (BuildContext context) => Vacation()));
+                    dialogue();
                   }
                   break;
                 case "3":
                   {
-                    Navigator.pop(context);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => HRServices()));
+                    // Navigator.pop(context);
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (BuildContext context) => HRServices()));
+                    dialogue();
                   }
                   break;
                 case "4":
                   {
-                    Navigator.pop(context);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => Health()));
+                    // Navigator.pop(context);
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (BuildContext context) => Health()));
+                    dialogue();
                   }
                   break;
                 case "5":
                   {
-                    Navigator.pop(context);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => Employee()));
+                    // Navigator.pop(context);
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (BuildContext context) => Employee()));
+                    dialogue();
                   }
                   break;
                 case "6":
                   {
-                    Navigator.pop(context);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => Payroll()));
+                    // Navigator.pop(context);
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (BuildContext context) => Payroll()));
+                    dialogue();
                   }
                   break;
                 case "7":
