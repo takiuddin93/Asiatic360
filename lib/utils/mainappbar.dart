@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'package:asiatic360/attendance/attendance.dart';
+=======
+>>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 import 'package:asiatic360/utils/asiatic360_app_icons_icons.dart';
 import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
@@ -6,9 +9,19 @@ import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:asiatic360/utils/mainappbar_style.dart';
 
+<<<<<<< HEAD
 Color green = Color(0xFF6B8449);
 Color darkgreen = Color(0xFF4C5B39);
 Color black = Color(0xFF000000);
+=======
+import '../main.dart';
+
+Color green = Color(0xFF6B8449);
+Color darkgreen = Color(0xFF4C5B39);
+Color black = Color(0xFF000000);
+Color grey = Color(0xFF808184);
+Color greyShadow = Color(0xFF33808184);
+>>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 Color red = Color(0XFFFD3131);
 Color white = Color(0xFFFFFFFF);
 
@@ -81,6 +94,7 @@ class MainAppBar extends StatelessWidget {
           _iconData = Icons.arrow_back;
         }
         break;
+<<<<<<< HEAD
       case "attendanceLogs":
         {
           _iconData = Icons.arrow_back;
@@ -99,6 +113,8 @@ class MainAppBar extends StatelessWidget {
           );
         }
         break;
+=======
+>>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
       case "vacation":
         {
           _iconData = Icons.arrow_back;
@@ -203,13 +219,18 @@ class MainAppBar extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
   Align _buildLabel(BuildContext context) {
+=======
+  RichText _buildLabel(BuildContext context) {
+>>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
     String _getEmoji;
     if (back == 'dashboard') {
       _getEmoji = getEmoji(context);
     } else {
       _getEmoji = '';
     }
+<<<<<<< HEAD
     return back == 'dashboard'
         ? Align(
             alignment: Alignment.centerLeft,
@@ -249,6 +270,24 @@ class MainAppBar extends StatelessWidget {
               ),
             ),
           );
+=======
+    return RichText(
+      text: TextSpan(
+        style: new TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          fontSize: 24.0,
+          color: green,
+        ),
+        children: [
+          TextSpan(
+            text: title,
+          ),
+          TextSpan(text: _getEmoji),
+        ],
+      ),
+    );
+>>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
   }
 
   Builder _buildaction(BuildContext context) {
