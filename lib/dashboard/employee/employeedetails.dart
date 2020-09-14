@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import 'package:asiatic360/attendance/attendance_logs.dart';
-=======
-import 'package:asiatic360/dashboard/attendance.dart';
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

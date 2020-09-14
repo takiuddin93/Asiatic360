@@ -26,11 +26,8 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     prefs.setString("name", "Taki Uddin");
     prefs.setString("email", "taki.uddin@asiaticmcl.com");
-=======
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
     _loginState = prefs.getString('loginState');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -38,11 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
       home: MyHomePage(),
-=======
-      home: HRServices(),
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
     );
   }
 }

@@ -3,11 +3,7 @@ import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-<<<<<<< HEAD
 import 'package:asiatic360/attendance/attendance.dart';
-=======
-import 'package:asiatic360/dashboard/attendance.dart';
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 import 'package:asiatic360/dashboard/vacation/vacation.dart';
 import 'package:asiatic360/dashboard/hr/hrservices.dart';
 import 'package:asiatic360/dashboard/health/health.dart';
@@ -99,11 +95,7 @@ class _MyDashboardState extends State<MyDashboard> {
                       prefs.getString("name"),
                       style: TextStyle(
                         color: white,
-<<<<<<< HEAD
                         fontSize: 18,
-=======
-                        fontSize: media.width * 0.05,
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),
@@ -113,11 +105,7 @@ class _MyDashboardState extends State<MyDashboard> {
                       prefs.getString("email"),
                       style: TextStyle(
                         color: white,
-<<<<<<< HEAD
                         fontSize: 14,
-=======
-                        fontSize: media.width * 0.03,
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                       ),
@@ -133,13 +121,8 @@ class _MyDashboardState extends State<MyDashboard> {
                     decoration: BoxDecoration(
                       color: white,
                       borderRadius: BorderRadius.only(
-<<<<<<< HEAD
                         topLeft: Radius.circular(8.0),
                         topRight: Radius.circular(8.0),
-=======
-                        topLeft: Radius.circular(16.0),
-                        topRight: Radius.circular(16.0),
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                         bottomRight: Radius.circular(0.0),
                         bottomLeft: Radius.circular(0.0),
                       ),
@@ -160,7 +143,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -170,9 +152,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -187,7 +166,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -197,9 +175,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -214,7 +189,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -224,9 +198,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -241,7 +212,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -251,9 +221,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -268,7 +235,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -278,9 +244,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -295,7 +258,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -305,9 +267,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -322,7 +281,6 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-<<<<<<< HEAD
                             CustomDialog.showScaleAlertBox(
                               context: context,
                               title: 'Work in Progress',
@@ -332,9 +290,6 @@ class _MyDashboardState extends State<MyDashboard> {
                                   'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                               firstButton: 'Back',
                             );
-=======
-                            dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                           },
                         ),
                         ListTile(
@@ -434,19 +389,6 @@ class _MyDashboardState extends State<MyDashboard> {
         ));
   }
 
-<<<<<<< HEAD
-=======
-  void dialogue() {
-    CustomDialog.showScaleAlertBox(
-      context: context,
-      title: 'Work in Progress',
-      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-      text: 'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-      firstButton: 'Back',
-    );
-  }
-
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
   Card makeDashboardItem(int i, String title, String icon, Size media) {
     return Card(
         elevation: 1.0,
@@ -472,7 +414,6 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.pop(context);
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Vacation()));
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -481,9 +422,6 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 case "3":
@@ -491,7 +429,6 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.pop(context);
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => HRServices()));
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -500,9 +437,6 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 case "4":
@@ -510,7 +444,6 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.pop(context);
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Health()));
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -519,9 +452,6 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 case "5":
@@ -529,7 +459,6 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.pop(context);
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Employee()));
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -538,9 +467,6 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 case "6":
@@ -548,7 +474,6 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.pop(context);
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Payroll()));
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -557,14 +482,10 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 case "7":
                   {
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -573,14 +494,10 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 case "8":
                   {
-<<<<<<< HEAD
                     CustomDialog.showScaleAlertBox(
                       context: context,
                       title: 'Work in Progress',
@@ -589,9 +506,6 @@ class _MyDashboardState extends State<MyDashboard> {
                           'This feature has not been implemented yet!', // IF YOU WANT TO ADD
                       firstButton: 'Back',
                     );
-=======
-                    dialogue();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                   }
                   break;
                 default:

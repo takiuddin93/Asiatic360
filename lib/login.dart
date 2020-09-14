@@ -1,8 +1,5 @@
 import 'package:asiatic360/constants/strings.dart';
-<<<<<<< HEAD
 import 'package:asiatic360/otp_number.dart';
-=======
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 import 'package:asiatic360/utils/login_signup_textFields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -275,7 +272,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 ),
                 // Submit Button
                 Positioned(
-<<<<<<< HEAD
                   top: media.height * 0.85,
                   left: media.width * 0.6,
                   right: media.width * 0.10,
@@ -312,43 +308,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     },
                   ),
                 ),
-=======
-                    top: media.height * 0.85,
-                    left: media.width * 0.6,
-                    right: media.width * 0.10,
-                    child: GestureDetector(
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              top: media.height * 0.0,
-                              left: media.width * 0.0,
-                              bottom: 0.0,
-                              right: media.width * 0.0),
-                          height: media.height * 0.05,
-                          width: media.width,
-                          decoration: BoxDecoration(
-                            color: green,
-                            borderRadius: BorderRadius.circular(3),
-                          ),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Login",
-                                style: TextStyle(
-                                  color: white,
-                                  fontSize: media.width * 0.037,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          // _validateInputs();
-                          gotoDashboard("Taki Uddin", "3130");
-                        })),
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
                 // Bottom Text
                 Positioned(
                   child: Container(
@@ -393,7 +352,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
     );
   }
 
-<<<<<<< HEAD
   gotoOTPNumber() {
     Navigator.of(context)
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
@@ -405,97 +363,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
     Navigator.of(context)
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
       return new Signup();
-=======
-  // _validateInputs() async {
-  //   if (_employeeID.text != '' && _employeePassword.text != '') {
-  //     var response = await http.get(
-  //       // Encode the url
-  //       "http://192.168.0.104/asiatic360/test.php?e_id=" +
-  //           _employeeID.text +
-  //           "&e_password=" +
-  //           _employeePassword.text,
-  //       // Only accept JSON response
-  //       // headers: {"Accept": "application/json"}
-  //     );
-  //     List data;
-  //     Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  //     final SharedPreferences prefs = await _prefs;
-
-  //     data = json.decode(response.body)["employee"] as List;
-  //     print("Response: " + data[0]["NID"].toString());
-  //     if (data[0]["response"].toString() == "ok") {
-  //       _loginState = prefs.setString("loginState", "1");
-  //       gotoDashboard(data[0]["eName"], data[0]["eID"]);
-  //     } else {}
-  //   } else {
-  //     // validation error
-  //     setState(() {
-  //       _validate = true;
-  //       _errorVisible = true;
-  //     });
-  //   }
-  // }
-
-  _validateInputs() async {
-    if (_employeeID.text != '' && _employeePassword.text != '') {
-      var loginResponse = await http.post(
-          // Encode the url
-          API_URL + "/api/users/login",
-          // Only accept JSON response
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: jsonEncode(<String, dynamic>{
-            "e_id": _employeeID.text,
-            "e_password": _employeePassword.text
-          }));
-      // List data;
-      Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-      final SharedPreferences prefs = await _prefs;
-
-      Map<String, dynamic> data = json.decode(loginResponse.body);
-      if (data["response"].toString() == "ok") {
-        var userdetailsResponse = await http.get(
-          // Encode the url
-          API_URL + "/api/users/" + _employeeID.text,
-          headers: {
-            HttpHeaders.authorizationHeader:
-                "Bearer " + data["token"].toString(),
-          },
-        );
-        Map<String, dynamic> userData = json.decode(userdetailsResponse.body);
-        if (userData["response"].toString() == "ok") {
-          _loginState = prefs.setString("loginState", "1");
-          gotoDashboard(userData["employee"]["eName"], _employeeID.text);
-        }
-      } else {
-        // Username and Password is wrong!
-      }
-    } else {
-      // validation error
-      setState(() {
-        _validate = true;
-        _errorVisible = true;
-      });
-    }
-  }
-
-  gotoSignUp() {
-    Navigator.of(context)
-        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-      return new Signup();
-    }));
-  }
-
-  gotoDashboard(eName, eMail) async {
-    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
-    prefs.setString("name", eName);
-    prefs.setString("email", eMail);
-    Navigator.of(context)
-        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-      return new Dashboard();
->>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
     }));
   }
 }
