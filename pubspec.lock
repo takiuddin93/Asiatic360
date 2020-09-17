@@ -64,8 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0-nullsafety"
-<<<<<<< HEAD
-=======
   file:
     dependency: transitive
     description:
@@ -73,7 +71,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.1"
->>>>>>> ad5a9a4d9ee9daf4cbb405e47b677125531cac86
   flutter:
     dependency: "direct main"
     description: flutter
@@ -85,11 +82,7 @@ packages:
       name: flutter_slidable
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "0.5.7"
-=======
     version: "0.5.5"
->>>>>>> ad5a9a4d9ee9daf4cbb405e47b677125531cac86
   flutter_svg:
     dependency: "direct main"
     description:
@@ -191,15 +184,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.4"
-<<<<<<< HEAD
-  platform_detect:
-    dependency: transitive
-    description:
-      name: platform_detect
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.4.0"
-=======
   platform:
     dependency: transitive
     description:
@@ -207,7 +191,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
->>>>>>> ad5a9a4d9ee9daf4cbb405e47b677125531cac86
+  platform_detect:
+    dependency: transitive
+    description:
+      name: platform_detect
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.0"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -215,15 +205,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-<<<<<<< HEAD
-  pub_semver:
-    dependency: transitive
-    description:
-      name: pub_semver
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.4.4"
-=======
   process:
     dependency: transitive
     description:
@@ -231,7 +212,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
->>>>>>> ad5a9a4d9ee9daf4cbb405e47b677125531cac86
+  pub_semver:
+    dependency: transitive
+    description:
+      name: pub_semver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.4"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -327,11 +314,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "5.5.3"
-=======
     version: "5.5.0"
->>>>>>> ad5a9a4d9ee9daf4cbb405e47b677125531cac86
   url_launcher_linux:
     dependency: transitive
     description:
@@ -367,8 +350,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.2"
-<<<<<<< HEAD
-=======
   xdg_directories:
     dependency: transitive
     description:
@@ -376,7 +357,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.0"
->>>>>>> ad5a9a4d9ee9daf4cbb405e47b677125531cac86
   xml:
     dependency: transitive
     description:

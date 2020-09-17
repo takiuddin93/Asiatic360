@@ -101,7 +101,7 @@ class _MyMedicalAllowanceState extends State<MyMedicalAllowance> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [green, Color(0XFFA7C57D)]
+                    colors: [green, Color(0XFFA7C57D)],
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
