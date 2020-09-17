@@ -1,5 +1,4 @@
 import 'package:asiatic360/constants/strings.dart';
-import 'package:asiatic360/otp_number.dart';
 import 'package:asiatic360/utils/login_signup_textFields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,10 +21,10 @@ Color white = Color(0xFFFFFFFF);
 var _loginState;
 
 void main() {
-  runApp(Login());
+  runApp(OTPNumber());
 }
 
-class Login extends StatelessWidget {
+class OTPNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,27 +33,26 @@ class Login extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyLoginPage(title: 'Asiatic360'),
+      home: MyOTPNumberPage(title: 'Asiatic360'),
     );
   }
 }
 
-class MyLoginPage extends StatefulWidget {
-  MyLoginPage({Key key, this.title}) : super(key: key);
+class MyOTPNumberPage extends StatefulWidget {
+  MyOTPNumberPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyLoginPageState createState() => _MyLoginPageState();
+  _MyOTPNumberPageState createState() => _MyOTPNumberPageState();
 }
 
-class _MyLoginPageState extends State<MyLoginPage> {
+class _MyOTPNumberPageState extends State<MyOTPNumberPage> {
   final String assetName = 'assets/svgs/asiatic360_logo.svg';
 
   bool _validate = false;
   bool _errorVisible = false;
-  TextEditingController _employeeID = new TextEditingController();
-  TextEditingController _employeePassword = new TextEditingController();
+  TextEditingController _mobileNumber = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +84,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                 ),
-                // Login text 1
+                // OTP Verfication text 1
                 Positioned(
                   width: media.width,
                   child: Container(
@@ -96,7 +94,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         bottom: media.width * 0.0,
                         left: media.width * 0.10),
                     child: Text(
-                      "Login",
+                      "OTP Verfication",
                       style: TextStyle(
                         color: green,
                         fontSize: media.width * 0.075,
@@ -107,7 +105,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                 ),
-                // Login text 2
+                // OTP Verfication text 2
                 Positioned(
                   child: Container(
                     padding: EdgeInsets.only(
@@ -121,7 +119,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            "Login to access to your dashboard",
+                            "We will send you an One Time Password on this mobile number.",
                             style: TextStyle(
                               color: green,
                               fontSize: media.width * 0.04,
@@ -135,7 +133,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                 ),
-                // Employee ID
+                // Mobile Number
                 Positioned(
                   width: media.width,
                   child: GestureDetector(
@@ -145,13 +143,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     },
                     child: Container(
                       padding: EdgeInsets.only(
-                        top: media.height * 0.40,
+                        top: media.height * 0.45,
                         left: media.width * 0.10,
                         right: media.width * 0.10,
                       ),
                       child: CustomTextField(
-                          text: "Employee ID",
-                          fieldController: _employeeID,
+                          text: "Mobile Number",
+                          fieldController: _mobileNumber,
                           validate: _validate,
                           obscureText: false,
                           fingerprint: false,
@@ -159,13 +157,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                 ),
-                // Employee ID error message
+                // Mobile Number error message
                 Positioned(
                   child: Visibility(
                     visible: _errorVisible,
                     child: Container(
                       padding: EdgeInsets.only(
-                          top: media.height * 0.475,
+                          top: media.height * 0.525,
                           right: media.width * 0.10,
                           bottom: media.width * 0.0,
                           left: media.width * 0.10),
@@ -175,7 +173,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         children: <Widget>[
                           Expanded(
                             child: Text(
-                              "Employee ID must be of 4 digits and cannot be empty",
+                              "Mobile Number cannot be empty",
                               style: TextStyle(
                                 color: red,
                                 fontSize: media.width * 0.025,
@@ -187,86 +185,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           )
                         ],
                       ),
-                    ),
-                  ),
-                ),
-                // Password
-                Positioned(
-                  width: media.width,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () {
-                      FocusScope.of(context).requestFocus(new FocusNode());
-                    },
-                    child: Container(
-                      padding: EdgeInsets.only(
-                        top: media.height * 0.50,
-                        left: media.width * 0.10,
-                        right: media.width * 0.10,
-                      ),
-                      child: CustomTextField(
-                          text: "Password",
-                          fieldController: _employeePassword,
-                          validate: _validate,
-                          obscureText: true,
-                          fingerprint: true,
-                          context: context,
-                          media: media),
-                    ),
-                  ),
-                ),
-                // Password error message
-                Positioned(
-                  child: Visibility(
-                    visible: _errorVisible,
-                    child: Container(
-                      padding: EdgeInsets.only(
-                          top: media.height * 0.575,
-                          right: media.width * 0.10,
-                          bottom: media.width * 0.0,
-                          left: media.width * 0.10),
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              "Password must be of 8 characters and cannot be empty",
-                              style: TextStyle(
-                                color: red,
-                                fontSize: media.width * 0.025,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                // forgot password
-                Positioned(
-                  child: Container(
-                    padding: EdgeInsets.only(
-                      top: media.height * 0.60,
-                      left: media.width * 0.10,
-                      right: media.width * 0.10,
-                    ),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          "Forgot your password?",
-                          style: TextStyle(
-                            color: black,
-                            fontSize: media.width * 0.035,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -292,7 +210,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "Login",
+                            "Get OTP",
                             style: TextStyle(
                               color: white,
                               fontSize: media.width * 0.037,
@@ -304,44 +222,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       ),
                     ),
                     onTap: () {
-                      gotoOTPNumber();
+                      gotoDashboard("Taki Uddin", "3130");
                     },
-                  ),
-                ),
-                // Bottom Text
-                Positioned(
-                  child: Container(
-                    padding: EdgeInsets.only(
-                      top: media.height * 0.95,
-                    ),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Already have an account? ",
-                          style: TextStyle(
-                            color: black,
-                            fontSize: media.width * 0.037,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            gotoSignUp();
-                          },
-                          child: Text(
-                            " Sign Up",
-                            style: TextStyle(
-                              color: Color(0xFF465062),
-                              fontSize: 16.0,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
                   ),
                 ),
               ],
@@ -352,17 +234,22 @@ class _MyLoginPageState extends State<MyLoginPage> {
     );
   }
 
-  gotoOTPNumber() {
-    Navigator.of(context)
-        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-      return new OTPNumber();
-    }));
-  }
-
-  gotoSignUp() {
+  gotoOTPVerify() {
     Navigator.of(context)
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
       return new Signup();
+    }));
+  }
+
+  gotoDashboard(eName, eMail) async {
+    print(_mobileNumber.text);
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString("name", eName);
+    prefs.setString("email", eMail);
+    Navigator.of(context)
+        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+      return new Dashboard();
     }));
   }
 }

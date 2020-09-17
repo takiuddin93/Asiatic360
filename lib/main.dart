@@ -25,6 +25,8 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    prefs.setString("name", "Taki Uddin");
+    prefs.setString("email", "taki.uddin@asiaticmcl.com");
     _loginState = prefs.getString('loginState');
     return MaterialApp(
       debugShowCheckedModeBanner: false,

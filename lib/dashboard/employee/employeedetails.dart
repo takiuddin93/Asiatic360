@@ -1,4 +1,4 @@
-import 'package:asiatic360/dashboard/attendance.dart';
+import 'package:asiatic360/attendance/attendance_logs.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

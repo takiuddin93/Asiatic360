@@ -1,3 +1,4 @@
+import 'package:asiatic360/attendance/attendance.dart';
 import 'package:asiatic360/utils/asiatic360_app_icons_icons.dart';
 import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
@@ -5,13 +6,9 @@ import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:asiatic360/utils/mainappbar_style.dart';
 
-import '../main.dart';
-
 Color green = Color(0xFF6B8449);
 Color darkgreen = Color(0xFF4C5B39);
 Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
 Color red = Color(0XFFFD3131);
 Color white = Color(0xFFFFFFFF);
 
@@ -82,6 +79,24 @@ class MainAppBar extends StatelessWidget {
       case "attendance":
         {
           _iconData = Icons.arrow_back;
+        }
+        break;
+      case "attendanceLogs":
+        {
+          _iconData = Icons.arrow_back;
+          return Builder(
+            builder: (context) => IconButton(
+              color: green,
+              icon: new Icon(
+                _iconData,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Attendance()));
+              },
+            ),
+          );
         }
         break;
       case "vacation":
@@ -188,29 +203,52 @@ class MainAppBar extends StatelessWidget {
     );
   }
 
-  RichText _buildLabel(BuildContext context) {
+  Align _buildLabel(BuildContext context) {
     String _getEmoji;
     if (back == 'dashboard') {
       _getEmoji = getEmoji(context);
     } else {
       _getEmoji = '';
     }
-    return RichText(
-      text: TextSpan(
-        style: new TextStyle(
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-          fontSize: 24.0,
-          color: green,
-        ),
-        children: [
-          TextSpan(
-            text: title,
-          ),
-          TextSpan(text: _getEmoji),
-        ],
-      ),
-    );
+    return back == 'dashboard'
+        ? Align(
+            alignment: Alignment.centerLeft,
+            child: RichText(
+              text: TextSpan(
+                style: new TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24.0,
+                  color: green,
+                ),
+                children: [
+                  TextSpan(
+                    text: title,
+                  ),
+                  TextSpan(text: _getEmoji),
+                ],
+              ),
+            ),
+          )
+        : Align(
+            alignment: Alignment.center,
+            child: RichText(
+              text: TextSpan(
+                style: new TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24.0,
+                  color: green,
+                ),
+                children: [
+                  TextSpan(
+                    text: title,
+                  ),
+                  TextSpan(text: _getEmoji),
+                ],
+              ),
+            ),
+          );
   }
 
   Builder _buildaction(BuildContext context) {

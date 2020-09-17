@@ -19,7 +19,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
+<<<<<<< HEAD
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+=======
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+>>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
