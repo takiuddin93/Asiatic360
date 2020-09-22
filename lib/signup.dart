@@ -1,17 +1,11 @@
 import 'package:asiatic360/utils/login_signup_textFields.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/login.dart';
-
-Color green = Color(0xFF6B8449);
-Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
 
 var _loginState;
 
@@ -95,7 +89,7 @@ class _MySignupPageState extends State<MySignupPage> {
                     child: Text(
                       "Hello there!",
                       style: TextStyle(
-                        color: green,
+                        color: UniversalVariables.green,
                         fontSize: media.width * 0.075,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -121,7 +115,7 @@ class _MySignupPageState extends State<MySignupPage> {
                           child: Text(
                             "Sign Up to access to your dashboard",
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.04,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w300,
@@ -170,7 +164,7 @@ class _MySignupPageState extends State<MySignupPage> {
                             child: Text(
                               "Employee ID cannot be empty",
                               style: TextStyle(
-                                color: red,
+                                color: UniversalVariables.red,
                                 fontSize: media.width * 0.025,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
@@ -220,7 +214,7 @@ class _MySignupPageState extends State<MySignupPage> {
                             child: Text(
                               "Password cannot be empty",
                               style: TextStyle(
-                                color: red,
+                                color: UniversalVariables.red,
                                 fontSize: media.width * 0.025,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
@@ -270,7 +264,7 @@ class _MySignupPageState extends State<MySignupPage> {
                             child: Text(
                               "Confirm Password cannot be empty",
                               style: TextStyle(
-                                color: red,
+                                color: UniversalVariables.red,
                                 fontSize: media.width * 0.025,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
@@ -298,7 +292,7 @@ class _MySignupPageState extends State<MySignupPage> {
                           height: media.height * 0.05,
                           width: media.width,
                           decoration: BoxDecoration(
-                            color: green,
+                            color: UniversalVariables.green,
                             borderRadius: BorderRadius.circular(3),
                           ),
                           child: new Row(
@@ -307,7 +301,7 @@ class _MySignupPageState extends State<MySignupPage> {
                               Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                  color: white,
+                                  color: UniversalVariables.white,
                                   fontSize: media.width * 0.037,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
@@ -331,7 +325,7 @@ class _MySignupPageState extends State<MySignupPage> {
                         Text(
                           "Already have an account? ",
                           style: TextStyle(
-                            color: black,
+                            color: UniversalVariables.black,
                             fontSize: media.width * 0.037,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,

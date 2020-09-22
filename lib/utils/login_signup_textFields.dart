@@ -1,13 +1,6 @@
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
 
 class CustomTextField extends StatelessWidget {
   final String text;
@@ -24,16 +17,16 @@ class CustomTextField extends StatelessWidget {
     Widget _prefixiconData, _suffixiconData;
     if (obscureText == false && fingerprint == false) {
       _keyboartType = TextInputType.number;
-      _prefixiconData = Icon(Icons.account_circle, color: green,);
+      _prefixiconData = Icon(Icons.account_circle, color: UniversalVariables.green,);
       _suffixiconData = Icon(Icons.account_circle, color: Colors.transparent,);
     } else if(obscureText == true && fingerprint == true) {
       _keyboartType = TextInputType.text;
-      _prefixiconData = Icon(Icons.lock, color: green,);
-      _suffixiconData = Icon(Icons.fingerprint, color: green,);
+      _prefixiconData = Icon(Icons.lock, color: UniversalVariables.green,);
+      _suffixiconData = Icon(Icons.fingerprint, color: UniversalVariables.green,);
     } else {
       _keyboartType = TextInputType.text;
-      _prefixiconData = Icon(Icons.lock, color: green,);
-      _suffixiconData = Icon(Icons.remove_red_eye, color: grey,);
+      _prefixiconData = Icon(Icons.lock, color: UniversalVariables.green,);
+      _suffixiconData = Icon(Icons.remove_red_eye, color: UniversalVariables.grey,);
     }
     return Container(
       decoration: BoxDecoration(
@@ -41,7 +34,7 @@ class CustomTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.0),
         boxShadow: [
           BoxShadow(
-            color: greyShadow,
+            color: UniversalVariables.greyShadow,
             blurRadius: 4.0,
             spreadRadius: 4.0,
             offset: Offset(0.0, 2.0),
@@ -61,7 +54,7 @@ class CustomTextField extends StatelessWidget {
                 ),
                 labelText: text,
                 labelStyle: TextStyle(
-                  color: green,
+                  color: UniversalVariables.green,
                 ),
                 hintText: text,
                 suffixIcon: Builder(
@@ -101,7 +94,7 @@ class CustomTextField extends StatelessWidget {
                   borderRadius:
                       BorderRadius.all(Radius.circular(3.0)),
                   borderSide:
-                      BorderSide(color: green),
+                      BorderSide(color: UniversalVariables.green),
                 ),
               ),
               obscureText: obscureText,

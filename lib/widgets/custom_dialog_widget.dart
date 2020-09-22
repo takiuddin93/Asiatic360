@@ -19,7 +19,11 @@ class CustomDialog {
               child: AlertDialog(
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0)),
-                title: Center(child: Text(title, style: TextStyle(color: UniversalVariables.black),)),
+                title: Center(
+                    child: Text(
+                  title,
+                  style: TextStyle(color: UniversalVariables.black),
+                )),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -31,7 +35,10 @@ class CustomDialog {
                       height: 10,
                     ),
                     Container(
-                      child: Text(text, style: TextStyle(color: UniversalVariables.black),),
+                      child: Text(
+                        text,
+                        style: TextStyle(color: UniversalVariables.black),
+                      ),
                     ),
                   ],
                 ),
@@ -41,7 +48,7 @@ class CustomDialog {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(2.0),
                     ),
-                    color: Colors.white,
+                    color: UniversalVariables.white,
                     child: Text(firstButton),
                     onPressed: () {
                       Navigator.of(context).pop();

@@ -1,15 +1,8 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/dashboard/employee/employeedetails.dart';
-
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -173,8 +166,8 @@ class _MyEmployeeState extends State<MyEmployee> {
       child: Container(
         height: 77.3485715,
         decoration: BoxDecoration(
-          color: white,
-          border: Border.all(color: green, width: 1.25),
+          color: UniversalVariables.white,
+          border: Border.all(color: UniversalVariables.green, width: 1.25),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
@@ -243,7 +236,7 @@ class _MyEmployeeState extends State<MyEmployee> {
                               child: Text(
                                 eName,
                                 style: TextStyle(
-                                  color: black,
+                                  color: UniversalVariables.black,
                                   fontSize: media.width * 0.05,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
@@ -259,7 +252,7 @@ class _MyEmployeeState extends State<MyEmployee> {
                               child: Text(
                                 eDesignation,
                                 style: TextStyle(
-                                  color: black,
+                                  color: UniversalVariables.black,
                                   fontSize: media.width * 0.032,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,

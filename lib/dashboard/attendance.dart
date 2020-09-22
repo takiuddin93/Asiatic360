@@ -1,15 +1,7 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-Color white = Color(0xFFFFFFFF);
-Color greyShadow = Color(0xFF33808184);
-Color grey = Color(0xFF808184);
-Color black = Color(0xFF000000);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color yellow = Color(0xFFFFC800);
-Color red = Color(0XFFFD3131);
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -103,15 +95,15 @@ class _MyAttendanceState extends State<MyAttendance> {
       child: Container(
         height: media.height * 0.114,
         decoration: BoxDecoration(
-          color: white,
+          color: UniversalVariables.white,
           border: Border.all(
-            color: green,
+            color: UniversalVariables.green,
             width: 1.25
           ),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
-              color: greyShadow,
+              color: UniversalVariables.greyShadow,
               blurRadius: 4.0,
               spreadRadius: 4.0,
               offset: Offset(0.0, 2.0),
@@ -143,7 +135,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                         child: Text(
                           date,
                           style: TextStyle(
-                            color: green,
+                            color: UniversalVariables.green,
                             fontSize: media.width * 0.04,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
@@ -168,12 +160,12 @@ class _MyAttendanceState extends State<MyAttendance> {
                               child: Text(
                                 "Check-In",
                                 style: TextStyle(
-                                  color: green,
+                                  color: UniversalVariables.green,
                                   fontSize: media.width * 0.04,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: green,
+                                  decorationColor: UniversalVariables.green,
                                   decorationThickness: 2.0,
                                 ),
                                 textAlign: TextAlign.left,
@@ -185,7 +177,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                               child: Text(
                                 checkin,
                                 style: TextStyle(
-                                  color: green,
+                                  color: UniversalVariables.green,
                                   fontSize: media.width * 0.04,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
@@ -213,12 +205,12 @@ class _MyAttendanceState extends State<MyAttendance> {
                               child: Text(
                                 "Check-Out",
                                 style: TextStyle(
-                                  color: green,
+                                  color: UniversalVariables.green,
                                   fontSize: media.width * 0.04,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: green,
+                                  decorationColor: UniversalVariables.green,
                                   decorationThickness: 2.0,
                                 ),
                                 textAlign: TextAlign.left,
@@ -230,7 +222,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                               child: Text(
                                 checkout,
                                 style: TextStyle(
-                                  color: green,
+                                  color: UniversalVariables.green,
                                   fontSize: media.width * 0.04,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
@@ -254,9 +246,9 @@ class _MyAttendanceState extends State<MyAttendance> {
 
   getColor(checkin) {
     if (checkin < "10:30 AM") {
-      return green;
+      return UniversalVariables.green;
     } else {
-      return red;
+      return UniversalVariables.red;
     }
   }
 

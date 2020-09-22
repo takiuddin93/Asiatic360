@@ -1,5 +1,6 @@
 import 'package:asiatic360/main.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,14 +15,6 @@ import 'package:asiatic360/dashboard/payroll.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
-
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
 
 var _loginState;
 
@@ -82,19 +75,19 @@ class _MyDashboardState extends State<MyDashboard> {
           ),
           drawer: Drawer(
             child: Container(
-              color: green,
+              color: UniversalVariables.green,
               child: ListView(
                 // Important: Remove any padding from the ListView.
                 padding: EdgeInsets.zero,
                 children: <Widget>[
                   UserAccountsDrawerHeader(
                     decoration: BoxDecoration(
-                      color: green,
+                      color: UniversalVariables.green,
                     ),
                     accountName: Text(
                       prefs.getString("name"),
                       style: TextStyle(
-                        color: white,
+                        color: UniversalVariables.white,
                         fontSize: 18,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -104,7 +97,7 @@ class _MyDashboardState extends State<MyDashboard> {
                     accountEmail: Text(
                       prefs.getString("email"),
                       style: TextStyle(
-                        color: white,
+                        color: UniversalVariables.white,
                         fontSize: 14,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
@@ -112,14 +105,14 @@ class _MyDashboardState extends State<MyDashboard> {
                       textAlign: TextAlign.left,
                     ),
                     currentAccountPicture: CircleAvatar(
-                      backgroundColor: green,
+                      backgroundColor: UniversalVariables.green,
                       backgroundImage: AssetImage('assets/images/account.png'),
                     ),
                   ),
                   Container(
                     height: media.height,
                     decoration: BoxDecoration(
-                      color: white,
+                      color: UniversalVariables.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8.0),
                         topRight: Radius.circular(8.0),
@@ -135,7 +128,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'My Profile',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -158,7 +151,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'My Activities',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -181,7 +174,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'Team Activities',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -204,7 +197,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'Security',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -227,7 +220,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'Privacy',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -250,7 +243,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'Help Center',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -273,7 +266,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'Settings',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -296,7 +289,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           title: Text(
                             'Logout',
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.05,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -398,7 +391,7 @@ class _MyDashboardState extends State<MyDashboard> {
             right: media.width * 0.02,
             bottom: media.height * 0.01),
         child: Container(
-          decoration: BoxDecoration(color: white),
+          decoration: BoxDecoration(color: UniversalVariables.white),
           child: new InkWell(
             onTap: () {
               switch (i.toString()) {
@@ -528,7 +521,7 @@ class _MyDashboardState extends State<MyDashboard> {
                 ),
                 Text(title,
                     style: TextStyle(
-                      color: black,
+                      color: UniversalVariables.black,
                       fontSize: media.width * 0.04,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,

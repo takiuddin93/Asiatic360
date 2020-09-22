@@ -1,16 +1,8 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/dashboard/vacation/newleaverequest.dart';
-
-Color white = Color(0xFFFFFFFF);
-Color greyShadow = Color(0xFF33808184);
-Color grey = Color(0xFF808184);
-Color black = Color(0xFF000000);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color yellow = Color(0xFFFFC800);
-Color red = Color(0XFFFD3131);
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -97,8 +89,8 @@ class _MyLeaveRequestState extends State<MyLeaveRequest> {
         icon: Icon(
           Icons.add,
         ),
-        foregroundColor: white,
-        backgroundColor: green,
+        foregroundColor: UniversalVariables.white,
+        backgroundColor: UniversalVariables.green,
       ),
     );
   }
@@ -114,12 +106,12 @@ class _MyLeaveRequestState extends State<MyLeaveRequest> {
       child: Container(
         height: media.height * 0.064,
         decoration: BoxDecoration(
-          color: white,
+          color: UniversalVariables.white,
           border: Border.all(color: getColor(status), width: 1.25),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
-              color: greyShadow,
+              color: UniversalVariables.greyShadow,
               blurRadius: 4.0,
               spreadRadius: 4.0,
               offset: Offset(0.0, 2.0),
@@ -199,11 +191,11 @@ class _MyLeaveRequestState extends State<MyLeaveRequest> {
 
   getColor(status) {
     if (status == "pending") {
-      return yellow;
+      return UniversalVariables.yellow;
     } else if (status == "approved") {
-      return green;
+      return UniversalVariables.green;
     } else {
-      return red;
+      return UniversalVariables.red;
     }
   }
 }
