@@ -5,15 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-Color white = Color(0xFFFFFFFF);
-Color greyShadow = Color(0xFF33808184);
-Color grey = Color(0xFF808184);
-Color black = Color(0xFF000000);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color yellow = Color(0xFFFFC800);
-Color red = Color(0XFFFD3131);
-
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(Attendance());
@@ -266,7 +257,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                     height: media.height * 0.05,
                                     width: media.width * 0.24,
                                     decoration: BoxDecoration(
-                                      color: green,
+                                      color: UniversalVariables.green,
                                       borderRadius: BorderRadius.circular(3),
                                     ),
                                     child: new Row(
@@ -346,7 +337,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                           height: media.height * 0.05,
                           width: media.width * 0.2,
                           decoration: BoxDecoration(
-                            color: green,
+                            color: UniversalVariables.green,
                             borderRadius: BorderRadius.circular(3),
                           ),
                           child: new Row(
@@ -416,7 +407,7 @@ class _MyAttendanceState extends State<MyAttendance> {
       child: Container(
         height: media.height * 0.114,
         decoration: BoxDecoration(
-          color: white,
+          color: UniversalVariables.white,
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
@@ -515,9 +506,9 @@ class _MyAttendanceState extends State<MyAttendance> {
 
   getColor(checkin) {
     if (checkin < "10:30 AM") {
-      return green;
+      return UniversalVariables.green;
     } else {
-      return red;
+      return UniversalVariables.red;
     }
   }
 }

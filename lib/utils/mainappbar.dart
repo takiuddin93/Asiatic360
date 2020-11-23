@@ -6,12 +6,6 @@ import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:asiatic360/utils/mainappbar_style.dart';
 
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color black = Color(0xFF000000);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
-
 class MainAppBar extends StatelessWidget {
   final String title, back;
   static const String wavingHandEmoji = "\uD83D\uDC4B";
@@ -24,7 +18,7 @@ class MainAppBar extends StatelessWidget {
     return SafeArea(
       child: Container(
         height: appBarHeight(context),
-        color: white,
+        color: UniversalVariables.white,
         child: Padding(
           padding: EdgeInsets.all(0.0),
           child: Row(
@@ -67,7 +61,7 @@ class MainAppBar extends StatelessWidget {
           _iconData = Asiatic360AppIcons.menu;
           return Builder(
             builder: (context) => IconButton(
-              color: green,
+              color: UniversalVariables.green,
               icon: new Icon(
                 _iconData,
               ),
@@ -86,7 +80,7 @@ class MainAppBar extends StatelessWidget {
           _iconData = Icons.arrow_back;
           return Builder(
             builder: (context) => IconButton(
-              color: green,
+              color: UniversalVariables.green,
               icon: new Icon(
                 _iconData,
               ),
@@ -189,10 +183,10 @@ class MainAppBar extends StatelessWidget {
     }
     return Builder(
       builder: (context) => IconButton(
-        color: green,
+        color: UniversalVariables.green,
         icon: new Icon(
           _iconData,
-          color: green,
+          color: UniversalVariables.green,
         ),
         onPressed: () {
           Navigator.pop(context);
@@ -219,7 +213,7 @@ class MainAppBar extends StatelessWidget {
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0,
-                  color: green,
+                  color: UniversalVariables.green,
                 ),
                 children: [
                   TextSpan(
@@ -238,7 +232,7 @@ class MainAppBar extends StatelessWidget {
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0,
-                  color: green,
+                  color: UniversalVariables.green,
                 ),
                 children: [
                   TextSpan(
@@ -264,7 +258,7 @@ class MainAppBar extends StatelessWidget {
     }
     return Builder(
       builder: (context) => IconButton(
-        color: green,
+        color: UniversalVariables.green,
         icon: new Icon(Asiatic360AppIcons.notification),
         onPressed: () {
           CustomDialog.showScaleAlertBox(

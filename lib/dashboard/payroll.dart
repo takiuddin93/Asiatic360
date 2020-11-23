@@ -1,14 +1,7 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -39,7 +32,6 @@ class MyPayroll extends StatefulWidget {
 }
 
 class _MyPayrollState extends State<MyPayroll> {
-
   List leaveRequest = [
     {'date': '01/01/2020'},
     {'date': '12/12/2019'},
@@ -73,7 +65,6 @@ class _MyPayrollState extends State<MyPayroll> {
 
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
     final double itemHeight = media.height;
     final double itemWidth = media.width;
@@ -94,12 +85,12 @@ class _MyPayrollState extends State<MyPayroll> {
                 right: media.width * 0.08,
               ),
               child: Container(
-                height: media.height*0.24,
+                height: media.height * 0.24,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [green, Color(0XFFA7C57D)]
+                    colors: [UniversalVariables.green, Color(0XFFA7C57D)],
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -107,359 +98,356 @@ class _MyPayrollState extends State<MyPayroll> {
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            flex: 8,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 8,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.024,
                                 top: media.height * 0.016,
                                 right: media.width * 0.0,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "Pay",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.04,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Pay",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.04,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 2,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.0,
                                 top: media.height * 0.016,
                                 right: media.width * 0.024,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Image.asset(
-                                      'assets/images/asiaticpaycard.png',
-                                      width: media.width * 0.1,
-                                    ),
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Image.asset(
+                                    'assets/images/asiaticpaycard.png',
+                                    width: media.width * 0.1,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        ),
+                      ],
                     ),
                     SizedBox(height: media.height * 0.016),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            flex: 5,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 5,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.024,
                                 top: media.height * 0.0,
                                 right: media.width * 0.0,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "monthly",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.025,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "monthly",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.025,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 4,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 4,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.0,
                                 top: media.height * 0.0,
                                 right: media.width * 0.024,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(
-                                      "yearly",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.025,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "yearly",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.025,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(child: null,),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: null,
                           ),
-                        ],
+                        ),
+                      ],
                     ),
                     SizedBox(height: media.height * 0.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            flex: 4,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 4,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.024,
                                 top: media.height * 0.0,
                                 right: media.width * 0.0,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "৳ XX,XXX",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.05,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "৳ XX,XXX",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.05,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.024,
                                 top: media.height * 0.0,
                                 right: media.width * 0.0,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "/",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.05,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "/",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.05,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 4,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 4,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.0,
                                 top: media.height * 0.0,
                                 right: media.width * 0.024,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(
-                                      "৳ XXX,XXX",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.05,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "৳ XXX,XXX",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.05,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(child: null,),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: null,
                           ),
-                        ],
+                        ),
+                      ],
                     ),
                     SizedBox(height: media.height * 0.032),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            flex: 2,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.024,
                                 top: media.height * 0.0,
                                 right: media.width * 0.0,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(
-                                      "last payment",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.025,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                      textAlign: TextAlign.right,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "last payment",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.025,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300,
                                     ),
+                                    textAlign: TextAlign.right,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 2,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.024,
                                 top: media.height * 0.0,
                                 right: media.width * 0.0,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "12/19",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.05,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "12/19",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.05,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(child: null,),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: null,
                           ),
-                          Expanded(
-                            flex: 2,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.0,
                                 top: media.height * 0.0,
                                 right: media.width * 0.024,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(
-                                      "next payment",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.025,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                      textAlign: TextAlign.right,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "next payment",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.025,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300,
                                     ),
+                                    textAlign: TextAlign.right,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 2,
-                            child: new Padding(
-                              padding: EdgeInsets.only(
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: new Padding(
+                            padding: EdgeInsets.only(
                                 left: media.width * 0.0,
                                 top: media.height * 0.0,
                                 right: media.width * 0.024,
-                                bottom: media.height * 0.0
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(
-                                      "01/20",
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: media.width * 0.05,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.left,
+                                bottom: media.height * 0.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    "01/20",
+                                    style: TextStyle(
+                                      color: UniversalVariables.white,
+                                      fontSize: media.width * 0.05,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
                                     ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(child: null,),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: null,
                           ),
-                        ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -483,7 +471,7 @@ class _MyPayrollState extends State<MyPayroll> {
                     child: Text(
                       "History:",
                       style: TextStyle(
-                        color: green,
+                        color: UniversalVariables.green,
                         fontSize: media.width * 0.04,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
@@ -510,36 +498,34 @@ class _MyPayrollState extends State<MyPayroll> {
                   ListView.builder(
                     padding: EdgeInsets.all(0.0),
                     itemCount: leaveRequest.length,
-                    itemBuilder: (BuildContext context, int index){
+                    itemBuilder: (BuildContext context, int index) {
                       return makeDashboardItem(
-                        leaveRequest[index]['date'],
-                        // leaveRequest[index]['status'],
-                        media
-                      );
+                          leaveRequest[index]['date'],
+                          // leaveRequest[index]['status'],
+                          media);
                     },
                   ),
                 ],
               ),
             ),
-          ),          
+          ),
         ],
-      ),      
+      ),
     );
   }
 
-  Card makeDashboardItem(String date,Size media) {
+  Card makeDashboardItem(String date, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.0075,
-        right: media.width * 0.02,
-        bottom: media.height * 0.0075
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.0075,
+          right: media.width * 0.02,
+          bottom: media.height * 0.0075),
       child: Container(
         height: media.height * 0.052,
         decoration: BoxDecoration(
-          color: white,
+          color: UniversalVariables.white,
           // border: Border.all(
           //   color: getColor(status),
           //   width: 1.25
@@ -547,7 +533,7 @@ class _MyPayrollState extends State<MyPayroll> {
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
-              color: greyShadow,
+              color: UniversalVariables.greyShadow,
               blurRadius: 4.0,
               spreadRadius: 4.0,
               offset: Offset(0.0, 2.0),
@@ -580,7 +566,7 @@ class _MyPayrollState extends State<MyPayroll> {
                         child: Text(
                           date,
                           style: TextStyle(
-                            color: green,
+                            color: UniversalVariables.green,
                             fontSize: media.width * 0.04,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
@@ -625,7 +611,6 @@ class _MyPayrollState extends State<MyPayroll> {
     );
   }
 
-  
   // getColor(status) {
   //   if (status == "pending") {
   //     return yellow;

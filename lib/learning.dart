@@ -2,11 +2,6 @@ import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-Color black = Color(0xFF000000);
-Color white = Color(0xFFFFFFFF);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(Learning());
@@ -36,10 +31,8 @@ class MyLearning extends StatefulWidget {
 }
 
 class _MyLearningState extends State<MyLearning> {
-
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -61,15 +54,14 @@ class _MyLearningState extends State<MyLearning> {
     );
   }
 
-Card makeDashboardItem(String title, IconData icon, Size media) {
+  Card makeDashboardItem(String title, IconData icon, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.01,
-        right: media.width * 0.02,
-        bottom: media.width * 0.01
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.01,
+          right: media.width * 0.02,
+          bottom: media.width * 0.01),
       child: Container(
         decoration: BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1.0)),
         child: new InkWell(
@@ -89,8 +81,7 @@ Card makeDashboardItem(String title, IconData icon, Size media) {
               SizedBox(height: 20.0),
               new Center(
                 child: new Text(title,
-                    style:
-                        new TextStyle(fontSize: 18.0, color: Colors.black)),
+                    style: new TextStyle(fontSize: 18.0, color: Colors.black)),
               ),
             ],
           ),
