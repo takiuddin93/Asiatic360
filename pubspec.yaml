@@ -13,7 +13,7 @@ dependencies:
   flutter_svg: ^0.19.1
   # polygon_clipper: ^1.0.2
   flutter_slidable: ^0.5.7
-  url_launcher: ^5.7.7
+  url_launcher: ^5.7.8
   shared_preferences: ^0.5.12+2
   # local_auth: ^0.6.1
 
@@ -64,6 +64,9 @@ flutter:
     - family: Asiatic360AppIcons
       fonts:
         - asset: assets/fonts/icons/Asiatic360AppIcons.ttf
+    # - family: kjghkfjhkfjhf
+    #   fonts:
+    #     - assets: gjhsjkdhkjsd/bangla.ttf
 
   #
   # For details regarding fonts from package dependencies,

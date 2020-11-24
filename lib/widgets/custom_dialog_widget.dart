@@ -1,13 +1,19 @@
+import 'package:asiatic360/main.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+var _loginState;
 
 class CustomDialog {
   static Future showScaleAlertBox({
     @required BuildContext context,
     @required String title,
     IconData icon,
+    @required Color color,
     @required String text,
     @required String firstButton,
+    @required String secondButton,
   }) {
     return showGeneralDialog(
         barrierColor: Colors.black.withOpacity(0.7),
@@ -19,30 +25,75 @@ class CustomDialog {
               child: AlertDialog(
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0)),
-                title: Center(child: Text(title, style: TextStyle(color: UniversalVariables.black),)),
+                title: Center(
+                    child: Text(
+                  title,
+                  style: TextStyle(color: UniversalVariables.black),
+                )),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(
                       icon,
-                      color: UniversalVariables.primaryCrimson,
+                      color: color,
                     ),
                     Container(
                       height: 10,
                     ),
                     Container(
-                      child: Text(text, style: TextStyle(color: UniversalVariables.black),),
+                      child: Text(
+                        text,
+                        style: TextStyle(color: UniversalVariables.black),
+                      ),
                     ),
                   ],
                 ),
                 actions: <Widget>[
+                  firstButton == null
+                      ? null
+                      : firstButton == "Confirm"
+                          ? MaterialButton(
+                              // OPTIONAL BUTTON
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(2.0),
+                              ),
+                              color: UniversalVariables.white,
+                              child: Text(firstButton),
+                              onPressed: () async {
+                                Future<SharedPreferences> _prefs =
+                                    SharedPreferences.getInstance();
+                                final SharedPreferences prefs = await _prefs;
+                                _loginState =
+                                    prefs.setString("loginState", "0");
+                                _loginState = prefs.getString('loginState');
+                                while (_loginState == '0') {
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute<Null>(
+                                          builder: (BuildContext context) {
+                                    return new MyApp();
+                                  }));
+                                  break;
+                                }
+                              },
+                            )
+                          : MaterialButton(
+                              // OPTIONAL BUTTON
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(2.0),
+                              ),
+                              color: UniversalVariables.white,
+                              child: Text(firstButton),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
                   MaterialButton(
                     // OPTIONAL BUTTON
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(2.0),
                     ),
-                    color: Colors.white,
-                    child: Text(firstButton),
+                    color: UniversalVariables.white,
+                    child: Text(secondButton),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },

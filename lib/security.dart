@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
 
-Color black = Color(0xFF000000);
-Color white = Color(0xFFFFFFFF);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(Security());

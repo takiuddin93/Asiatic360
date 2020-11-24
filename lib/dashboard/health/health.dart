@@ -1,14 +1,10 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:asiatic360/dashboard/health/medical/medicalallowance.dart';
 import 'package:asiatic360/dashboard/health/blood/blooddonation.dart';
-
-Color black = Color(0xFF000000);
-Color white = Color(0xFFFFFFFF);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -72,7 +68,7 @@ class _MyHealthState extends State<MyHealth> {
           right: media.width * 0.02,
           bottom: media.width * 0.01),
       child: Container(
-        decoration: BoxDecoration(color: white),
+        decoration: BoxDecoration(color: UniversalVariables.white),
         child: new InkWell(
           onTap: () {
             switch (i.toString()) {
@@ -93,13 +89,14 @@ class _MyHealthState extends State<MyHealth> {
               case "3":
                 {
                   CustomDialog.showScaleAlertBox(
-                    context: context,
-                    title: 'Work in Progress',
-                    icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                    text:
-                        'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                    firstButton: 'Back',
-                  );
+                      context: context,
+                      title: 'Work in Progress',
+                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                      color: UniversalVariables.primaryCrimson,
+                      text:
+                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                      firstButton: '',
+                      secondButton: 'Back');
                 }
                 break;
               default:
@@ -120,11 +117,11 @@ class _MyHealthState extends State<MyHealth> {
               Icon(
                 icon,
                 size: 32.0,
-                color: green,
+                color: UniversalVariables.green,
               ),
               Text(title,
                   style: TextStyle(
-                    color: black,
+                    color: UniversalVariables.black,
                     fontSize: media.width * 0.04,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,

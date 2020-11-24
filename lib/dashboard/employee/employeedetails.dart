@@ -1,9 +1,10 @@
-import 'package:asiatic360/attendance/attendance_logs.dart';
+import 'package:asiatic360/dashboard/attendance/attendance_logs.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 
 Color green = Color(0xFF6B8449);
 Color darkgreen = Color(0xFF4C5B39);
@@ -200,7 +201,7 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                     ],
                     secondaryActions: <Widget>[
                       IconSlideAction(
-                          color: yellow,
+                          color: UniversalVariables.yellow,
                           icon: Icons.mail,
                           onTap: () => _message(ePhone)),
                     ],

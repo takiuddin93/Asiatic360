@@ -1,17 +1,16 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+
+import 'package:asiatic360/constants/strings.dart';
 import 'package:asiatic360/utils/login_signup_textFields.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/login.dart';
-
-Color green = Color(0xFF6B8449);
-Color black = Color(0xFF000000);
-Color grey = Color(0xFF808184);
-Color greyShadow = Color(0xFF33808184);
-Color red = Color(0XFFFD3131);
-Color white = Color(0xFFFFFFFF);
 
 var _loginState;
 
@@ -44,7 +43,6 @@ class MySignupPage extends StatefulWidget {
 }
 
 class _MySignupPageState extends State<MySignupPage> {
-
   final String assetName = 'assets/svgs/asiatic360_logo.svg';
 
   bool _validate = false;
@@ -72,12 +70,13 @@ class _MySignupPageState extends State<MySignupPage> {
                 // Background Image
                 Positioned(
                   top: media.height / 2 - 512,
-                  left: - (media.width * 1.25 ) / 2,
+                  left: -(media.width * 1.25) / 2,
                   width: media.width * 1.25,
                   child: Container(
                     width: media.width,
                     alignment: Alignment.centerLeft,
-                    child: SvgPicture.asset(assetName,
+                    child: SvgPicture.asset(
+                      assetName,
                       semanticsLabel: 'Asiatic360 Logo',
                     ),
                   ),
@@ -87,15 +86,14 @@ class _MySignupPageState extends State<MySignupPage> {
                   width: media.width,
                   child: Container(
                     padding: EdgeInsets.only(
-                      top: media.height * 0.11765,
-                      right: media.width * 0.10,
-                      bottom: media.width * 0.0,
-                      left: media.width * 0.10
-                    ),
+                        top: media.height * 0.11765,
+                        right: media.width * 0.10,
+                        bottom: media.width * 0.0,
+                        left: media.width * 0.10),
                     child: Text(
                       "Hello there!",
                       style: TextStyle(
-                        color: green,
+                        color: UniversalVariables.green,
                         fontSize: media.width * 0.075,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -108,11 +106,10 @@ class _MySignupPageState extends State<MySignupPage> {
                 Positioned(
                   child: Container(
                     padding: EdgeInsets.only(
-                      top: media.height * 0.17524,
-                      right: media.width * 0.10,
-                      bottom: media.width * 0.0,
-                      left: media.width * 0.10
-                    ),
+                        top: media.height * 0.17524,
+                        right: media.width * 0.10,
+                        bottom: media.width * 0.0,
+                        left: media.width * 0.10),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,7 +118,7 @@ class _MySignupPageState extends State<MySignupPage> {
                           child: Text(
                             "Sign Up to access to your dashboard",
                             style: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                               fontSize: media.width * 0.04,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w300,
@@ -136,7 +133,7 @@ class _MySignupPageState extends State<MySignupPage> {
                 //Employee ID
                 Positioned(
                   width: media.width,
-                  child: GestureDetector (
+                  child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
                       FocusScope.of(context).requestFocus(new FocusNode());
@@ -147,7 +144,14 @@ class _MySignupPageState extends State<MySignupPage> {
                         left: media.width * 0.10,
                         right: media.width * 0.10,
                       ),
-                      child: CustomTextField(text: "Employee ID", fieldController: _employeeID, validate: _validate, obscureText: false, fingerprint: false, context: context, media: media),
+                      child: CustomTextField(
+                          text: "Employee ID",
+                          fieldController: _employeeID,
+                          validate: _validate,
+                          obscureText: false,
+                          fingerprint: false,
+                          context: context,
+                          media: media),
                     ),
                   ),
                 ),
@@ -155,13 +159,12 @@ class _MySignupPageState extends State<MySignupPage> {
                 Positioned(
                   child: Visibility(
                     visible: _errorVisible,
-                    child:  Container(
+                    child: Container(
                       padding: EdgeInsets.only(
-                        top: media.height * 0.475,
-                        right: media.width * 0.10,
-                        bottom: media.width * 0.0,
-                        left: media.width * 0.10
-                      ),
+                          top: media.height * 0.475,
+                          right: media.width * 0.10,
+                          bottom: media.width * 0.0,
+                          left: media.width * 0.10),
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -170,7 +173,7 @@ class _MySignupPageState extends State<MySignupPage> {
                             child: Text(
                               "Employee ID cannot be empty",
                               style: TextStyle(
-                                color: red,
+                                color: UniversalVariables.red,
                                 fontSize: media.width * 0.025,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
@@ -186,7 +189,7 @@ class _MySignupPageState extends State<MySignupPage> {
                 // Password
                 Positioned(
                   width: media.width,
-                  child: GestureDetector (
+                  child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
                       FocusScope.of(context).requestFocus(new FocusNode());
@@ -197,7 +200,12 @@ class _MySignupPageState extends State<MySignupPage> {
                         left: media.width * 0.10,
                         right: media.width * 0.10,
                       ),
-                      child: CustomTextField(text: "Password", fieldController: _employeeID, validate: _validate, obscureText: true, media: media),
+                      child: CustomTextField(
+                          text: "Password",
+                          fieldController: _employeePassword,
+                          validate: _validate,
+                          obscureText: true,
+                          media: media),
                     ),
                   ),
                 ),
@@ -207,11 +215,10 @@ class _MySignupPageState extends State<MySignupPage> {
                     visible: _errorVisible,
                     child: Container(
                       padding: EdgeInsets.only(
-                        top: media.height * 0.575,
-                        right: media.width * 0.10,
-                        bottom: media.width * 0.0,
-                        left: media.width * 0.10
-                      ),
+                          top: media.height * 0.575,
+                          right: media.width * 0.10,
+                          bottom: media.width * 0.0,
+                          left: media.width * 0.10),
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -220,7 +227,7 @@ class _MySignupPageState extends State<MySignupPage> {
                             child: Text(
                               "Password cannot be empty",
                               style: TextStyle(
-                                color: red,
+                                color: UniversalVariables.red,
                                 fontSize: media.width * 0.025,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
@@ -236,7 +243,7 @@ class _MySignupPageState extends State<MySignupPage> {
                 // Confirm Password
                 Positioned(
                   width: media.width,
-                  child: GestureDetector (
+                  child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
                       FocusScope.of(context).requestFocus(new FocusNode());
@@ -247,7 +254,12 @@ class _MySignupPageState extends State<MySignupPage> {
                         left: media.width * 0.10,
                         right: media.width * 0.10,
                       ),
-                      child: CustomTextField(text: "Confirm Password", fieldController: _employeeID, validate: _validate, obscureText: true, media: media),
+                      child: CustomTextField(
+                          text: "Confirm Password",
+                          fieldController: _employeeConfirmPassword,
+                          validate: _validate,
+                          obscureText: true,
+                          media: media),
                     ),
                   ),
                 ),
@@ -257,11 +269,10 @@ class _MySignupPageState extends State<MySignupPage> {
                     visible: _errorVisible,
                     child: Container(
                       padding: EdgeInsets.only(
-                        top: media.height * 0.675,
-                        right: media.width * 0.10,
-                        bottom: media.width * 0.0,
-                        left: media.width * 0.10
-                      ),
+                          top: media.height * 0.675,
+                          right: media.width * 0.10,
+                          bottom: media.width * 0.0,
+                          left: media.width * 0.10),
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -270,7 +281,7 @@ class _MySignupPageState extends State<MySignupPage> {
                             child: Text(
                               "Confirm Password cannot be empty",
                               style: TextStyle(
-                                color: red,
+                                color: UniversalVariables.red,
                                 fontSize: media.width * 0.025,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
@@ -298,7 +309,7 @@ class _MySignupPageState extends State<MySignupPage> {
                           height: media.height * 0.05,
                           width: media.width,
                           decoration: BoxDecoration(
-                            color: green,
+                            color: UniversalVariables.green,
                             borderRadius: BorderRadius.circular(3),
                           ),
                           child: new Row(
@@ -307,7 +318,7 @@ class _MySignupPageState extends State<MySignupPage> {
                               Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                  color: white,
+                                  color: UniversalVariables.white,
                                   fontSize: media.width * 0.037,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
@@ -331,7 +342,7 @@ class _MySignupPageState extends State<MySignupPage> {
                         Text(
                           "Already have an account? ",
                           style: TextStyle(
-                            color: black,
+                            color: UniversalVariables.black,
                             fontSize: media.width * 0.037,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
@@ -364,20 +375,48 @@ class _MySignupPageState extends State<MySignupPage> {
   }
 
   _validateInputs() async {
-    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
+    if (_employeeID.text != '' &&
+        _employeePassword.text != '' &&
+        _employeePassword.text == _employeeConfirmPassword.text) {
+      var signupResponse = await http.post(
+          // Encode the url
+          API_URL + "/api/user/",
+          // Only accept JSON response
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(<String, dynamic>{
+            "emp_id": _employeeID.text,
+            "emp_designation": "",
+            "emp_email": "taki.uddin@gmail.com",
+            "emp_password": _employeePassword.text,
+            "status": ""
+          }));
+      // List data;
+      Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+      final SharedPreferences prefs = await _prefs;
 
-    if(_employeeID.text != '' && _employeePassword.text != '' && _employeeConfirmPassword.text != '') {
-      _loginState = prefs.setString("loginState", "1");
-      gotoDashboard();
+      Map<String, dynamic> data = json.decode(signupResponse.body);
+      print(data["response"].toString());
+      if (data["response"].toString() == "1") {
+        var userdetailsResponse = await http.get(
+            // Encode the url
+            API_URL + "/api/user/" + _employeeID.text);
+        Map<String, dynamic> userData = json.decode(userdetailsResponse.body);
+        if (userData["response"].toString() == "1") {
+          _loginState = prefs.setString("loginState", "1");
+          print("Data: " + userData["employee"]["emp_name"]);
+          gotoDashboard(
+              userData["employee"]["emp_name"], userData["employee"]["emp_id"]);
+        }
+      } else {}
     } else {
       // validation error
       setState(() {
         _validate = true;
-        _errorVisible =true;
+        _errorVisible = true;
       });
     }
-    
   }
 
   gotoLogin() {
@@ -387,7 +426,11 @@ class _MySignupPageState extends State<MySignupPage> {
     }));
   }
 
-  gotoDashboard() {
+  gotoDashboard(empName, empId) async {
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString("name", empName);
+    prefs.setInt("id", empId);
     Navigator.of(context)
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
       return new Dashboard();

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:asiatic360/dashboard.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,15 +8,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:asiatic360/signup.dart';
 import 'package:asiatic360/login.dart';
 
-Color black = Color(0xFF000000);
-Color white = Color(0xFFFFFFFF);
-Color green = Color(0xFF6B8449);
-
 SharedPreferences prefs;
 var _loginState;
 Future<void> main() async {
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: green));
+      SystemUiOverlayStyle(statusBarColor: UniversalVariables.green));
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
   _loginState = prefs.getString('loginState');
@@ -25,8 +22,6 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    prefs.setString("name", "Taki Uddin");
-    prefs.setString("email", "taki.uddin@asiaticmcl.com");
     _loginState = prefs.getString('loginState');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -34,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: _loginState == "1" ? Dashboard() : Login(),
     );
   }
 }
@@ -107,8 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: media.height * 0.075,
                           width: media.width,
                           decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: green),
-                            color: white,
+                            border: Border.all(
+                                width: 1, color: UniversalVariables.green),
+                            color: UniversalVariables.white,
                             borderRadius: BorderRadius.circular(4.0),
                           ),
                           child: new Row(
@@ -117,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text(
                                 "Get Started",
                                 style: TextStyle(
-                                  color: green,
+                                  color: UniversalVariables.green,
                                   fontSize: media.width * 0.037,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
@@ -148,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: media.height * 0.075,
                           width: media.width,
                           decoration: BoxDecoration(
-                            color: green,
+                            color: UniversalVariables.green,
                             borderRadius: BorderRadius.circular(4.0),
                           ),
                           child: new Row(
@@ -157,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text(
                                 "Login",
                                 style: TextStyle(
-                                  color: white,
+                                  color: UniversalVariables.white,
                                   fontSize: media.width * 0.037,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,

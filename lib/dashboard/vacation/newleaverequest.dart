@@ -1,15 +1,7 @@
 import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-Color white = Color(0xFFFFFFFF);
-Color greyShadow = Color(0xFF33808184);
-Color grey = Color(0xFF808184);
-Color black = Color(0xFF000000);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color yellow = Color(0xFFFFC800);
-Color red = Color(0XFFFD3131);
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -82,11 +74,11 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                   child: Text(
                                     "From:",
                                     style: TextStyle(
-                                      color: green,
+                                      color: UniversalVariables.green,
                                       fontSize: media.width * 0.05,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400,
-                                      decorationColor: green,
+                                      decorationColor: UniversalVariables.green,
                                       decorationThickness: 2.0,
                                     ),
                                     textAlign: TextAlign.left,
@@ -99,7 +91,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                     borderRadius: BorderRadius.circular(2.0),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: greyShadow,
+                                        color: UniversalVariables.greyShadow,
                                         blurRadius: 4.0,
                                         spreadRadius: 4.0,
                                         offset: Offset(0.0, 2.0),
@@ -124,7 +116,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                         borderRadius:
                                             BorderRadius.all(Radius.circular(2.0)),
                                         borderSide:
-                                            BorderSide(color: green),
+                                            BorderSide(color: UniversalVariables.green),
                                       ),
                                     ),
                                     obscureText: false,
@@ -162,11 +154,11 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                   child: Text(
                                     "To:",
                                     style: TextStyle(
-                                      color: green,
+                                      color: UniversalVariables.green,
                                       fontSize: media.width * 0.05,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400,
-                                      decorationColor: green,
+                                      decorationColor: UniversalVariables.green,
                                       decorationThickness: 2.0,
                                     ),
                                     textAlign: TextAlign.left,
@@ -179,7 +171,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                     borderRadius: BorderRadius.circular(2.0),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: greyShadow,
+                                        color: UniversalVariables.greyShadow,
                                         blurRadius: 4.0,
                                         spreadRadius: 4.0,
                                         offset: Offset(0.0, 2.0),
@@ -204,7 +196,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                         borderRadius:
                                             BorderRadius.all(Radius.circular(2.0)),
                                         borderSide:
-                                            BorderSide(color: green),
+                                            BorderSide(color: UniversalVariables.green),
                                       ),
                                     ),
                                     obscureText: false,
@@ -252,7 +244,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                     borderRadius: BorderRadius.circular(2.0),
                     boxShadow: [
                       BoxShadow(
-                        color: greyShadow,
+                        color: UniversalVariables.greyShadow,
                         blurRadius: 4.0,
                         spreadRadius: 4.0,
                         offset: Offset(0.0, 2.0),
@@ -266,7 +258,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                           decoration: InputDecoration(
                             labelText: "Purpose",
                             labelStyle: TextStyle(
-                              color: green,
+                              color: UniversalVariables.green,
                             ),
                             hintText: "Purpose",
                             fillColor: Colors.transparent,
@@ -280,7 +272,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
                               borderSide:
-                                  BorderSide(color: green),
+                                  BorderSide(color: UniversalVariables.green),
                             ),
                           ),
                           textAlignVertical: TextAlignVertical.top,
@@ -313,7 +305,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                   height: media.height * 0.05,
                   width: media.width,
                   decoration: BoxDecoration(
-                    color: green,
+                    color: UniversalVariables.green,
                     borderRadius: BorderRadius.circular(2),
                   ),
                   child: new Row(
@@ -322,7 +314,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                       Text(
                         "Submit",
                         style: TextStyle(
-                          color: white,
+                          color: UniversalVariables.white,
                           fontSize: media.width * 0.037,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,

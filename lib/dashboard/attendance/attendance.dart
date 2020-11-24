@@ -1,18 +1,17 @@
-import 'package:asiatic360/attendance/attendance_logs_test.dart';
+import 'dart:convert';
+
+import 'package:asiatic360/dashboard/attendance/attendance_logs_test.dart';
+import 'package:asiatic360/constants/strings.dart';
+import 'package:asiatic360/main.dart';
 import 'package:asiatic360/utils/mainappbar.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-Color white = Color(0xFFFFFFFF);
-Color greyShadow = Color(0xFF33808184);
-Color grey = Color(0xFF808184);
-Color black = Color(0xFF000000);
-Color green = Color(0xFF6B8449);
-Color darkgreen = Color(0xFF4C5B39);
-Color yellow = Color(0xFFFFC800);
-Color red = Color(0XFFFD3131);
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -61,9 +60,13 @@ class _MyAttendanceState extends State<MyAttendance> {
     final double itemWidth = media.width;
 
     var dt = DateTime.now();
-    var date = DateFormat.yMMMMd().format(dt);
+    var date = DateFormat("yyyy-MM-dd").format(dt);
     var time = DateFormat.jm().format(dt);
-    // var timezone = DateFormat.z().format(dt);
+    var time0 = DateFormat("HH:mm:ss").format(dt);
+    var timezone = date + " " + time0;
+
+    print(time);
+    print(timezone);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -114,7 +117,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   child: Container(),
                                 ),
                                 Expanded(
-                                  flex: 3,
+                                  flex: 2,
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: RichText(
@@ -131,7 +134,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   ),
                                 ),
                                 Expanded(
-                                  flex: 3,
+                                  flex: 4,
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: RichText(
@@ -162,7 +165,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   child: Container(),
                                 ),
                                 Expanded(
-                                  flex: 3,
+                                  flex: 2,
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: RichText(
@@ -179,7 +182,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   ),
                                 ),
                                 Expanded(
-                                  flex: 3,
+                                  flex: 4,
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: RichText(
@@ -210,7 +213,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   child: Container(),
                                 ),
                                 Expanded(
-                                  flex: 3,
+                                  flex: 2,
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: RichText(
@@ -227,7 +230,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   ),
                                 ),
                                 Expanded(
-                                  flex: 3,
+                                  flex: 4,
                                   child: Align(
                                     alignment: Alignment.centerLeft,
                                     child: RichText(
@@ -266,7 +269,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                     height: media.height * 0.05,
                                     width: media.width * 0.24,
                                     decoration: BoxDecoration(
-                                      color: green,
+                                      color: UniversalVariables.green,
                                       borderRadius: BorderRadius.circular(3),
                                     ),
                                     child: new Row(
@@ -290,7 +293,10 @@ class _MyAttendanceState extends State<MyAttendance> {
                                       ],
                                     ),
                                   ),
-                                  onTap: () {},
+                                  onTap: () {
+                                    doAttendance(prefs.getInt("id"), date,
+                                        time0, timezone);
+                                  },
                                 ),
                               ],
                             )
@@ -346,7 +352,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                           height: media.height * 0.05,
                           width: media.width * 0.2,
                           decoration: BoxDecoration(
-                            color: green,
+                            color: UniversalVariables.green,
                             borderRadius: BorderRadius.circular(3),
                           ),
                           child: new Row(
@@ -416,7 +422,7 @@ class _MyAttendanceState extends State<MyAttendance> {
       child: Container(
         height: media.height * 0.114,
         decoration: BoxDecoration(
-          color: white,
+          color: UniversalVariables.white,
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
@@ -513,11 +519,53 @@ class _MyAttendanceState extends State<MyAttendance> {
     );
   }
 
+  doAttendance(empId, checkinDate, checkinTime, checkinTz) async {
+    var attendanceResponse = await http.post(
+        // Encode the url
+        API_URL + "/api/attendance/",
+        // Only accept JSON response
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(<String, dynamic>{
+          "emp_id": empId,
+          "checkin_date": checkinDate,
+          "checkin_time": checkinTime,
+          "checkin_tz": checkinTz
+        }));
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await _prefs;
+
+    Map<String, dynamic> data = json.decode(attendanceResponse.body);
+    print("Response: " + data["response"].toString());
+    if (data["response"].toString() == "1") {
+      print("Attendance Recorded");
+      CustomDialog.showScaleAlertBox(
+          context: context,
+          title: 'Attendance',
+          icon: Icons.done_rounded, // IF YOU WANT TO ADD ICON
+          color: UniversalVariables.green,
+          text: 'Attendance Recorded', // IF YOU WANT TO ADD
+          firstButton: '',
+          secondButton: 'Ok');
+    } else {
+      print("Attendance Not Recorded");
+      CustomDialog.showScaleAlertBox(
+          context: context,
+          title: 'Attendance',
+          icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+          color: UniversalVariables.primaryCrimson,
+          text: 'Attendance Not Recorded', // IF YOU WANT TO ADD
+          firstButton: '',
+          secondButton: 'Ok');
+    }
+  }
+
   getColor(checkin) {
     if (checkin < "10:30 AM") {
-      return green;
+      return UniversalVariables.green;
     } else {
-      return red;
+      return UniversalVariables.red;
     }
   }
 }
