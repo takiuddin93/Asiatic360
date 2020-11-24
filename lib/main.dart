@@ -22,8 +22,6 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    prefs.setString("name", "Taki Uddin");
-    prefs.setString("email", "taki.uddin@asiaticmcl.com");
     _loginState = prefs.getString('loginState');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: _loginState == "1" ? Dashboard() : Login(),
     );
   }
 }
@@ -104,7 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: media.height * 0.075,
                           width: media.width,
                           decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: UniversalVariables.green),
+                            border: Border.all(
+                                width: 1, color: UniversalVariables.green),
                             color: UniversalVariables.white,
                             borderRadius: BorderRadius.circular(4.0),
                           ),

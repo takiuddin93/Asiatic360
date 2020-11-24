@@ -298,7 +298,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       ),
                     ),
                     onTap: () {
-                      gotoOTPNumber();
+                      _validateInputs();
                     },
                   ),
                 ),
@@ -325,7 +325,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             gotoSignUp();
                           },
                           child: Text(
-                            " Sign Up",
+                            "Sign Up",
                             style: TextStyle(
                               color: Color(0xFF465062),
                               fontSize: 16.0,
@@ -346,12 +346,67 @@ class _MyLoginPageState extends State<MyLoginPage> {
     );
   }
 
-  gotoOTPNumber() {
+  _validateInputs() {
+    if (_employeeID.text != '' && _employeePassword.text != '') {
+      try {
+        doLogin(_employeeID.text, _employeePassword.text);
+      } on Exception catch (e) {
+        throw Exception(e);
+      }
+    } else {
+      // validation error
+      setState(() {
+        _validate = true;
+        _errorVisible = true;
+      });
+    }
+  }
+
+  doLogin(empId, empPassword) async {
+    var loginResponse = await http.post(
+        // Encode the url
+        API_URL + "/api/user/login",
+        // Only accept JSON response
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(
+            <String, dynamic>{"emp_id": empId, "emp_password": empPassword}));
+    // List data;
+
+    Map<String, dynamic> data = json.decode(loginResponse.body);
+    print(data["response"].toString());
+    if (data["response"].toString() == "1") {
+      var userdetailsResponse = await http.get(
+          // Encode the url
+          API_URL + "/api/user/" + _employeeID.text);
+      Map<String, dynamic> userData = json.decode(userdetailsResponse.body);
+      if (userData["response"].toString() == "1") {
+        print("Data: " + userData["employee"]["emp_name"]);
+        gotoDashboard(
+            userData["employee"]["emp_name"], userData["employee"]["emp_id"]);
+      }
+    } else {}
+  }
+
+  gotoDashboard(empName, empId) async {
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await _prefs;
+    prefs.setString("name", empName);
+    prefs.setInt("id", empId);
+    _loginState = prefs.setString("loginState", "1");
     Navigator.of(context)
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-      return new OTPNumber();
+      return new Dashboard();
     }));
   }
+
+  // gotoOTPNumber() {
+  //   Navigator.of(context)
+  //       .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+  //     return new OTPNumber();
+  //   }));
+  // }
 
   gotoSignUp() {
     Navigator.of(context)

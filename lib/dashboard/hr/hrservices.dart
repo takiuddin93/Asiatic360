@@ -91,13 +91,14 @@ class _MyHRServicesState extends State<MyHRServices> {
               case "3":
                 {
                   CustomDialog.showScaleAlertBox(
-                    context: context,
-                    title: 'Work in Progress',
-                    icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                    text:
-                        'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                    firstButton: 'Back',
-                  );
+                      context: context,
+                      title: 'Work in Progress',
+                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                      color: UniversalVariables.primaryCrimson,
+                      text:
+                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                      firstButton: '',
+                      secondButton: 'Back');
                 }
                 break;
               default:

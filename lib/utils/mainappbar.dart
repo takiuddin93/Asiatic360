@@ -1,4 +1,4 @@
-import 'package:asiatic360/attendance/attendance.dart';
+import 'package:asiatic360/dashboard/attendance/attendance.dart';
 import 'package:asiatic360/utils/asiatic360_app_icons_icons.dart';
 import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
@@ -262,12 +262,13 @@ class MainAppBar extends StatelessWidget {
         icon: new Icon(Asiatic360AppIcons.notification),
         onPressed: () {
           CustomDialog.showScaleAlertBox(
-            context: context,
-            title: _alertdialogTitle,
-            icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-            text: _alertdialogDescription, // IF YOU WANT TO ADD
-            firstButton: _alertdialogButton,
-          );
+              context: context,
+              title: _alertdialogTitle,
+              icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+              color: UniversalVariables.primaryCrimson,
+              text: _alertdialogDescription, // IF YOU WANT TO ADD
+              firstButton: '',
+              secondButton: _alertdialogButton);
         },
       ),
     );

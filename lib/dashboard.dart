@@ -4,7 +4,7 @@ import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/attendance/attendance.dart';
+import 'package:asiatic360/dashboard/attendance/attendance.dart';
 import 'package:asiatic360/dashboard/vacation/vacation.dart';
 import 'package:asiatic360/dashboard/hr/hrservices.dart';
 import 'package:asiatic360/dashboard/health/health.dart';
@@ -137,14 +137,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -160,14 +161,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -183,14 +185,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -206,14 +209,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -229,14 +233,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -252,14 +257,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -275,14 +281,15 @@ class _MyDashboardState extends State<MyDashboard> {
                           ),
                           onTap: () {
                             CustomDialog.showScaleAlertBox(
-                              context: context,
-                              title: 'Work in Progress',
-                              icon:
-                                  Icons.info_outline, // IF YOU WANT TO ADD ICON
-                              text:
-                                  'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                              firstButton: 'Back',
-                            );
+                                context: context,
+                                title: 'Work in Progress',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                                firstButton: '',
+                                secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -296,44 +303,17 @@ class _MyDashboardState extends State<MyDashboard> {
                             ),
                             textAlign: TextAlign.left,
                           ),
-                          onTap: () async {
-                            Future<SharedPreferences> _prefs =
-                                SharedPreferences.getInstance();
-                            final SharedPreferences prefs = await _prefs;
-                            showDialog<void>(
-                              context: context,
-                              barrierDismissible:
-                                  false, // user must tap button!
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('Logout'),
-                                  content: SingleChildScrollView(
-                                    child: ListBody(
-                                      children: <Widget>[
-                                        Text('Do you want to Logout?'),
-                                      ],
-                                    ),
-                                  ),
-                                  actions: <Widget>[
-                                    FlatButton(
-                                      child: Text('Confirm'),
-                                      onPressed: () {
-                                        _loginState =
-                                            prefs.setString("loginState", "0");
-                                        gotoLogout();
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                    FlatButton(
-                                      child: Text('Cancel'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                          onTap: () {
+                            CustomDialog.showScaleAlertBox(
+                                context: context,
+                                title: 'Logout',
+                                icon: Icons
+                                    .info_outline, // IF YOU WANT TO ADD ICON
+                                color: UniversalVariables.primaryCrimson,
+                                text:
+                                    'Do you want to Logout?', // IF YOU WANT TO ADD
+                                firstButton: 'Confirm',
+                                secondButton: 'Back');
                           },
                         ),
                       ],
@@ -408,13 +388,14 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Vacation()));
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 case "3":
@@ -423,13 +404,14 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => HRServices()));
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 case "4":
@@ -438,13 +420,14 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Health()));
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 case "5":
@@ -453,13 +436,14 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Employee()));
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 case "6":
@@ -468,37 +452,40 @@ class _MyDashboardState extends State<MyDashboard> {
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (BuildContext context) => Payroll()));
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 case "7":
                   {
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 case "8":
                   {
                     CustomDialog.showScaleAlertBox(
-                      context: context,
-                      title: 'Work in Progress',
-                      icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                      text:
-                          'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                      firstButton: 'Back',
-                    );
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
                   }
                   break;
                 default:
