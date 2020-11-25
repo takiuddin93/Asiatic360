@@ -59,6 +59,7 @@ class _MyAttendanceState extends State<MyAttendance> {
     var time = DateFormat.jm().format(dt);
     var time0 = DateFormat("HH:mm:ss").format(dt);
     var timezone = date + " " + time0;
+    var attendance_type = 1;
 
     print(time);
     print(timezone);
@@ -290,7 +291,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   ),
                                   onTap: () {
                                     doAttendance(prefs.getInt("id"), date,
-                                        time0, timezone);
+                                        time0, timezone, attendance_type);
                                   },
                                 ),
                               ],
@@ -514,7 +515,8 @@ class _MyAttendanceState extends State<MyAttendance> {
     );
   }
 
-  doAttendance(empId, checkinDate, checkinTime, checkinTz) async {
+  doAttendance(
+      empId, checkinDate, checkinTime, checkinTz, attendanceType) async {
     var attendanceResponse = await http.post(
         // Encode the url
         API_URL + "/api/attendance/",
@@ -526,7 +528,7 @@ class _MyAttendanceState extends State<MyAttendance> {
           "emp_id": empId,
           "checkin_date": checkinDate,
           "checkin_time": checkinTime,
-          "checkin_tz": checkinTz
+          "attendance_type": attendanceType
         }));
     Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
     final SharedPreferences prefs = await _prefs;
