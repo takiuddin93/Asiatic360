@@ -2,6 +2,7 @@ import 'package:asiatic360/constants/strings.dart';
 import 'package:asiatic360/otp_number.dart';
 import 'package:asiatic360/utils/login_signup_textFields.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -14,10 +15,6 @@ import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/signup.dart';
 
 var _loginState;
-
-void main() {
-  runApp(Login());
-}
 
 class Login extends StatelessWidget {
   @override
@@ -376,7 +373,18 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
     Map<String, dynamic> data = json.decode(loginResponse.body);
     print(data["response"].toString());
-    if (data["response"].toString() == "1") {
+    if (data["response"].toString() == "0") {
+      print("Database error");
+    } else if (data["response"].toString() == "1") {
+      CustomDialog.showScaleAlertBox(
+          context: context,
+          title: 'Error!',
+          icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+          color: UniversalVariables.primaryCrimson,
+          text: 'Invalid Employee ID or Password', // IF YOU WANT TO ADD
+          firstButton: '',
+          secondButton: 'Ok');
+    } else if (data["response"].toString() == "2") {
       var userdetailsResponse = await http.get(
           // Encode the url
           API_URL + "/api/user/" + _employeeID.text);
@@ -386,7 +394,16 @@ class _MyLoginPageState extends State<MyLoginPage> {
         gotoDashboard(
             userData["employee"]["emp_name"], userData["employee"]["emp_id"]);
       }
-    } else {}
+    } else {
+      CustomDialog.showScaleAlertBox(
+          context: context,
+          title: 'Error!',
+          icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+          color: UniversalVariables.primaryCrimson,
+          text: 'Invalid Employee ID or Password', // IF YOU WANT TO ADD
+          firstButton: '',
+          secondButton: 'Ok');
+    }
   }
 
   gotoDashboard(empName, empId) async {

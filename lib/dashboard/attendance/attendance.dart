@@ -13,11 +13,6 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Attendance());
-}
-
 class Attendance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
