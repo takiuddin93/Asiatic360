@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:asiatic360/dashboard/attendance/attendance_logs_test.dart';
-import 'package:asiatic360/constants/strings.dart';
-import 'package:asiatic360/main.dart';
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
-import 'package:asiatic360/widgets/custom_dialog_widget.dart';
+import 'package:Asiatic360/dashboard/attendance/attendance_logs_test.dart';
+import 'package:Asiatic360/constants/strings.dart';
+import 'package:Asiatic360/main.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';

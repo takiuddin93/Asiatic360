@@ -1,4 +1,4 @@
-package com.example.asiatic360
+package com.example.Asiatic360
 
 import io.flutter.embedding.android.FlutterActivity
 

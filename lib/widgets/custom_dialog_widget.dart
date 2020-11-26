@@ -1,6 +1,6 @@
-import 'package:asiatic360/login.dart';
-import 'package:asiatic360/main.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/login.dart';
+import 'package:Asiatic360/main.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
