@@ -1,3 +1,4 @@
+import 'package:asiatic360/login.dart';
 import 'package:asiatic360/main.dart';
 import 'package:asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,7 @@ class CustomDialog {
                                 borderRadius: BorderRadius.circular(2.0),
                               ),
                               color: UniversalVariables.white,
-                              child: Text(firstButton),
+                              child: Container(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },

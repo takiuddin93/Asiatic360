@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:asiatic360/constants/strings.dart';
@@ -13,11 +14,6 @@ import 'package:asiatic360/dashboard.dart';
 import 'package:asiatic360/login.dart';
 
 var _loginState;
-
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Signup());
-}
 
 class Signup extends StatelessWidget {
   @override
@@ -398,7 +394,9 @@ class _MySignupPageState extends State<MySignupPage> {
 
       Map<String, dynamic> data = json.decode(signupResponse.body);
       print(data["response"].toString());
-      if (data["response"].toString() == "1") {
+      if (data["response"].toString() == "0") {
+        print("Database error");
+      } else if (data["response"].toString() == "1") {
         var userdetailsResponse = await http.get(
             // Encode the url
             API_URL + "/api/user/" + _employeeID.text);
@@ -409,7 +407,17 @@ class _MySignupPageState extends State<MySignupPage> {
           gotoDashboard(
               userData["employee"]["emp_name"], userData["employee"]["emp_id"]);
         }
-      } else {}
+      } else {
+        CustomDialog.showScaleAlertBox(
+            context: context,
+            title: 'ID Already Exists',
+            icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+            color: UniversalVariables.primaryCrimson,
+            text:
+                'This Employee ID aleady exists. Please choose to Login.', // IF YOU WANT TO ADD
+            firstButton: '',
+            secondButton: 'Ok');
+      }
     } else {
       // validation error
       setState(() {
