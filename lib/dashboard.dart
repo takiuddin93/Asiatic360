@@ -18,11 +18,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 var _loginState;
 
-void main() async {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Dashboard());
-}
-
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -95,7 +90,7 @@ class _MyDashboardState extends State<MyDashboard> {
                       textAlign: TextAlign.left,
                     ),
                     accountEmail: Text(
-                      prefs.getString("email"),
+                      prefs.getInt("id").toString(),
                       style: TextStyle(
                         color: UniversalVariables.white,
                         fontSize: 14,

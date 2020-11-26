@@ -37,16 +37,7 @@ class MyAttendance extends StatefulWidget {
 }
 
 class _MyAttendanceState extends State<MyAttendance> {
-  List attendance = [
-    {'via': 'App', 'checkin': '10:05 AM'},
-    {'via': 'App', 'checkin': '10:31 AM'},
-    {'via': 'App', 'checkin': '11:30 AM'},
-    {'via': 'App', 'checkin': '12:05 PM'},
-    {'via': 'App', 'checkin': '01:05 PM'},
-    {'via': 'App', 'checkin': '03:05 PM'},
-    {'via': 'App', 'checkin': '04:24 PM'},
-    {'via': 'App', 'checkin': '05:47 PM'}
-  ];
+  List _attendance;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +50,12 @@ class _MyAttendanceState extends State<MyAttendance> {
     var time = DateFormat.jm().format(dt);
     var time0 = DateFormat("HH:mm:ss").format(dt);
     var timezone = date + " " + time0;
-    var attendance_type = 1;
+    int attendanceType = 1;
 
     print(time);
     print(timezone);
+
+    fetchAllAttendance(media);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -291,7 +284,7 @@ class _MyAttendanceState extends State<MyAttendance> {
                                   ),
                                   onTap: () {
                                     doAttendance(prefs.getInt("id"), date,
-                                        time0, timezone, attendance_type);
+                                        time0, timezone, attendanceType);
                                   },
                                 ),
                               ],
@@ -392,10 +385,11 @@ class _MyAttendanceState extends State<MyAttendance> {
                 children: <Widget>[
                   ListView.builder(
                     padding: EdgeInsets.all(0.0),
-                    itemCount: attendance.length,
+                    itemCount: _attendance.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return makeDashboardItem(attendance[index]['via'],
-                          attendance[index]['checkin'], media);
+                      print("This is: " + _attendance[index]);
+                      return makeDashboardItem(_attendance[index]['attendance_type'].toString(),
+                          _attendance[index]['checkin_time'].toString(), media);
                     },
                   ),
                 ],
@@ -513,6 +507,23 @@ class _MyAttendanceState extends State<MyAttendance> {
         ),
       ),
     );
+  }
+
+  fetchAllAttendance(Size media) async {
+    var allAttendanceResponse = await http.get(
+        // Encode the url
+        API_URL + "/api/attendance/" + prefs.getInt("id").toString());
+    Map<String, dynamic> allAttendanceData =
+        json.decode(allAttendanceResponse.body);
+    _attendance = allAttendanceData["data"];
+    // if (allAttendanceData["response"].toString() == "1") {
+    // for (var i = 0; i < _attendance.length; i++) {
+    // print("This is: " + _attendance[i].toString());
+    // print("Data: " + allAttendanceData["data"][i].toString());
+    // makeDashboardItem(allAttendanceData["data"][i]["attendance_type"],
+    //     allAttendanceData["data"][i]["checkin_time"], media);
+    // }
+    // }
   }
 
   doAttendance(
