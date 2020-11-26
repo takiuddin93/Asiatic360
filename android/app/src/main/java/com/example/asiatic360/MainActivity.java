@@ -1,4 +1,4 @@
-package com.example.asiatic360;
+package com.example.Asiatic360;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

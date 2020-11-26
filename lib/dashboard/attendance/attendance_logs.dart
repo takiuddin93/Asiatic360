@@ -1,5 +1,5 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -143,7 +143,8 @@ class _MyAttendanceLogsState extends State<MyAttendanceLogs> {
       child: Container(
         height: media.height * 0.114,
         decoration: BoxDecoration(
-          color: late == true ? UniversalVariables.red : UniversalVariables.green,
+          color:
+              late == true ? UniversalVariables.red : UniversalVariables.green,
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(

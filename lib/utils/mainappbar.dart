@@ -1,10 +1,10 @@
-import 'package:asiatic360/dashboard/attendance/attendance.dart';
-import 'package:asiatic360/utils/asiatic360_app_icons_icons.dart';
-import 'package:asiatic360/dashboard.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
-import 'package:asiatic360/widgets/custom_dialog_widget.dart';
+import 'package:Asiatic360/dashboard/attendance/attendance.dart';
+import 'package:Asiatic360/utils/Asiatic360_app_icons_icons.dart';
+import 'package:Asiatic360/dashboard.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:asiatic360/utils/mainappbar_style.dart';
+import 'package:Asiatic360/utils/mainappbar_style.dart';
 
 class MainAppBar extends StatelessWidget {
   final String title, back;

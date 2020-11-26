@@ -1,10 +1,10 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
-import 'package:asiatic360/widgets/custom_dialog_widget.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/dashboard/hr/salary/salarycertificate.dart';
-import 'package:asiatic360/dashboard/hr/payslip/payslip.dart';
+import 'package:Asiatic360/dashboard/hr/salary/salarycertificate.dart';
+import 'package:Asiatic360/dashboard/hr/payslip/payslip.dart';
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);

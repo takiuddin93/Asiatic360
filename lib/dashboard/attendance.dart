@@ -1,5 +1,5 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -32,7 +32,6 @@ class MyAttendance extends StatefulWidget {
 }
 
 class _MyAttendanceState extends State<MyAttendance> {
-
   List attendance = [
     {'date': '18/10/2019', 'checkin': '10:05 AM', 'checkout': '08:47 PM'},
     {'date': '17/10/2019', 'checkin': '10:05 AM', 'checkout': '08:47 PM'},
@@ -48,7 +47,6 @@ class _MyAttendanceState extends State<MyAttendance> {
 
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
     final double itemHeight = media.height;
     final double itemWidth = media.width;
@@ -68,13 +66,12 @@ class _MyAttendanceState extends State<MyAttendance> {
             ListView.builder(
               padding: EdgeInsets.all(0.0),
               itemCount: attendance.length,
-              itemBuilder: (BuildContext context, int index){
+              itemBuilder: (BuildContext context, int index) {
                 return makeDashboardItem(
-                  attendance[index]['date'],
-                  attendance[index]['checkin'],
-                  attendance[index]['checkout'],
-                  media
-                );
+                    attendance[index]['date'],
+                    attendance[index]['checkin'],
+                    attendance[index]['checkout'],
+                    media);
               },
             ),
           ],
@@ -83,23 +80,20 @@ class _MyAttendanceState extends State<MyAttendance> {
     );
   }
 
-  Card makeDashboardItem(String date, String checkin, String checkout, Size media) {
+  Card makeDashboardItem(
+      String date, String checkin, String checkout, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.005,
-        right: media.width * 0.02,
-        bottom: media.height * 0.005
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.005,
+          right: media.width * 0.02,
+          bottom: media.height * 0.005),
       child: Container(
         height: media.height * 0.114,
         decoration: BoxDecoration(
           color: UniversalVariables.white,
-          border: Border.all(
-            color: UniversalVariables.green,
-            width: 1.25
-          ),
+          border: Border.all(color: UniversalVariables.green, width: 1.25),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
@@ -148,11 +142,10 @@ class _MyAttendanceState extends State<MyAttendance> {
                       flex: 3,
                       child: new Padding(
                         padding: EdgeInsets.only(
-                          left: media.width * 0.04,
-                          top: media.height * 0.0,
-                          right: media.width * 0.0,
-                          bottom: media.height * 0.0
-                        ),
+                            left: media.width * 0.04,
+                            top: media.height * 0.0,
+                            right: media.width * 0.0,
+                            bottom: media.height * 0.0),
                         child: Column(
                           children: [
                             Align(
@@ -171,7 +164,9 @@ class _MyAttendanceState extends State<MyAttendance> {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            SizedBox(height: media.height * 0.0016,),
+                            SizedBox(
+                              height: media.height * 0.0016,
+                            ),
                             Align(
                               alignment: Alignment.center,
                               child: Text(
@@ -193,11 +188,10 @@ class _MyAttendanceState extends State<MyAttendance> {
                       flex: 3,
                       child: new Padding(
                         padding: EdgeInsets.only(
-                          left: media.width * 0.04,
-                          top: media.height * 0.01,
-                          right: media.width * 0.0,
-                          bottom: media.height * 0.01
-                        ),
+                            left: media.width * 0.04,
+                            top: media.height * 0.01,
+                            right: media.width * 0.0,
+                            bottom: media.height * 0.01),
                         child: Column(
                           children: [
                             Align(
@@ -216,7 +210,9 @@ class _MyAttendanceState extends State<MyAttendance> {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            SizedBox(height: media.height * 0.0016,),
+                            SizedBox(
+                              height: media.height * 0.0016,
+                            ),
                             Align(
                               alignment: Alignment.center,
                               child: Text(
@@ -251,5 +247,4 @@ class _MyAttendanceState extends State<MyAttendance> {
       return UniversalVariables.red;
     }
   }
-
 }

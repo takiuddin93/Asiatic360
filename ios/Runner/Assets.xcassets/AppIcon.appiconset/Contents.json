@@ -1,115 +1,115 @@
 {
   "images" : [
     {
-      "filename" : "1x asiatic360-Notifications@2x.png",
+      "filename" : "1x Asiatic360-Notifications@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "1x asiatic360-Notifications@3x.png",
+      "filename" : "1x Asiatic360-Notifications@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "asiatic360-Settings.png",
+      "filename" : "Asiatic360-Settings.png",
       "idiom" : "iphone",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "asiatic360-Settings@2x.png",
+      "filename" : "Asiatic360-Settings@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "asiatic360-Settings@3x.png",
+      "filename" : "Asiatic360-Settings@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "asiatic360-Spotlight@2x.png",
+      "filename" : "Asiatic360-Spotlight@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "asiatic360-Spotlight@3x.png",
+      "filename" : "Asiatic360-Spotlight@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "asiatic360-App@2x.png",
+      "filename" : "Asiatic360-App@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "asiatic360-App@3x.png",
+      "filename" : "Asiatic360-App@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "1x asiatic360-Notifications.png",
+      "filename" : "1x Asiatic360-Notifications.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "1x asiatic360-Notifications@2x-1.png",
+      "filename" : "1x Asiatic360-Notifications@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "asiatic360-Settings-1.png",
+      "filename" : "Asiatic360-Settings-1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "asiatic360-Settings@2x-1.png",
+      "filename" : "Asiatic360-Settings@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "asiatic360-Spotlight.png",
+      "filename" : "Asiatic360-Spotlight.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "asiatic360-Spotlight@2x-1.png",
+      "filename" : "Asiatic360-Spotlight@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "asiatic360-App.png",
+      "filename" : "Asiatic360-App.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "asiatic360-App@2x-1.png",
+      "filename" : "Asiatic360-App@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "asiatic360-App@2x-2.png",
+      "filename" : "Asiatic360-App@2x-2.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "1x asiatic360-App store .png",
+      "filename" : "1x Asiatic360-App store .png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
