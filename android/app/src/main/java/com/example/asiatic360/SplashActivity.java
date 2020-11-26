@@ -1,4 +1,4 @@
-package com.example.Asiatic360;
+package com.example.asiatic360;
 
 import android.content.Intent;
 import android.os.Bundle;

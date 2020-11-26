@@ -509,12 +509,12 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 <<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = com.amcl.Asiatic360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amcl.asiatic360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Asiatic360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.asiatic360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -668,9 +668,9 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 <<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = com.amcl.Asiatic360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amcl.asiatic360;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Asiatic360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.asiatic360;
 >>>>>>> 37e1191ad0986a7223931b09693ae2a5e950997f
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -717,12 +717,12 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 <<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = com.amcl.Asiatic360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amcl.asiatic360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Asiatic360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.asiatic360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
