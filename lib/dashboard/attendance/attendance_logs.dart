@@ -36,69 +36,6 @@ class MyAttendanceLogs extends StatefulWidget {
 }
 
 class _MyAttendanceLogsState extends State<MyAttendanceLogs> {
-  List attendanceLogs = [
-    {
-      'date': '18/10/2019',
-      'checkin': '10:31 AM',
-      'checkout': '08:47 PM',
-      'late': true
-    },
-    {
-      'date': '17/10/2019',
-      'checkin': '10:05 AM',
-      'checkout': '08:47 PM',
-      'late': false
-    },
-    {
-      'date': '16/10/2019',
-      'checkin': '10:05 AM',
-      'checkout': '08:47 PM',
-      'late': false
-    },
-    {
-      'date': '15/10/2019',
-      'checkin': '10:45 AM',
-      'checkout': '08:47 PM',
-      'late': true
-    },
-    {
-      'date': '12/10/2019',
-      'checkin': '10:36 AM',
-      'checkout': '08:47 PM',
-      'late': true
-    },
-    {
-      'date': '11/10/2019',
-      'checkin': '10:15 AM',
-      'checkout': '08:47 PM',
-      'late': false
-    },
-    {
-      'date': '10/10/2019',
-      'checkin': '10:05 AM',
-      'checkout': '08:47 PM',
-      'late': false
-    },
-    {
-      'date': '09/10/2019',
-      'checkin': '10:05 AM',
-      'checkout': '08:47 PM',
-      'late': false
-    },
-    {
-      'date': '08/10/2019',
-      'checkin': '10:50 AM',
-      'checkout': '08:47 PM',
-      'late': true
-    },
-    {
-      'date': '07/10/2019',
-      'checkin': '10:05 AM',
-      'checkout': '08:47 PM',
-      'late': false
-    }
-  ];
-
   @override
   void initState() {
     super.initState();

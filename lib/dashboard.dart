@@ -395,66 +395,66 @@ class _MyDashboardState extends State<MyDashboard> {
                   break;
                 case "3":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => HRServices()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => HRServices()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "4":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Health()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Health()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "5":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Employee()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Employee()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "6":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Payroll()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Payroll()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "7":
