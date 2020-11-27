@@ -391,6 +391,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
       Map<String, dynamic> userData = json.decode(userdetailsResponse.body);
       if (userData["response"].toString() == "1") {
         print("Data: " + userData["employee"]["emp_name"]);
+        print("Data: " + userData["employee"]["emp_id"].toString());
         gotoDashboard(
             userData["employee"]["emp_name"], userData["employee"]["emp_id"]);
       }
