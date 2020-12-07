@@ -2,7 +2,7 @@ import 'package:Asiatic360/utils/mainappbar.dart';
 import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:Asiatic360/newmedicalrequest.dart';
+import 'package:Asiatic360/dashboard/health/medical/newmedicalrequest.dart';
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);

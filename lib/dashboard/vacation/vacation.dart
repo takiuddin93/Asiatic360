@@ -4,11 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:Asiatic360/dashboard/vacation/leaverequest.dart';
 
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Vacation());
-}
-
 class Vacation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

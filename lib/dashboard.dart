@@ -298,17 +298,20 @@ class _MyDashboardState extends State<MyDashboard> {
                             ),
                             textAlign: TextAlign.left,
                           ),
-                          onTap: () {
-                            CustomDialog.showScaleAlertBox(
-                                context: context,
-                                title: 'Logout',
-                                icon: Icons
-                                    .info_outline, // IF YOU WANT TO ADD ICON
-                                color: UniversalVariables.primaryCrimson,
-                                text:
-                                    'Do you want to Logout?', // IF YOU WANT TO ADD
-                                firstButton: 'Confirm',
-                                secondButton: 'Back');
+                          onTap: () async {
+                            Future<SharedPreferences> _prefs =
+                                SharedPreferences.getInstance();
+                            final SharedPreferences prefs = await _prefs;
+                            _loginState = prefs.setString("loginState", "0");
+                            _loginState = prefs.getString('loginState');
+                            while (_loginState == '0') {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute<Null>(
+                                      builder: (BuildContext context) {
+                                return new MyApp();
+                              }));
+                              break;
+                            }
                           },
                         ),
                       ],

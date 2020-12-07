@@ -50,44 +50,6 @@ class CustomDialog {
                   ],
                 ),
                 actions: <Widget>[
-                  firstButton == null
-                      ? null
-                      : firstButton == "Confirm"
-                          ? MaterialButton(
-                              // OPTIONAL BUTTON
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(2.0),
-                              ),
-                              color: UniversalVariables.white,
-                              child: Text(firstButton),
-                              onPressed: () async {
-                                Future<SharedPreferences> _prefs =
-                                    SharedPreferences.getInstance();
-                                final SharedPreferences prefs = await _prefs;
-                                _loginState =
-                                    prefs.setString("loginState", "0");
-                                _loginState = prefs.getString('loginState');
-                                while (_loginState == '0') {
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute<Null>(
-                                          builder: (BuildContext context) {
-                                    return new MyApp();
-                                  }));
-                                  break;
-                                }
-                              },
-                            )
-                          : MaterialButton(
-                              // OPTIONAL BUTTON
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(2.0),
-                              ),
-                              color: UniversalVariables.white,
-                              child: Container(),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
                   MaterialButton(
                     // OPTIONAL BUTTON
                     shape: RoundedRectangleBorder(
