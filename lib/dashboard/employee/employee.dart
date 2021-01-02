@@ -75,9 +75,9 @@ class _MyEmployeeState extends State<MyEmployee> {
                           etaki["data"][index]['emp_firstname'].toString() +
                               " " +
                               etaki["data"][index]['emp_lastname'].toString(),
+                          etaki["data"][index]['emp_designation'].toString(),
                           etaki["data"][index]['emp_phone'].toString(),
                           etaki["data"][index]['emp_email'].toString(),
-                          etaki["data"][index]['emp_phone'].toString(),
                           media);
                     },
                   ),
@@ -94,8 +94,8 @@ class _MyEmployeeState extends State<MyEmployee> {
     );
   }
 
-  Card makeDashboardItem(String ePhoto, String eName, String ePhone,
-      String eMail, String eDesignation, Size media) {
+  Card makeDashboardItem(String ePhoto, String eName, String eDesignation,
+      String ePhone, String eMail, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
@@ -123,11 +123,12 @@ class _MyEmployeeState extends State<MyEmployee> {
             Navigator.pop(context);
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) => EmployeeDetails(
-                    ePhoto: ePhoto,
-                    eName: eName,
-                    ePhone: ePhone,
-                    eMail: eMail,
-                    eDesignation: eDesignation)));
+                      ePhoto: ePhoto,
+                      eName: eName,
+                      eDesignation: eDesignation,
+                      ePhone: ePhone,
+                      eMail: eMail,
+                    )));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

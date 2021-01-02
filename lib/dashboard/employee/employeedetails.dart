@@ -15,13 +15,13 @@ Color red = Color(0XFFFD3131);
 Color white = Color(0xFFFFFFFF);
 
 class EmployeeDetails extends StatelessWidget {
-  final String ePhoto, eName, ePhone, eMail, eDesignation;
+  final String ePhoto, eName, eDesignation, eMail, ePhone;
   EmployeeDetails(
       {@required this.ePhoto,
       @required this.eName,
-      @required this.ePhone,
+      @required this.eDesignation,
       @required this.eMail,
-      @required this.eDesignation});
+      @required this.ePhone});
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +31,13 @@ class EmployeeDetails extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyEmployeeDetails(
-          title: 'Employee Details',
-          ePhoto: ePhoto,
-          eName: eName,
-          ePhone: ePhone,
-          eMail: eMail,
-          eDesignation: eDesignation),
+        title: 'Employee Details',
+        ePhoto: ePhoto,
+        eName: eName,
+        eDesignation: eDesignation,
+        ePhone: ePhone,
+        eMail: eMail,
+      ),
     );
   }
 }
@@ -44,27 +45,27 @@ class EmployeeDetails extends StatelessWidget {
 class MyEmployeeDetails extends StatefulWidget {
   final String title;
 
-  final String ePhoto, eName, ePhone, eMail, eDesignation;
+  final String ePhoto, eName, eDesignation, ePhone, eMail;
 
-  MyEmployeeDetails(
-      {Key key,
-      this.title,
-      this.ePhoto,
-      this.eName,
-      this.ePhone,
-      this.eMail,
-      this.eDesignation})
-      : super(key: key);
+  MyEmployeeDetails({
+    Key key,
+    this.title,
+    this.ePhoto,
+    this.eName,
+    this.eDesignation,
+    this.ePhone,
+    this.eMail,
+  }) : super(key: key);
 
   @override
   _MyEmployeeDetailsState createState() => _MyEmployeeDetailsState(
-      this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation);
+      this.ePhoto, this.eName, this.eDesignation, this.ePhone, this.eMail);
 }
 
 class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
-  String ePhoto, eName, ePhone, eMail, eDesignation;
+  String ePhoto, eName, eDesignation, ePhone, eMail;
   _MyEmployeeDetailsState(
-      this.ePhoto, this.eName, this.ePhone, this.eMail, this.eDesignation);
+      this.ePhoto, this.eName, this.eDesignation, this.ePhone, this.eMail);
 
   @override
   Widget build(BuildContext context) {
