@@ -90,7 +90,10 @@ class _MyPayslipState extends State<MyPayslip> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [UniversalVariables.green, Color(0XFFA7C57D)],
+                    colors: [
+                      UniversalVariables.green,
+                      Color(0XFFA7C57D),
+                    ],
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),

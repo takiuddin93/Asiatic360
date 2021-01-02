@@ -200,7 +200,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           fieldController: _employeePassword,
                           validate: _validate,
                           obscureText: true,
-                          fingerprint: true,
+                          fingerprint: false,
                           context: context,
                           media: media),
                     ),

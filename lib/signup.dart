@@ -383,8 +383,6 @@ class _MySignupPageState extends State<MySignupPage> {
           },
           body: jsonEncode(<String, dynamic>{
             "emp_id": _employeeID.text,
-            "emp_designation": "",
-            "emp_email": "taki.uddin@gmail.com",
             "emp_password": _employeePassword.text,
             "status": ""
           }));

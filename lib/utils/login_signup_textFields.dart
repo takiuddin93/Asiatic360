@@ -51,7 +51,7 @@ class CustomTextField extends StatelessWidget {
         color: UniversalVariables.green,
       );
       _suffixiconData = Icon(
-        Icons.remove_red_eye,
+        null,
         color: UniversalVariables.grey,
       );
     }
