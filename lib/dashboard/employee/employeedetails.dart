@@ -1,10 +1,10 @@
-import 'package:asiatic360/dashboard/attendance/attendance_logs.dart';
-import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/dashboard/attendance/attendance_logs.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 
 Color green = Color(0xFF6B8449);
 Color darkgreen = Color(0xFF4C5B39);
@@ -13,18 +13,6 @@ Color grey = Color(0xFF808184);
 Color greyShadow = Color(0xFF33808184);
 Color red = Color(0XFFFD3131);
 Color white = Color(0xFFFFFFFF);
-
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  String ePhoto, eName, ePhone, eMail, eDesignation;
-  runApp(EmployeeDetails(
-    ePhoto: ePhoto,
-    eName: eName,
-    ePhone: ePhone,
-    eMail: eMail,
-    eDesignation: eDesignation,
-  ));
-}
 
 class EmployeeDetails extends StatelessWidget {
   final String ePhoto, eName, ePhone, eMail, eDesignation;
@@ -121,7 +109,7 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
                 // ),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("${this.ePhoto}"),
+                    image: NetworkImage(this.ePhoto),
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
@@ -387,28 +375,25 @@ class _MyEmployeeDetailsState extends State<MyEmployeeDetails> {
     );
   }
 
-  _call(String ePhone) async {
-    var url = 'tel:$ePhone';
-    if (await canLaunch(url)) {
-      await launch(url);
+  Future<void> _call(String ePhone) async {
+    if (await canLaunch('tel:$ePhone')) {
+      await launch('tel:$ePhone');
     } else {
-      throw 'Could not Call the Number';
+      throw 'Could not Call {$ePhone}';
     }
   }
 
   _message(String ePhone) async {
-    var url = 'sms:$ePhone';
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunch('sms:$ePhone')) {
+      await launch('sms:$ePhone');
     } else {
       throw 'Could not Message the Number';
     }
   }
 
   _mail(String eMail) async {
-    var url = 'mailto:$eMail';
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunch('mailto:$eMail')) {
+      await launch('mailto:$eMail');
     } else {
       throw 'Could not Mail the E-mail Address';
     }

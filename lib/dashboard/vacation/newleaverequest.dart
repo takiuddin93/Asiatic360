@@ -1,12 +1,8 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(NewLeaveRequest());
-}
 
 class NewLeaveRequest extends StatelessWidget {
   @override
@@ -32,12 +28,10 @@ class MyNewLeaveRequest extends StatefulWidget {
 }
 
 class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
-
   DateTime dateFrom, dateTo;
 
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -84,7 +78,9 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                SizedBox(height: media.height * 0.0016,),
+                                SizedBox(
+                                  height: media.height * 0.0016,
+                                ),
                                 Container(
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFFFFF),
@@ -107,16 +103,16 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                       hintText: dateFrom.toString(),
                                       fillColor: Colors.transparent,
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(2.0)),
-                                        borderSide:
-                                            BorderSide(color: Colors.transparent),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(2.0)),
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(2.0)),
-                                        borderSide:
-                                            BorderSide(color: UniversalVariables.green),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(2.0)),
+                                        borderSide: BorderSide(
+                                            color: UniversalVariables.green),
                                       ),
                                     ),
                                     obscureText: false,
@@ -126,11 +122,10 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                     ),
                                     onTap: () async {
                                       final datePicker = await showDatePicker(
-                                        context: context,
-                                        firstDate: new DateTime.now(),
-                                        initialDate: new DateTime.now(),
-                                        lastDate: new DateTime(2025)
-                                      );
+                                          context: context,
+                                          firstDate: new DateTime.now(),
+                                          initialDate: new DateTime.now(),
+                                          lastDate: new DateTime(2025));
                                       if (datePicker != null) {
                                         setState(() {
                                           dateFrom = datePicker;
@@ -143,7 +138,8 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                             ),
                           ),
                           Expanded(
-                            flex: 2, child: Container(),
+                            flex: 2,
+                            child: Container(),
                           ),
                           Expanded(
                             flex: 4,
@@ -164,7 +160,9 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                SizedBox(height: media.height * 0.0016,),
+                                SizedBox(
+                                  height: media.height * 0.0016,
+                                ),
                                 Container(
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFFFFF),
@@ -187,16 +185,16 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                       hintText: dateTo.toString(),
                                       fillColor: Colors.transparent,
                                       enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(2.0)),
-                                        borderSide:
-                                            BorderSide(color: Colors.transparent),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(2.0)),
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(2.0)),
-                                        borderSide:
-                                            BorderSide(color: UniversalVariables.green),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(2.0)),
+                                        borderSide: BorderSide(
+                                            color: UniversalVariables.green),
                                       ),
                                     ),
                                     obscureText: false,
@@ -206,11 +204,10 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                                     ),
                                     onTap: () async {
                                       final datePicker = await showDatePicker(
-                                        context: context,
-                                        firstDate: new DateTime.now(),
-                                        initialDate: new DateTime.now(),
-                                        lastDate: new DateTime(2025)
-                                      );
+                                          context: context,
+                                          firstDate: new DateTime.now(),
+                                          initialDate: new DateTime.now(),
+                                          lastDate: new DateTime(2025));
                                       if (datePicker != null) {
                                         setState(() {
                                           dateTo = datePicker;
@@ -265,8 +262,7 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent),
+                              borderSide: BorderSide(color: Colors.transparent),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
@@ -296,35 +292,44 @@ class _MyNewLeaveRequestState extends State<MyNewLeaveRequest> {
               left: media.width * 0.75,
               right: media.width * 0.05,
               child: GestureDetector(
-                child: Container(
-                  padding: EdgeInsets.only(
-                      top: media.height * 0.0,
-                      left: media.width * 0.0,
-                      bottom: 0.0,
-                      right: media.width * 0.0),
-                  height: media.height * 0.05,
-                  width: media.width,
-                  decoration: BoxDecoration(
-                    color: UniversalVariables.green,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Submit",
-                        style: TextStyle(
-                          color: UniversalVariables.white,
-                          fontSize: media.width * 0.037,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
+                  child: Container(
+                    padding: EdgeInsets.only(
+                        top: media.height * 0.0,
+                        left: media.width * 0.0,
+                        bottom: 0.0,
+                        right: media.width * 0.0),
+                    height: media.height * 0.05,
+                    width: media.width,
+                    decoration: BoxDecoration(
+                      color: UniversalVariables.green,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Submit",
+                          style: TextStyle(
+                            color: UniversalVariables.white,
+                            fontSize: media.width * 0.037,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                onTap: () {}
-              ),
+                  onTap: () {
+                    CustomDialog.showScaleAlertBox(
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
+                  }),
             ),
           ],
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -31,10 +31,8 @@ class MySecurity extends StatefulWidget {
 }
 
 class _MySecurityState extends State<MySecurity> {
-
   @override
   Widget build(BuildContext context) {
-    
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -56,15 +54,14 @@ class _MySecurityState extends State<MySecurity> {
     );
   }
 
-Card makeDashboardItem(String title, IconData icon, Size media) {
+  Card makeDashboardItem(String title, IconData icon, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
-        left: media.width * 0.02,
-        top: media.height * 0.01,
-        right: media.width * 0.02,
-        bottom: media.width * 0.01
-      ),
+          left: media.width * 0.02,
+          top: media.height * 0.01,
+          right: media.width * 0.02,
+          bottom: media.width * 0.01),
       child: Container(
         decoration: BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1.0)),
         child: new InkWell(
@@ -84,7 +81,7 @@ Card makeDashboardItem(String title, IconData icon, Size media) {
               SizedBox(height: 20.0),
               new Center(
                 child: new Text(title,
-                  style: new TextStyle(fontSize: 18.0, color: Colors.black)),
+                    style: new TextStyle(fontSize: 18.0, color: Colors.black)),
               ),
             ],
           ),

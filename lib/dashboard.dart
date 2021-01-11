@@ -1,27 +1,22 @@
-import 'package:asiatic360/main.dart';
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
-import 'package:asiatic360/widgets/custom_dialog_widget.dart';
+import 'package:Asiatic360/main.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/dashboard/attendance/attendance.dart';
-import 'package:asiatic360/dashboard/vacation/vacation.dart';
-import 'package:asiatic360/dashboard/hr/hrservices.dart';
-import 'package:asiatic360/dashboard/health/health.dart';
-import 'package:asiatic360/dashboard/employee/employee.dart';
-// import 'package:asiatic360/security.dart';
-// import 'package:asiatic360/learning.dart';
-import 'package:asiatic360/dashboard/payroll.dart';
+import 'package:Asiatic360/dashboard/attendance/attendance.dart';
+import 'package:Asiatic360/dashboard/vacation/vacation.dart';
+import 'package:Asiatic360/dashboard/hr/hrservices.dart';
+import 'package:Asiatic360/dashboard/health/health.dart';
+import 'package:Asiatic360/dashboard/employee/employee.dart';
+// import 'package:Asiatic360/security.dart';
+// import 'package:Asiatic360/learning.dart';
+import 'package:Asiatic360/dashboard/payroll.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 
 var _loginState;
-
-void main() async {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Dashboard());
-}
 
 class Dashboard extends StatelessWidget {
   @override
@@ -95,7 +90,7 @@ class _MyDashboardState extends State<MyDashboard> {
                       textAlign: TextAlign.left,
                     ),
                     accountEmail: Text(
-                      prefs.getString("email"),
+                      prefs.getInt("id").toString(),
                       style: TextStyle(
                         color: UniversalVariables.white,
                         fontSize: 14,
@@ -303,17 +298,20 @@ class _MyDashboardState extends State<MyDashboard> {
                             ),
                             textAlign: TextAlign.left,
                           ),
-                          onTap: () {
-                            CustomDialog.showScaleAlertBox(
-                                context: context,
-                                title: 'Logout',
-                                icon: Icons
-                                    .info_outline, // IF YOU WANT TO ADD ICON
-                                color: UniversalVariables.primaryCrimson,
-                                text:
-                                    'Do you want to Logout?', // IF YOU WANT TO ADD
-                                firstButton: 'Confirm',
-                                secondButton: 'Back');
+                          onTap: () async {
+                            Future<SharedPreferences> _prefs =
+                                SharedPreferences.getInstance();
+                            final SharedPreferences prefs = await _prefs;
+                            _loginState = prefs.setString("loginState", "0");
+                            _loginState = prefs.getString('loginState');
+                            while (_loginState == '0') {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute<Null>(
+                                      builder: (BuildContext context) {
+                                return new MyApp();
+                              }));
+                              break;
+                            }
                           },
                         ),
                       ],
@@ -384,82 +382,82 @@ class _MyDashboardState extends State<MyDashboard> {
                   break;
                 case "2":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Vacation()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Vacation()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "3":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => HRServices()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => HRServices()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "4":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Health()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Health()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "5":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Employee()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Employee()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "6":
                   {
-                    // Navigator.pop(context);
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (BuildContext context) => Payroll()));
-                    CustomDialog.showScaleAlertBox(
-                        context: context,
-                        title: 'Work in Progress',
-                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
-                        color: UniversalVariables.primaryCrimson,
-                        text:
-                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                        firstButton: '',
-                        secondButton: 'Back');
+                    Navigator.pop(context);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Payroll()));
+                    // CustomDialog.showScaleAlertBox(
+                    //     context: context,
+                    //     title: 'Work in Progress',
+                    //     icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                    //     color: UniversalVariables.primaryCrimson,
+                    //     text:
+                    //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                    //     firstButton: '',
+                    //     secondButton: 'Back');
                   }
                   break;
                 case "7":

@@ -1,5 +1,6 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -252,7 +253,8 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                       focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(2.0)),
-                                        borderSide: BorderSide(color: UniversalVariables.green),
+                                        borderSide: BorderSide(
+                                            color: UniversalVariables.green),
                                       ),
                                     ),
                                     obscureText: false,
@@ -311,7 +313,8 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                                           fontSize: media.width * 0.05,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w400,
-                                          decorationColor: UniversalVariables.green,
+                                          decorationColor:
+                                              UniversalVariables.green,
                                           decorationThickness: 2.0,
                                         ),
                                         textAlign: TextAlign.left,
@@ -370,7 +373,8 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide: BorderSide(color: UniversalVariables.green),
+                              borderSide:
+                                  BorderSide(color: UniversalVariables.green),
                             ),
                           ),
                           textAlignVertical: TextAlignVertical.top,
@@ -421,7 +425,17 @@ class _MyBloodDonationState extends State<MyBloodDonation> {
                       ],
                     ),
                   ),
-                  onTap: () {}),
+                  onTap: () {
+                    CustomDialog.showScaleAlertBox(
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
+                  }),
             ),
           ],
         ),

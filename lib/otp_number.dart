@@ -1,6 +1,6 @@
-import 'package:asiatic360/constants/strings.dart';
-import 'package:asiatic360/utils/login_signup_textFields.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/constants/strings.dart';
+import 'package:Asiatic360/utils/login_signup_textFields.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -9,8 +9,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:asiatic360/dashboard.dart';
-import 'package:asiatic360/signup.dart';
+import 'package:Asiatic360/dashboard.dart';
+import 'package:Asiatic360/signup.dart';
 
 var _loginState;
 
@@ -42,7 +42,7 @@ class MyOTPNumberPage extends StatefulWidget {
 }
 
 class _MyOTPNumberPageState extends State<MyOTPNumberPage> {
-  final String assetName = 'assets/svgs/asiatic360_logo.svg';
+  final String assetName = 'assets/svgs/Asiatic360_logo.svg';
 
   bool _validate = false;
   bool _errorVisible = false;

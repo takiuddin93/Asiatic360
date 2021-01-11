@@ -1,13 +1,20 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'dart:convert';
+
+import 'package:Asiatic360/constants/strings.dart';
+import 'package:Asiatic360/main.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/dashboard/employee/employeedetails.dart';
+import 'package:Asiatic360/dashboard/employee/employeedetails.dart';
 
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Employee());
-}
+import 'package:http/http.dart' as http;
+
+Map<String, dynamic> etaki;
+bool fetched = false;
+final String noImageAvailable =
+    "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg";
 
 class Employee extends StatelessWidget {
   @override
@@ -33,88 +40,11 @@ class MyEmployee extends StatefulWidget {
 }
 
 class _MyEmployeeState extends State<MyEmployee> {
-  List employees = [
-    {
-      "ePhoto": "assets/images/Neville-Ferdous-Hasan.jpg",
-      "eName": "Nevile Ferdous Hasan",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "Managing Director"
-    },
-    {
-      "ePhoto": "assets/images/Aditya-Kabir.jpg",
-      "eName": "Aditya Kabir",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "AVP, Strategic Planning"
-    },
-    {
-      "ePhoto": "assets/images/Salek-Shahriar.jpg",
-      "eName": "Salek Shahriar",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "Director"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Shahriar M. Hassan",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "Consultant"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Md. Tanzib Hossain",
-      "ePhone": "01717883717",
-      "eMail": "tanzib.hossain@asiaticjwt.com",
-      "eBloodGroup": "",
-      "eDesignation": "UI/UX Developer"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Razib Biswas Tirtha",
-      "ePhone": "01723432693",
-      "eMail": "razib.biswas@asiaticjwt.com",
-      "eBloodGroup": "",
-      "eDesignation": "UI/UX Developer"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Taki Uddin",
-      "ePhone": "01749607995",
-      "eMail": "taki.uddin@asiaticjwt.com",
-      "eBloodGroup": "",
-      "eDesignation": "App Devoloper"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Akash Hasan",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "Digital Research and Analytics Supervisor"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Refat Mahmud",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "Senior Data Analyst"
-    },
-    {
-      "ePhoto": "assets/images/profile-placeholder.png",
-      "eName": "Farah Diba",
-      "ePhone": "",
-      "eMail": "",
-      "eBloodGroup": "",
-      "eDesignation": "Managing Director"
-    }
-  ];
+  @override
+  void initState() {
+    super.initState();
+    fetchAllEmployees();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,35 +57,45 @@ class _MyEmployeeState extends State<MyEmployee> {
         child: MainAppBar(title: widget.title, back: "employee"),
         preferredSize: Size.fromHeight(media.height),
       ),
-      body: Container(
-        height: media.height,
-        padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
-        child: GridView.count(
-          crossAxisCount: 1,
-          childAspectRatio: (itemWidth / itemHeight),
-          padding: EdgeInsets.all(3.0),
-          children: <Widget>[
-            ListView.builder(
-              padding: EdgeInsets.all(0.0),
-              itemCount: employees.length,
-              itemBuilder: (BuildContext context, int index) {
-                return makeDashboardItem(
-                    employees[index]["ePhoto"],
-                    employees[index]["eName"],
-                    employees[index]["ePhone"],
-                    employees[index]["eMail"],
-                    employees[index]["eDesignation"],
-                    media);
-              },
+      body: fetched == true
+          ? Container(
+              height: media.height,
+              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
+              child: GridView.count(
+                crossAxisCount: 1,
+                childAspectRatio: (itemWidth / itemHeight),
+                padding: EdgeInsets.all(3.0),
+                children: <Widget>[
+                  ListView.builder(
+                    padding: EdgeInsets.all(0.0),
+                    itemCount: etaki["data"].length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return makeDashboardItem(
+                          noImageAvailable,
+                          etaki["data"][index]['emp_firstname'].toString() +
+                              " " +
+                              etaki["data"][index]['emp_lastname'].toString(),
+                          etaki["data"][index]['emp_designation'].toString(),
+                          etaki["data"][index]['emp_phone'].toString(),
+                          etaki["data"][index]['emp_email'].toString(),
+                          media);
+                    },
+                  ),
+                ],
+              ),
+            )
+          : Center(
+              child: CircularProgressIndicator(
+                backgroundColor: UniversalVariables.darkgreen,
+                valueColor:
+                    new AlwaysStoppedAnimation<Color>(UniversalVariables.green),
+              ),
             ),
-          ],
-        ),
-      ),
     );
   }
 
-  Card makeDashboardItem(String ePhoto, String eName, String ePhone,
-      String eMail, String eDesignation, Size media) {
+  Card makeDashboardItem(String ePhoto, String eName, String eDesignation,
+      String ePhone, String eMail, Size media) {
     return Card(
       elevation: 1.0,
       margin: EdgeInsets.only(
@@ -164,14 +104,14 @@ class _MyEmployeeState extends State<MyEmployee> {
           right: media.width * 0.02,
           bottom: media.height * 0.005),
       child: Container(
-        height: 77.3485715,
+        height: 91.665909091,
         decoration: BoxDecoration(
           color: UniversalVariables.white,
           border: Border.all(color: UniversalVariables.green, width: 1.25),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
-              color: greyShadow,
+              color: UniversalVariables.greyShadow,
               blurRadius: 4.0,
               spreadRadius: 4.0,
               offset: Offset(0.0, 2.0),
@@ -214,9 +154,9 @@ class _MyEmployeeState extends State<MyEmployee> {
                             topLeft: Radius.circular(3.0),
                             bottomLeft: Radius.circular(3.0),
                           ),
-                          child: Image.asset(
+                          child: Image.network(
                             ePhoto,
-                            width: 128.0,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -272,5 +212,26 @@ class _MyEmployeeState extends State<MyEmployee> {
         ),
       ),
     );
+  }
+
+  fetchAllEmployees() async {
+    var allEmployeesResponse = await http.get(
+        // Encode the url
+        API_URL + "/api/users/except/" + prefs.getInt("id").toString());
+    Map<String, dynamic> allEmployeesData =
+        json.decode(allEmployeesResponse.body);
+    print(allEmployeesData["response"].toString());
+    if (allEmployeesData["response"].toString() == "1") {
+      print(allEmployeesData["data"].toString());
+      setState(() {
+        etaki = allEmployeesData;
+        fetched = true;
+      });
+    } else {
+      setState(() {
+        etaki = allEmployeesData;
+        fetched = false;
+      });
+    }
   }
 }

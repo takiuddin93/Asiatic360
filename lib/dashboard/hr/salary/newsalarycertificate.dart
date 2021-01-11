@@ -1,5 +1,6 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -213,7 +214,8 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(2.0)),
-                              borderSide: BorderSide(color: UniversalVariables.green),
+                              borderSide:
+                                  BorderSide(color: UniversalVariables.green),
                             ),
                           ),
                           textAlignVertical: TextAlignVertical.top,
@@ -264,7 +266,17 @@ class _MyNewSalaryCertificateState extends State<MyNewSalaryCertificate> {
                       ],
                     ),
                   ),
-                  onTap: () {}),
+                  onTap: () {
+                    CustomDialog.showScaleAlertBox(
+                        context: context,
+                        title: 'Work in Progress',
+                        icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                        color: UniversalVariables.primaryCrimson,
+                        text:
+                            'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                        firstButton: '',
+                        secondButton: 'Back');
+                  }),
             ),
           ],
         ),

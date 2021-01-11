@@ -1,23 +1,19 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:asiatic360/constants/strings.dart';
-import 'package:asiatic360/utils/login_signup_textFields.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/constants/strings.dart';
+import 'package:Asiatic360/utils/login_signup_textFields.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:asiatic360/dashboard.dart';
-import 'package:asiatic360/login.dart';
+import 'package:Asiatic360/dashboard.dart';
+import 'package:Asiatic360/login.dart';
 
 var _loginState;
-
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Signup());
-}
 
 class Signup extends StatelessWidget {
   @override
@@ -43,7 +39,7 @@ class MySignupPage extends StatefulWidget {
 }
 
 class _MySignupPageState extends State<MySignupPage> {
-  final String assetName = 'assets/svgs/asiatic360_logo.svg';
+  final String assetName = 'assets/svgs/Asiatic360_logo.svg';
 
   bool _validate = false;
   bool _errorVisible = false;
@@ -387,8 +383,6 @@ class _MySignupPageState extends State<MySignupPage> {
           },
           body: jsonEncode(<String, dynamic>{
             "emp_id": _employeeID.text,
-            "emp_designation": "",
-            "emp_email": "taki.uddin@gmail.com",
             "emp_password": _employeePassword.text,
             "status": ""
           }));
@@ -398,7 +392,9 @@ class _MySignupPageState extends State<MySignupPage> {
 
       Map<String, dynamic> data = json.decode(signupResponse.body);
       print(data["response"].toString());
-      if (data["response"].toString() == "1") {
+      if (data["response"].toString() == "0") {
+        print("Database error");
+      } else if (data["response"].toString() == "1") {
         var userdetailsResponse = await http.get(
             // Encode the url
             API_URL + "/api/user/" + _employeeID.text);
@@ -409,7 +405,17 @@ class _MySignupPageState extends State<MySignupPage> {
           gotoDashboard(
               userData["employee"]["emp_name"], userData["employee"]["emp_id"]);
         }
-      } else {}
+      } else {
+        CustomDialog.showScaleAlertBox(
+            context: context,
+            title: 'ID Already Exists',
+            icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+            color: UniversalVariables.primaryCrimson,
+            text:
+                'This Employee ID aleady exists. Please choose to Login.', // IF YOU WANT TO ADD
+            firstButton: '',
+            secondButton: 'Ok');
+      }
     } else {
       // validation error
       setState(() {

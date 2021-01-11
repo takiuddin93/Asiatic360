@@ -1,13 +1,8 @@
-import 'package:asiatic360/utils/mainappbar.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/dashboard/vacation/leaverequest.dart';
-
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  runApp(Vacation());
-}
+import 'package:Asiatic360/dashboard/vacation/leaverequest.dart';
 
 class Vacation extends StatelessWidget {
   @override

@@ -1,7 +1,7 @@
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/utils/mainappbar.dart';
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -90,7 +90,10 @@ class _MyPayslipState extends State<MyPayslip> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [UniversalVariables.green, Color(0XFFA7C57D)],
+                    colors: [
+                      UniversalVariables.green,
+                      Color(0XFFA7C57D),
+                    ],
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),

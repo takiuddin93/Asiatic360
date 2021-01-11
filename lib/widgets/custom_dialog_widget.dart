@@ -1,5 +1,6 @@
-import 'package:asiatic360/main.dart';
-import 'package:asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/login.dart';
+import 'package:Asiatic360/main.dart';
+import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -49,44 +50,6 @@ class CustomDialog {
                   ],
                 ),
                 actions: <Widget>[
-                  firstButton != null
-                      ? firstButton == "Confirm"
-                          ? MaterialButton(
-                              // OPTIONAL BUTTON
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(2.0),
-                              ),
-                              color: UniversalVariables.white,
-                              child: Text(firstButton),
-                              onPressed: () async {
-                                Future<SharedPreferences> _prefs =
-                                    SharedPreferences.getInstance();
-                                final SharedPreferences prefs = await _prefs;
-                                _loginState =
-                                    prefs.setString("loginState", "0");
-                                _loginState = prefs.getString('loginState');
-                                while (_loginState == '0') {
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute<Null>(
-                                          builder: (BuildContext context) {
-                                    return new MyApp();
-                                  }));
-                                  break;
-                                }
-                              },
-                            )
-                          : MaterialButton(
-                              // OPTIONAL BUTTON
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(2.0),
-                              ),
-                              color: UniversalVariables.white,
-                              child: Text(firstButton),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            )
-                      : null,
                   MaterialButton(
                     // OPTIONAL BUTTON
                     shape: RoundedRectangleBorder(
