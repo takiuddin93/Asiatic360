@@ -49,9 +49,8 @@ class CustomDialog {
                   ],
                 ),
                 actions: <Widget>[
-                  firstButton == null
-                      ? null
-                      : firstButton == "Confirm"
+                  firstButton != null
+                      ? firstButton == "Confirm"
                           ? MaterialButton(
                               // OPTIONAL BUTTON
                               shape: RoundedRectangleBorder(
@@ -86,7 +85,8 @@ class CustomDialog {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                            ),
+                            )
+                      : null,
                   MaterialButton(
                     // OPTIONAL BUTTON
                     shape: RoundedRectangleBorder(
