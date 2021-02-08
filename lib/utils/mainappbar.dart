@@ -70,6 +70,11 @@ class MainAppBar extends StatelessWidget {
           );
         }
         break;
+      case "userprofile":
+        {
+          _iconData = Icons.arrow_back;
+        }
+        break;
       case "attendance":
         {
           _iconData = Icons.arrow_back;

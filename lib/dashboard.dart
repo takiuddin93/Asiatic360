@@ -20,6 +20,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'profile.dart';
+
+final String noImageAvailable =
+    "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg";
+
 var _loginState;
 Map<String, dynamic> notice;
 bool fetched = false;
@@ -145,16 +150,25 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-                            CustomDialog.showScaleAlertBox(
-                                context: context,
-                                title: 'Work in Progress',
-                                icon: Icons
-                                    .info_outline, // IF YOU WANT TO ADD ICON
-                                color: UniversalVariables.primaryCrimson,
-                                text:
-                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                                firstButton: '',
-                                secondButton: 'Back');
+                            Navigator.pop(context);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) => UserProfile(
+                                      ePhoto: noImageAvailable,
+                                      eName: prefs.getString("name"),
+                                      ePhone: '+8801749607995',
+                                      eMail: 'taki.uddin@asiaticmcl.com',
+                                      eDesignation: 'Junior Web Developer',
+                                    )));
+                            // CustomDialog.showScaleAlertBox(
+                            //     context: context,
+                            //     title: 'Work in Progress',
+                            //     icon: Icons
+                            //         .info_outline, // IF YOU WANT TO ADD ICON
+                            //     color: UniversalVariables.primaryCrimson,
+                            //     text:
+                            //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                            //     firstButton: '',
+                            //     secondButton: 'Back');
                           },
                         ),
                         ListTile(
