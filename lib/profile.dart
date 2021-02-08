@@ -369,6 +369,92 @@ class _MyUserProfileState extends State<MyUserProfile> {
                 ),
               ),
             ),
+            Positioned(
+              top: media.height * 0.59,
+              width: media.width,
+              height: 53.8344,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: media.width * 0.04,
+                    top: media.height * 0.0,
+                    right: media.width * 0.04,
+                    bottom: media.height * 0.0),
+                child: Card(
+                  elevation: 1.0,
+                  margin: EdgeInsets.only(
+                      left: media.width * 0.02,
+                      top: media.height * 0.005,
+                      right: media.width * 0.02,
+                      bottom: media.height * 0.005),
+                  child: Container(
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: white,
+                      borderRadius: BorderRadius.circular(4.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: greyShadow,
+                          blurRadius: 2.0,
+                          spreadRadius: 0.48,
+                          offset: Offset(0.0, 4.2),
+                        )
+                      ],
+                    ),
+                    child: new InkWell(
+                      onTap: () => _mail(eMail),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisSize: MainAxisSize.min,
+                        verticalDirection: VerticalDirection.down,
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(
+                              left: 8,
+                              top: 8,
+                              right: 8,
+                              bottom: 8,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 10,
+                                  child: new Padding(
+                                    padding: EdgeInsets.only(
+                                        left: media.width * 0.04,
+                                        top: media.height * 0.0,
+                                        right: media.width * 0.0,
+                                        bottom: media.height * 0.0),
+                                    child: Column(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            eMail,
+                                            style: TextStyle(
+                                              color: black,
+                                              fontSize: media.width * 0.045,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
