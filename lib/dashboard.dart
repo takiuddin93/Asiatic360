@@ -1,9 +1,13 @@
+import 'dart:convert';
+
+import 'package:Asiatic360/constants/strings.dart';
 import 'package:Asiatic360/main.dart';
 import 'package:Asiatic360/utils/mainappbar.dart';
 import 'package:Asiatic360/utils/universal_variables.dart';
 import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:Asiatic360/dashboard/attendance/attendance.dart';
 import 'package:Asiatic360/dashboard/vacation/vacation.dart';
 import 'package:Asiatic360/dashboard/hr/hrservices.dart';
@@ -16,7 +20,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'profile.dart';
+
+final String noImageAvailable =
+    "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg";
+
 var _loginState;
+Map<String, dynamic> notice;
+bool fetched = false;
 
 class Dashboard extends StatelessWidget {
   @override
@@ -58,8 +69,16 @@ class _MyDashboardState extends State<MyDashboard> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    getNotice();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size media = MediaQuery.of(context).size;
+    final double itemHeight = media.height;
+    final double itemWidth = media.width;
 
     return WillPopScope(
         onWillPop: () async => false,
@@ -131,16 +150,25 @@ class _MyDashboardState extends State<MyDashboard> {
                             textAlign: TextAlign.left,
                           ),
                           onTap: () {
-                            CustomDialog.showScaleAlertBox(
-                                context: context,
-                                title: 'Work in Progress',
-                                icon: Icons
-                                    .info_outline, // IF YOU WANT TO ADD ICON
-                                color: UniversalVariables.primaryCrimson,
-                                text:
-                                    'This feature has not been implemented yet!', // IF YOU WANT TO ADD
-                                firstButton: '',
-                                secondButton: 'Back');
+                            Navigator.pop(context);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) => UserProfile(
+                                      ePhoto: noImageAvailable,
+                                      eName: prefs.getString("name"),
+                                      ePhone: '+8801749607995',
+                                      eMail: 'taki.uddin@asiaticmcl.com',
+                                      eDesignation: 'Junior Web Developer',
+                                    )));
+                            // CustomDialog.showScaleAlertBox(
+                            //     context: context,
+                            //     title: 'Work in Progress',
+                            //     icon: Icons
+                            //         .info_outline, // IF YOU WANT TO ADD ICON
+                            //     color: UniversalVariables.primaryCrimson,
+                            //     text:
+                            //         'This feature has not been implemented yet!', // IF YOU WANT TO ADD
+                            //     firstButton: '',
+                            //     secondButton: 'Back');
                           },
                         ),
                         ListTile(
@@ -327,7 +355,7 @@ class _MyDashboardState extends State<MyDashboard> {
               // padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 2.0),
               children: <Widget>[
                 Positioned(
-                  top: media.height * 0.0,
+                  top: media.height * 0.32,
                   width: media.width,
                   height: media.height * 0.8,
                   child: GridView.count(
@@ -354,10 +382,143 @@ class _MyDashboardState extends State<MyDashboard> {
                     ],
                   ),
                 ),
+                Positioned(
+                  width: media.width,
+                  height: media.height * 0.32,
+                  child: fetched == true
+                      ? Container(
+                          margin: EdgeInsets.only(
+                            left: media.width * 0.04,
+                            top: media.height * 0.01,
+                            right: media.width * 0.04,
+                            bottom: media.height * 0.01,
+                          ),
+                          color: UniversalVariables.red,
+                          child: GridView.count(
+                            crossAxisCount: 1,
+                            childAspectRatio: (itemWidth / itemHeight),
+                            padding: EdgeInsets.all(3.0),
+                            children: <Widget>[
+                              ListView.builder(
+                                padding: EdgeInsets.all(0.0),
+                                itemCount: notice["data"].length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return makeNoticeItem(
+                                      notice["data"][index]['title'].toString(),
+                                      notice["data"][index]['content']
+                                          .toString(),
+                                      media);
+                                },
+                              ),
+                            ],
+                          ),
+                        )
+                      : Center(
+                          child: CircularProgressIndicator(
+                            backgroundColor: UniversalVariables.darkgreen,
+                            valueColor: new AlwaysStoppedAnimation<Color>(
+                                UniversalVariables.green),
+                          ),
+                        ),
+                )
               ],
             ),
           ),
         ));
+  }
+
+  Card makeNoticeItem(String nTitle, String nContent, Size media) {
+    return Card(
+      elevation: 1.0,
+      margin: EdgeInsets.only(
+          left: media.width * 0.02,
+          top: media.height * 0.005,
+          right: media.width * 0.02,
+          bottom: media.height * 0.005),
+      child: Container(
+        height: 160,
+        decoration: BoxDecoration(
+          color: UniversalVariables.white,
+          border: Border.all(color: UniversalVariables.green, width: 1.25),
+          borderRadius: BorderRadius.circular(4.0),
+          boxShadow: [
+            BoxShadow(
+              color: UniversalVariables.greyShadow,
+              blurRadius: 4.0,
+              spreadRadius: 4.0,
+              offset: Offset(0.0, 2.0),
+            )
+          ],
+        ),
+        child: new InkWell(
+          onTap: () {},
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            verticalDirection: VerticalDirection.down,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(
+                  left: media.width * 0.0,
+                  top: media.height * 0.0,
+                  right: media.width * 0.02,
+                  bottom: media.height * 0.0,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 8,
+                      child: new Padding(
+                        padding: EdgeInsets.only(
+                            left: media.width * 0.04,
+                            top: media.height * 0.0,
+                            right: media.width * 0.0,
+                            bottom: media.height * 0.0),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                nTitle,
+                                style: TextStyle(
+                                  color: UniversalVariables.black,
+                                  fontSize: media.width * 0.05,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            SizedBox(
+                              height: media.height * 0.0016,
+                            ),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                nContent,
+                                style: TextStyle(
+                                  color: UniversalVariables.black,
+                                  fontSize: media.width * 0.032,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Card makeDashboardItem(int i, String title, String icon, Size media) {
@@ -498,16 +659,19 @@ class _MyDashboardState extends State<MyDashboard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               verticalDirection: VerticalDirection.down,
               children: <Widget>[
-                SizedBox(height: media.height * 0.025),
+                // SizedBox(height: media.height * 0.025),
                 SvgPicture.asset(
                   icon,
+                  width: media.width * 0.12,
                 ),
+                SizedBox(height: media.height * 0.024),
                 Text(title,
                     style: TextStyle(
                       color: UniversalVariables.black,
-                      fontSize: media.width * 0.04,
+                      fontSize: media.width * 0.036,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
                     ),
@@ -516,6 +680,25 @@ class _MyDashboardState extends State<MyDashboard> {
             ),
           ),
         ));
+  }
+
+  getNotice() async {
+    var noticeResponse = await http.get(
+        // Encode the url
+        API_URL + "/api/notice/" + "1");
+
+    notice = json.decode(noticeResponse.body);
+    if (notice["response"].toString() == "1") {
+      print("Notice Data: " + notice["data"][0]["content"].toString());
+      setState(() {
+        fetched = true;
+      });
+    } else {
+      setState(() {
+        etaki = allEmployeesData;
+        fetched = false;
+      });
+    }
   }
 
   gotoLogout() {

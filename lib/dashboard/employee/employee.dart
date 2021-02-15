@@ -11,7 +11,7 @@ import 'package:Asiatic360/dashboard/employee/employeedetails.dart';
 
 import 'package:http/http.dart' as http;
 
-Map<String, dynamic> etaki;
+Map<String, dynamic> allEmployeesData;
 bool fetched = false;
 final String noImageAvailable =
     "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg";
@@ -68,16 +68,21 @@ class _MyEmployeeState extends State<MyEmployee> {
                 children: <Widget>[
                   ListView.builder(
                     padding: EdgeInsets.all(0.0),
-                    itemCount: etaki["data"].length,
+                    itemCount: allEmployeesData["data"].length,
                     itemBuilder: (BuildContext context, int index) {
-                      return makeDashboardItem(
+                      return makeEmployeeItem(
                           noImageAvailable,
-                          etaki["data"][index]['emp_firstname'].toString() +
+                          allEmployeesData["data"][index]['emp_firstname']
+                                  .toString() +
                               " " +
-                              etaki["data"][index]['emp_lastname'].toString(),
-                          etaki["data"][index]['emp_designation'].toString(),
-                          etaki["data"][index]['emp_phone'].toString(),
-                          etaki["data"][index]['emp_email'].toString(),
+                              allEmployeesData["data"][index]['emp_lastname']
+                                  .toString(),
+                          allEmployeesData["data"][index]['emp_designation']
+                              .toString(),
+                          allEmployeesData["data"][index]['emp_phone']
+                              .toString(),
+                          allEmployeesData["data"][index]['emp_email']
+                              .toString(),
                           media);
                     },
                   ),
@@ -94,7 +99,7 @@ class _MyEmployeeState extends State<MyEmployee> {
     );
   }
 
-  Card makeDashboardItem(String ePhoto, String eName, String eDesignation,
+  Card makeEmployeeItem(String ePhoto, String eName, String eDesignation,
       String ePhone, String eMail, Size media) {
     return Card(
       elevation: 1.0,
@@ -219,18 +224,15 @@ class _MyEmployeeState extends State<MyEmployee> {
     var allEmployeesResponse = await http.get(
         // Encode the url
         API_URL + "/api/users/except/" + prefs.getInt("id").toString());
-    Map<String, dynamic> allEmployeesData =
-        json.decode(allEmployeesResponse.body);
+    allEmployeesData = json.decode(allEmployeesResponse.body);
     print(allEmployeesData["response"].toString());
     if (allEmployeesData["response"].toString() == "1") {
       print(allEmployeesData["data"].toString());
       setState(() {
-        etaki = allEmployeesData;
         fetched = true;
       });
     } else {
       setState(() {
-        etaki = allEmployeesData;
         fetched = false;
       });
     }
