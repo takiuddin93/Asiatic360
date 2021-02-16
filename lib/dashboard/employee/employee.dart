@@ -128,11 +128,12 @@ class _MyEmployeeState extends State<MyEmployee> {
             Navigator.pop(context);
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) => EmployeeDetails(
-                    ePhoto: ePhoto,
-                    eName: eName,
-                    ePhone: ePhone,
-                    eMail: eMail,
-                    eDesignation: eDesignation)));
+                      ePhoto: ePhoto,
+                      eName: eName,
+                      eDesignation: eDesignation,
+                      ePhone: ePhone,
+                      eMail: eMail,
+                    )));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
