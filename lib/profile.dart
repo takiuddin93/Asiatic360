@@ -1,10 +1,11 @@
-import 'package:Asiatic360/dashboard/attendance/attendance_logs.dart';
-import 'package:Asiatic360/utils/mainappbar.dart';
+import 'package:Asiatic360/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:Asiatic360/utils/universal_variables.dart';
+import 'package:Asiatic360/utils/Asiatic360_app_icons_icons.dart';
+import 'package:Asiatic360/widgets/custom_dialog_widget.dart';
+import 'package:Asiatic360/utils/mainappbar_style.dart';
 
 Color green = Color(0xFF6B8449);
 Color darkgreen = Color(0xFF4C5B39);
@@ -70,13 +71,130 @@ class _MyUserProfileState extends State<MyUserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    String title, back;
     Size media = MediaQuery.of(context).size;
     // final double itemHeight = media.height;
     // final double itemWidth = media.width;
 
+    Builder _buildleading(BuildContext context) {
+      IconData _iconData;
+      switch (back.toString()) {
+        case "userprofile":
+          {
+            _iconData = Icons.arrow_back;
+          }
+          break;
+        default:
+          {
+            Navigator.pop(context);
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => Dashboard()));
+          }
+          break;
+      }
+      return Builder(
+        builder: (context) => IconButton(
+          color: UniversalVariables.green,
+          icon: new Icon(
+            _iconData,
+            color: UniversalVariables.green,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => Dashboard()));
+          },
+        ),
+      );
+    }
+
+    Align _buildLabel(BuildContext context) {
+      return Align(
+        alignment: Alignment.center,
+        child: RichText(
+          text: TextSpan(
+            style: new TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+              fontSize: 24.0,
+              color: UniversalVariables.green,
+            ),
+            children: [
+              TextSpan(
+                text: title,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    Builder _buildaction(BuildContext context) {
+      String _alertdialogTitle, _alertdialogDescription, _alertdialogButton;
+      if (back == 'dashboard') {
+        _alertdialogTitle = 'Work in Progress';
+        _alertdialogDescription = 'This feature has not been implemented yet!';
+        _alertdialogButton = 'Back';
+      } else {
+        _alertdialogTitle = 'Work in Progress';
+        _alertdialogDescription = 'This feature has not been implemented yet!';
+        _alertdialogButton = 'Back';
+      }
+      return Builder(
+        builder: (context) => IconButton(
+          color: UniversalVariables.green,
+          icon: new Icon(Asiatic360AppIcons.notification),
+          onPressed: () {
+            CustomDialog.showScaleAlertBox(
+                context: context,
+                title: _alertdialogTitle,
+                icon: Icons.info_outline, // IF YOU WANT TO ADD ICON
+                color: UniversalVariables.primaryCrimson,
+                text: _alertdialogDescription, // IF YOU WANT TO ADD
+                firstButton: '',
+                secondButton: _alertdialogButton);
+          },
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: PreferredSize(
-        child: MainAppBar(title: widget.title, back: "userprofile"),
+        child: Container(
+          height: appBarHeight(context),
+          color: UniversalVariables.white,
+          child: Padding(
+            padding: EdgeInsets.all(0.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: _buildleading(context),
+                  ),
+                ),
+                Expanded(
+                  flex: 6,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: _buildLabel(context),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: _buildaction(context),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        // child: MainAppBar(title: widget.title, back: "userprofile"),
         preferredSize: Size.fromHeight(media.height),
       ),
       body: Container(
@@ -111,7 +229,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                 // ),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(this.ePhone),
+                    image: NetworkImage(this.ePhoto),
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
@@ -447,39 +565,39 @@ class _MyUserProfileState extends State<MyUserProfile> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 10,
-                                  child: new Padding(
-                                    padding: EdgeInsets.only(
-                                        left: media.width * 0.0,
-                                        top: media.height * 0.0,
-                                        right: media.width * 0.04,
-                                        bottom: media.height * 0.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.centerRight,
-                                          child: Switch(
-                                            value: isSwitched,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                isSwitched = value;
-                                                print(isSwitched);
-                                              });
-                                            },
-                                            activeTrackColor:
-                                                Colors.lightGreenAccent,
-                                            activeColor: Colors.green,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
+                                // Expanded(
+                                //   flex: 10,
+                                //   child: new Padding(
+                                //     padding: EdgeInsets.only(
+                                //         left: media.width * 0.0,
+                                //         top: media.height * 0.0,
+                                //         right: media.width * 0.04,
+                                //         bottom: media.height * 0.0),
+                                //     child: Column(
+                                //       mainAxisAlignment:
+                                //           MainAxisAlignment.center,
+                                //       crossAxisAlignment:
+                                //           CrossAxisAlignment.center,
+                                //       children: [
+                                //         Align(
+                                //           alignment: Alignment.centerRight,
+                                //           child: Switch(
+                                //             value: isSwitched,
+                                //             onChanged: (value) {
+                                //               setState(() {
+                                //                 isSwitched = value;
+                                //                 print(isSwitched);
+                                //               });
+                                //             },
+                                //             activeTrackColor:
+                                //                 Colors.lightGreenAccent,
+                                //             activeColor: Colors.green,
+                                //           ),
+                                //         ),
+                                //       ],
+                                //     ),
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),

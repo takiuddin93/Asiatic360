@@ -355,7 +355,7 @@ class _MyDashboardState extends State<MyDashboard> {
               // padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 2.0),
               children: <Widget>[
                 Positioned(
-                  top: media.height * 0.32,
+                  top: media.height * 0.12,
                   width: media.width,
                   height: media.height * 0.8,
                   child: GridView.count(
@@ -384,7 +384,7 @@ class _MyDashboardState extends State<MyDashboard> {
                 ),
                 Positioned(
                   width: media.width,
-                  height: media.height * 0.32,
+                  height: media.height * 0.12,
                   child: fetched == true
                       ? Container(
                           margin: EdgeInsets.only(
@@ -393,7 +393,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             right: media.width * 0.04,
                             bottom: media.height * 0.01,
                           ),
-                          color: UniversalVariables.red,
+                          color: UniversalVariables.transparent,
                           child: GridView.count(
                             crossAxisCount: 1,
                             childAspectRatio: (itemWidth / itemHeight),
@@ -436,10 +436,11 @@ class _MyDashboardState extends State<MyDashboard> {
           right: media.width * 0.02,
           bottom: media.height * 0.005),
       child: Container(
-        height: 160,
+        height: 58,
         decoration: BoxDecoration(
           color: UniversalVariables.white,
-          border: Border.all(color: UniversalVariables.green, width: 1.25),
+          border:
+              Border.all(color: UniversalVariables.transparent, width: 1.25),
           borderRadius: BorderRadius.circular(4.0),
           boxShadow: [
             BoxShadow(
