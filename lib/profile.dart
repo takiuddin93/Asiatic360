@@ -14,6 +14,8 @@ Color greyShadow = Color(0xFF33808184);
 Color red = Color(0XFFFD3131);
 Color white = Color(0xFFFFFFFF);
 
+bool isSwitched = false;
+
 class UserProfile extends StatelessWidget {
   final String ePhoto, eName, ePhone, eMail, eDesignation;
   UserProfile(
@@ -431,7 +433,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                                         Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            eMail,
+                                            "O+",
                                             style: TextStyle(
                                               color: black,
                                               fontSize: media.width * 0.045,
@@ -439,6 +441,39 @@ class _MyUserProfileState extends State<MyUserProfile> {
                                               fontWeight: FontWeight.w400,
                                             ),
                                             textAlign: TextAlign.left,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 10,
+                                  child: new Padding(
+                                    padding: EdgeInsets.only(
+                                        left: media.width * 0.0,
+                                        top: media.height * 0.0,
+                                        right: media.width * 0.04,
+                                        bottom: media.height * 0.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Switch(
+                                            value: isSwitched,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                isSwitched = value;
+                                                print(isSwitched);
+                                              });
+                                            },
+                                            activeTrackColor:
+                                                Colors.lightGreenAccent,
+                                            activeColor: Colors.green,
                                           ),
                                         ),
                                       ],
