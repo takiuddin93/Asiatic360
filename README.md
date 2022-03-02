@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Asiatic360
 
 An in house project for Asiatic360. An employee app to ease few requisition procedures.
@@ -21,6 +20,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-=======
-# asiatic360
->>>>>>> e77d7033c06818f1ae23986029700ab8d0d06ff9
