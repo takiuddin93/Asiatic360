@@ -72,7 +72,7 @@ class CustomTextField extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              autovalidate: validate,
+              autovalidateMode: validate ? AutovalidateMode.always : AutovalidateMode.disabled,
               controller: fieldController,
               decoration: InputDecoration(
                 prefixIcon: Padding(
