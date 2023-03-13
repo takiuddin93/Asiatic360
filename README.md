@@ -4,11 +4,15 @@ An in house project for Asiatic360. An employee app to ease few requisition proc
 
 Using Flutter to enable crossplatform support accross moblie device and operating systems.
 
-## Get Started
+## Get Started For Asiatic360APP
 
 *   Clone this repo
 *   Run `flutter packages get`
 *   Run `flutter run` (remember to open simulator or connect physical device, iOS auto run additional command `pod install`)
+
+## Get Started For Asiatic360API
+
+*   Clone this repo
 
 ## For Beginners
 
