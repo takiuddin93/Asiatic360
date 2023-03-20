@@ -42,7 +42,7 @@ class MyOTPNumberPage extends StatefulWidget {
 }
 
 class _MyOTPNumberPageState extends State<MyOTPNumberPage> {
-  final String assetName = 'assets/svgs/Asiatic360_logo.svg';
+  final String assetName = 'assets/svgs/asiatic360_logo.svg';
 
   bool _validate = false;
   bool _errorVisible = false;

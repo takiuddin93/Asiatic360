@@ -40,7 +40,7 @@ class MyLoginPage extends StatefulWidget {
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
-  final String assetName = 'assets/svgs/Asiatic360_logo.svg';
+  final String assetName = 'assets/svgs/asiatic360_logo.svg';
 
   bool _validate = false;
   bool _errorVisible = false;

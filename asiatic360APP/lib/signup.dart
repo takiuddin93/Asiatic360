@@ -39,7 +39,7 @@ class MySignupPage extends StatefulWidget {
 }
 
 class _MySignupPageState extends State<MySignupPage> {
-  final String assetName = 'assets/svgs/Asiatic360_logo.svg';
+  final String assetName = 'assets/svgs/asiatic360_logo.svg';
 
   bool _validate = false;
   bool _errorVisible = false;
