@@ -14,6 +14,15 @@ Using Flutter to enable crossplatform support accross moblie device and operatin
 
 *   Clone this repo
 
+## Issues I have faced!
+
+*   Could not create task
+    *   To fix this what helped me was to
+        *   Run `flutter clean` to delete the build folder
+        *   Build the project on Android studio
+        *   Run `flutter pub get`
+        *   Then continue with `flutter run` to test on emulator or other physical devices.
+
 ## For Beginners
 
 A few resources to get you started if this is your first Flutter project:
