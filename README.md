@@ -6,10 +6,10 @@ Using Flutter to enable crossplatform support accross moblie device and operatin
 
 ## App UI
 
-![SplashScreen](asiatic360APP/assets/ui/images/SplashScreen.png)
-![OTP](asiatic360APP/assets/ui/images/OTP - Verification – 1.png)
-![SplashScreen](asiatic360APP/assets/ui/images/Signup.png)
-![SplashScreen](asiatic360APP/assets/ui/images/Dashboard.png)
+![SplashScreen](asiatic360APP/assets/ui/SplashScreen.png)
+![OTP](asiatic360APP/assets/ui/OTP - Verification – 1.png)
+![SplashScreen](asiatic360APP/assets/ui/Signup.png)
+![SplashScreen](asiatic360APP/assets/ui/Dashboard.png)
 
 ## Get Started For Asiatic360APP
 
