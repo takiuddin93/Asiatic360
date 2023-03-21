@@ -4,7 +4,12 @@ An in house project for [Asiatic360](https://xd.adobe.com/view/57f6dfea-3224-4a7
 
 Using Flutter to enable crossplatform support accross moblie device and operating systems.
 
+## App UI
 
+![SplashScreen](asiatic360APP/assets/ui/images/SplashScreen.png)
+![OTP](asiatic360APP/assets/ui/images/OTP - Verification – 1.png)
+![SplashScreen](asiatic360APP/assets/ui/images/Signup.png)
+![SplashScreen](asiatic360APP/assets/ui/images/Dashboard.png)
 
 ## Get Started For Asiatic360APP
 
